@@ -1,0 +1,4 @@
+@interface RoundRectView : UIView {
+}
+
+@end

@@ -1,0 +1,9 @@
+You have four options on the main screen.
+
+1. The Learn button, here you can listen to times tables. Press the blue button to pick the times table you want to hear.
+
+2. The Test button, pick the times table (like before) then listen to the sum and type in your answer. Press finish at the end and you'll see how you've done.
+
+3. The Results button shows you your test high scores.
+
+4. The Male / Female buttons changes the voice used.
