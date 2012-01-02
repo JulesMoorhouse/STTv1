@@ -26,7 +26,7 @@
 
 
 - (id)init {
-	if (self = [super init]) {
+	if (self == [super init]) {
 		self.fixKeyboardTimer = nil;
 #if (USE_TEXTURED_BUTTON != 0)
 		self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];

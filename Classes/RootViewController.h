@@ -36,7 +36,7 @@
 @property (retain, nonatomic) UIButton *btnTest;
 @property (retain, nonatomic) UIButton *btnHighScores;
 
-@property (nonatomic, retain, setter=setLoader) Preloader *resLoaderRef;
+@property (nonatomic, retain, setter=setLoader:) Preloader *resLoaderRef;
 
 -(IBAction)switchToLearnView:(id)sender;
 -(IBAction)switchToTestView:(id)sender;

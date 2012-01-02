@@ -8,13 +8,13 @@
 
 #import <AVFoundation/AVAudioPlayer.h>
 #import "LearnViewController.h"
-#import "SoundEffect.h";
-#import "Constants.h";
-#import "Speaking.h";
-#import "AppBasic.h";
+#import "SoundEffect.h"
+#import "Constants.h"
+#import "Speaking.h"
+#import "AppBasic.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "TableSelectViewController.h"
-#import "RootViewController.h";
+#import "RootViewController.h"
 //#import "GANTracker.h"
 
 @implementation LearnViewController

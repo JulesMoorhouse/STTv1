@@ -20,6 +20,7 @@
 	myApplicationAppDelegate *appDelegate;
 }
 
+XX;
 
 NSMutableString *sTimesTableUsed;	//GLOBAL VARIABLE
 int iTableScore;					//GLOBAL VARIABLE
