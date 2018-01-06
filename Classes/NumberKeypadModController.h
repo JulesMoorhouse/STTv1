@@ -22,12 +22,12 @@
 	BOOL	doneButtonShownRecently;
 }
 
-@property (nonatomic, retain) NSTimer *fixKeyboardTimer;
+@property (nonatomic, strong) NSTimer *fixKeyboardTimer;
 
-@property (nonatomic, retain) UIButton *doneButton;
-@property (nonatomic, retain) UITextField *currentTextField;
+@property (nonatomic, strong) UIButton *doneButton;
+@property (nonatomic, strong) UITextField *currentTextField;
 
-@property (nonatomic, retain) id<NumberKeypadModControllerDelegate> delegate;
+@property (nonatomic, strong) id<NumberKeypadModControllerDelegate> delegate;
 
 
 - (void)textFieldShouldBeginEditing:(UITextField *)textField;

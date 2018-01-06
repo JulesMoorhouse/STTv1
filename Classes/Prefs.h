@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-#define pfAppAdvAcSel           @"pfAppAdvAcSel"
-#define pfAppSelectedAccountID	@"pfAppSelACID"
-#define pfAppCurrentTransDesc	@"pfAppCurTranDesc"
+#define pfTimesTableUsed            @"pfTimesTableUsed"
+#define pfTableScore                @"pfTableScore"
+#define pfRankScore                 @"pfRankScore"
+#define pfTableSelected             @"pfTableSelected"
 
 @interface Prefs : NSObject
 

@@ -7,20 +7,25 @@
 //
 
 //#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 @class TableSelectViewController;
 
 //NSString *sTimerStatusGuid;//this is the guid we want to be running now, so we would set to something differenty to stop it
 
-@interface LearnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface LearnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate>{
 	IBOutlet UIView *placeholderView;
 	IBOutlet UITableView *tblTableSelect;
 	TableSelectViewController *tableSelectViewController;
+    AVAudioPlayer *theAudio;
 }
 
-@property (nonatomic, retain) UITableView *tblTableSelect;
-@property (nonatomic, retain) UIView *placeholderView;
-@property (nonatomic, retain) TableSelectViewController *tableSelectViewController;
+@property (nonatomic, strong) UITableView *tblTableSelect;
+@property (nonatomic, strong) UIView *placeholderView;
+@property (nonatomic, strong) TableSelectViewController *tableSelectViewController;
+@property (nonatomic, strong) AVAudioPlayer *theAudio;
+
+
 - (void)ShowTimesTable;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;
 - (void) hideLabels;

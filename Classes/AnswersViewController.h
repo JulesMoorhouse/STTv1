@@ -23,14 +23,14 @@
 }
 -(IBAction)textFieldDoneEditing:(id)sender;
 -(IBAction)buttonSavePressed:(id)sender;
-@property (retain, nonatomic) UILabel *lblMessage;
-@property (retain, nonatomic) UITextField *txtNickName;
-@property (retain, nonatomic) UILabel *lblScore;
-@property (retain, nonatomic) UILabel *lblOutOf;
-@property (retain, nonatomic) UILabel *lblOutOfLabel;
-@property (retain, nonatomic) UILabel *lblResultStatus;
-@property (retain, nonatomic) UIButton *btnSave;
-@property (nonatomic, retain) UILabel *lblKeyboard;
-@property (nonatomic, retain, setter=setLoader) Preloader *resLoaderRef;
+@property (strong, nonatomic) UILabel *lblMessage;
+@property (strong, nonatomic) UITextField *txtNickName;
+@property (strong, nonatomic) UILabel *lblScore;
+@property (strong, nonatomic) UILabel *lblOutOf;
+@property (strong, nonatomic) UILabel *lblOutOfLabel;
+@property (strong, nonatomic) UILabel *lblResultStatus;
+@property (strong, nonatomic) UIButton *btnSave;
+@property (nonatomic, strong) UILabel *lblKeyboard;
+@property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 
 @end

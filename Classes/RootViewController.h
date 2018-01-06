@@ -26,17 +26,17 @@
 	IBOutlet UIButton *btnTest;
 	IBOutlet UIButton *btnHighScores;
 }
-@property (retain, nonatomic) LearnViewController *learnViewController;
-@property (retain, nonatomic) TestViewController *testViewController;
-@property (retain, nonatomic) ResultsViewController *resultsViewController;
-@property (retain, nonatomic) TableSelectViewController *tableSelectViewController;
-@property (retain, nonatomic) UISegmentedControl *segVoiceChoice;
+@property (strong, nonatomic) LearnViewController *learnViewController;
+@property (strong, nonatomic) TestViewController *testViewController;
+@property (strong, nonatomic) ResultsViewController *resultsViewController;
+@property (strong, nonatomic) TableSelectViewController *tableSelectViewController;
+@property (strong, nonatomic) UISegmentedControl *segVoiceChoice;
 
-@property (retain, nonatomic) UIButton *btnLearn;
-@property (retain, nonatomic) UIButton *btnTest;
-@property (retain, nonatomic) UIButton *btnHighScores;
+@property (strong, nonatomic) UIButton *btnLearn;
+@property (strong, nonatomic) UIButton *btnTest;
+@property (strong, nonatomic) UIButton *btnHighScores;
 
-@property (nonatomic, retain, setter=setLoader:) Preloader *resLoaderRef;
+@property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 
 -(IBAction)switchToLearnView:(id)sender;
 -(IBAction)switchToTestView:(id)sender;

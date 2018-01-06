@@ -28,11 +28,12 @@
 	
 	[result prepareToPlay];
 	
-	return [result autorelease];
+	return result;
 }
 
 - (id)init {
-	if (self == [super init]) {
+    //if (self == [super init]) {
+	if (self = [super init]) {
 		self.ApplauseSoundPlayer = nil;
 	}
 	
@@ -43,10 +44,6 @@
 	self.ApplauseSoundPlayer = [self playerWithSoundNamed:@"LargeCrowdApplauseE.mp3"];
 }
 
-- (void)dealloc {
-	[ApplauseSoundPlayer release];
-	[super dealloc];
-}
 
 
 @end

@@ -19,5 +19,5 @@
 {
     NSArray    *results;
 }
-@property (nonatomic, retain) NSArray *results;
+@property (nonatomic, strong) NSArray *results;
 @end

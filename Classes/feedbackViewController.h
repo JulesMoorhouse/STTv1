@@ -17,7 +17,7 @@
 }
 
 
-@property (nonatomic, retain) UIWebView *myWebView;
+@property (nonatomic, strong) UIWebView *myWebView;
 //@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
 

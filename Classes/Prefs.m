@@ -26,7 +26,7 @@
     
     NSUserDefaults *myDefaults = [NSUserDefaults standardUserDefaults];
     
-    int current = [myDefaults integerForKey:setting];
+    NSInteger current = [myDefaults integerForKey:setting];
     
     if (current != value) {
         DLog(@"Prefs.storeSettingInt  setting=%@ value=%i", setting, value);

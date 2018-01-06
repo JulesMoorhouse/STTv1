@@ -7,6 +7,7 @@
 //
 
 //#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 #import "NumberKeypadModController.h"
 
@@ -20,7 +21,7 @@
 //NSString *sTimerStatusGuid;//this is the guid we want to be running now, so we would set to something differenty to stop it
 
 @interface TestViewController : UIViewController < UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, 
-		NumberKeypadModControllerDelegate> {
+		NumberKeypadModControllerDelegate, AVAudioPlayerDelegate> {
 
 	NumberKeypadModController *numberKeyPadModController;
 	TableSelectViewController *tableSelectViewController;
@@ -48,26 +49,28 @@
 	Preloader *resLoaderRef;	
 	BOOL finishShowingPathNavHighlighter;
 	RoundRectView *rrv;		
+    AVAudioPlayer *theAudio;
 }
-@property(nonatomic,retain) NumberKeypadModController *numberKeyPadModController;
-@property (nonatomic, retain) UITextField *textFieldRow1;
-@property (nonatomic, retain) UITextField *textFieldRow2;
-@property (nonatomic, retain) UITextField *textFieldRow3;
-@property (nonatomic, retain) UITextField *textFieldRow4;
-@property (nonatomic, retain) UITextField *textFieldRow5;
-@property (nonatomic, retain) UITextField *textFieldRow6;
-@property (nonatomic, retain) UITextField *textFieldRow7;
-@property (nonatomic, retain) UITextField *textFieldRow8;
-@property (nonatomic, retain) UITextField *textFieldRow9;
-@property (nonatomic, retain) UITextField *textFieldRow10;
-@property (nonatomic, retain) UITextField *textFieldRow11;
-@property (nonatomic, retain) UITextField *textFieldRow12;
-@property (nonatomic, retain) UITableView *tblTableSelect;
-@property (nonatomic, retain) TableSelectViewController *tableSelectViewController;
-@property (nonatomic, retain) UIView *placeholderView;
-@property (nonatomic, retain) UILabel *lblKeyboard;
-@property (nonatomic, retain, setter=setLoader) Preloader *resLoaderRef;
-@property (nonatomic, retain) RoundRectView *rrv;
+@property(nonatomic,strong) NumberKeypadModController *numberKeyPadModController;
+@property (nonatomic, strong) UITextField *textFieldRow1;
+@property (nonatomic, strong) UITextField *textFieldRow2;
+@property (nonatomic, strong) UITextField *textFieldRow3;
+@property (nonatomic, strong) UITextField *textFieldRow4;
+@property (nonatomic, strong) UITextField *textFieldRow5;
+@property (nonatomic, strong) UITextField *textFieldRow6;
+@property (nonatomic, strong) UITextField *textFieldRow7;
+@property (nonatomic, strong) UITextField *textFieldRow8;
+@property (nonatomic, strong) UITextField *textFieldRow9;
+@property (nonatomic, strong) UITextField *textFieldRow10;
+@property (nonatomic, strong) UITextField *textFieldRow11;
+@property (nonatomic, strong) UITextField *textFieldRow12;
+@property (nonatomic, strong) UITableView *tblTableSelect;
+@property (nonatomic, strong) TableSelectViewController *tableSelectViewController;
+@property (nonatomic, strong) UIView *placeholderView;
+@property (nonatomic, strong) UILabel *lblKeyboard;
+@property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
+@property (nonatomic, strong) RoundRectView *rrv;
+@property (nonatomic, strong) AVAudioPlayer *theAudio;
 
 - (void)buttonNavDone:(id)sender;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;

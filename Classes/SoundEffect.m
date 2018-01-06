@@ -46,6 +46,7 @@
  
  */
 
+/*
 #import "SoundEffect.h"
 #import "Constants.h"
 
@@ -73,11 +74,11 @@
             if (error == kAudioServicesNoError) { // success
                 _soundID = aSoundID;
             } else {
-                NSLog(@"Error %ld loading sound at path: %@", error, path);
+                DLog(@"Error %ld loading sound at path: %@", error, path);
                 [self release], self = nil;
             }
         } else {
-            NSLog(@"NSURL is nil for path: %@", path);
+            DLog(@"NSURL is nil for path: %@", path);
             [self release], self = nil;
         }
     }
@@ -91,13 +92,13 @@
 
 -(void)play {
     //if (self.IsPlaying == false) { 
-	//	NSLog(@"sound effect: %@", self.IsPlaying);
+	//	DLog(@"sound effect: %@", self.IsPlaying);
 	AudioServicesPlaySystemSound(_soundID);
 	AudioServicesAddSystemSoundCompletion (_soundID,NULL,NULL, completionCallback, self);
 	
 	//self.IsPlaying = true;
 	soundPlaying = TRUE;
-	//NSLog(@"MY_CONSTANT = %@", MY_CONSTANT);
+	//DLog(@"MY_CONSTANT = %@", MY_CONSTANT);
 	
 	//}
 }
@@ -118,3 +119,4 @@ static void completionCallback (SystemSoundID  mySSID, void *myself) {
 }
 
 @end
+*/

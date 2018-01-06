@@ -9,7 +9,7 @@
 #import "TableSelectViewController.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "AppBasic.h"
-#import "Constants.h";
+#import "Constants.h"
 //#import "GANTracker.h"
 
 @implementation TableSelectViewController
@@ -45,9 +45,9 @@
 	*/
 	
 	//strTableSelected = [[NSMutableString stringWithString: str] retain];	
-	strTableSelected = [[NSString stringWithString: str] retain];	// added retain 13/05/2010
+	strTableSelected = [NSString stringWithString: str];	// added retain 13/05/2010
 	
-	sTimerStatusGuid = [[AppBasic GUIDString] retain];
+	sTimerStatusGuid = [AppBasic GUIDString];
 	//row =1; // row will be incremented on the DONE click of the textfield
 	//[self SayShowRow:row];
 	[[self navigationController] popViewControllerAnimated: YES];
@@ -81,11 +81,13 @@
 	[AppBasic setButton:btn11 str:@"green"];
 	[AppBasic setButton:btn12 str:@"yellow"];
 	
-	sTimerStatusGuid = [[AppBasic GUIDString] retain]; //added to stop sounds playing while the screen is shown
+	sTimerStatusGuid = [AppBasic GUIDString]; //added to stop sounds playing while the screen is shown
     [super viewDidLoad];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
 	strTableSelected = @"";
 }
 
@@ -104,29 +106,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
-
-- (void)dealloc {
-	[btn1 release];
-	[btn2 release];
-	[btn3 release];
-	[btn4 release];
-	[btn5 release];
-	[btn6 release];
-	[btn7 release];
-	[btn8 release];
-	[btn9 release];
-	[btn10 release];
-	[btn11 release];
-	[btn12 release];
-
-    [super dealloc];
-}
 
 
 @end

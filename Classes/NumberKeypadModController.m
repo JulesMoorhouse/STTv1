@@ -26,7 +26,8 @@
 
 
 - (id)init {
-	if (self == [super init]) {
+    //if (self == [super init]) {
+	if (self = [super init]) {
 		self.fixKeyboardTimer = nil;
 #if (USE_TEXTURED_BUTTON != 0)
 		self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,7 +76,7 @@
 	if (textField.keyboardType != UIKeyboardTypeNumberPad)
 		return;
 
-//	NSLog(@"textFieldDidBeginEditing");
+//	DLog(@"textFieldDidBeginEditing");
 	self.currentTextField = textField; //Save reference to current textfield being edited	
 
 	if (!doneButtonShownRecently)
@@ -106,36 +107,36 @@
 }
 
 - (void)resignedResponderWithView:(UIView*)textField {
-//	NSLog(@"resignedResponderWithView");
+//	DLog(@"resignedResponderWithView");
 	[self removeDoneFromKeyboard];
 }
 
 - (void) addDoneToKeyboard {
-//	NSLog(@"addDoneToKeyboard");
+//	DLog(@"addDoneToKeyboard");
 
 	doneButton.hidden =  NO;
 
 	//Add a button to the top, above all windows
 	NSArray *allWindows = [[UIApplication sharedApplication] windows];
 	NSUInteger topWindowIndex = [allWindows count] - 1;
-	UIWindow *topWindow = [allWindows objectAtIndex:topWindowIndex];
+	UIWindow *topWindow = allWindows[topWindowIndex];
 
 	// check if top window is of keypad or else
 	NSString *topViewClassName = [NSString stringWithFormat:@"%@", [topWindow class]];
 	while (![topViewClassName isEqualToString:@"UITextEffectsWindow"] ) {
 		--topWindowIndex;
 		
-		if(topWindowIndex < 0)
-			break;
+		//if(topWindowIndex < 0) 
+		//	break;
 		
-		topWindow = [allWindows objectAtIndex:topWindowIndex];
+		topWindow = allWindows[topWindowIndex];
 		topViewClassName = [NSString stringWithFormat:@"%@", [topWindow class]];
 	}
 	
-	if(topWindowIndex < 0) {
-		topWindowIndex = [allWindows count] - 1;
-		topWindow = [allWindows objectAtIndex:topWindowIndex];
-	}
+	/*if(topWindowIndex < 0) { 
+     topWindowIndex = [allWindows count] - 1;
+     topWindow = [allWindows objectAtIndex:topWindowIndex];
+     }*/
 	
 	if (doneButton.superview)
 		[doneButton removeFromSuperview];
@@ -157,7 +158,7 @@
 }
 
 - (void) removeDoneFromKeyboard {
-//	NSLog(@"removeDoneFromKeyboard");
+//	DLog(@"removeDoneFromKeyboard");
 
 	[fixKeyboardTimer invalidate];
 	self.fixKeyboardTimer = nil;
@@ -179,7 +180,7 @@
 }
 
 - (void)considerDoneButtonReallyHidden {
-//	NSLog(@"considerDoneButtonReallyHidden");
+//	DLog(@"considerDoneButtonReallyHidden");
 	doneButtonShownRecently = NO;
 }
 
@@ -190,11 +191,7 @@
 }
 
 - (void) dealloc {
-	[fixKeyboardTimer release];
 	[doneButton removeFromSuperview];
-	[doneButton release];
-	[delegate release];
-	[super dealloc];
 }
 
 @end

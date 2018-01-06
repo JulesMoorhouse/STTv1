@@ -6,7 +6,6 @@
 //  Copyright 2010 Mindwarp Consultancy Ltd. All rights reserved.
 //
 
-#import <AVFoundation/AVAudioPlayer.h>
 #import "LearnViewController.h"
 #import "SoundEffect.h"
 #import "Constants.h"
@@ -21,18 +20,20 @@
 @synthesize placeholderView;
 @synthesize tblTableSelect;
 @synthesize tableSelectViewController;
+@synthesize theAudio;
 
 -(void)viewWillAppear:(BOOL)animated {
-		
+    [super viewWillAppear: animated];
+    
 	[tblTableSelect reloadData];
 	[self hideLabels];
 	
-	if (strTableSelected == @"") {
+	if ([strTableSelected  isEqual: @""]) {
 		//
 	} else {
 		//[tblTableSelect reloadData];
 		//[self hideLabels];
-		sTimerStatusGuid = [[AppBasic GUIDString] retain];
+		sTimerStatusGuid = [AppBasic GUIDString];
 		[self ShowTimesTable];
 	}
 	
@@ -42,9 +43,9 @@
 	
 	[self hideLabels];
 
-	sTimerStatusGuid = [[AppBasic GUIDString] retain];
+	sTimerStatusGuid = [AppBasic GUIDString];
 
-	//NSLog(@"Table change Run=%@", sTimerStatusGuid);
+	//DLog(@"Table change Run=%@", sTimerStatusGuid);
 		
 	int row =1;
 	float accumSecs = 2;
@@ -59,11 +60,11 @@
 		
 		int iTagRow = 100 + (row * 10);
 		
-		//NSLog(@"row=%@ tag=%@", rowAsString, sTagLabel);
+		//DLog(@"row=%@ tag=%@", rowAsString, sTagLabel);
 		
 		// ########## COLUMN 1 OF SUM - START ##########
 		// ##										  ##
-		NSMutableDictionary *dict1 = [[[NSMutableDictionary alloc] init] retain];
+		NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] init];
 		NSString *sTagLabel1 = [NSString  stringWithFormat:@"%i", iTagRow];
 		NSString *sWav1 = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 		NSString *sWav1Ac = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
@@ -77,7 +78,6 @@
 		 [NSTimer scheduledTimerWithTimeInterval:accumSecs
 										  target:self selector:@selector(playSoundShowLabel:) 
 										userInfo:dict1 repeats:NO];
-		[dict1 release];
 				
 		accumSecs += [Speaking getTrackLength:sWav1Ac];
 		//accumSecs += 2;
@@ -87,7 +87,7 @@
 
 		// ########## COLUMN TIMES - START    ##########
 		// ##										  ##	
-		NSMutableDictionary *dictTimes = [[[NSMutableDictionary alloc] init] retain];
+		NSMutableDictionary *dictTimes = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
 		NSString *sTagLabelTimes = [NSString  stringWithFormat:@"%i", iTagRow];
 		NSString *sWavTimes = [NSString stringWithFormat:@"%@%@", sVoice, @"-times"];
@@ -101,7 +101,6 @@
 		[NSTimer scheduledTimerWithTimeInterval:accumSecs
 										 target:self selector:@selector(playSoundShowLabel:) 
 									   userInfo:dictTimes repeats:NO];
-		[dictTimes release];
 		
 		accumSecs += [Speaking getTrackLength:sWavTimesAc];		
 		// ##										  ##
@@ -109,7 +108,7 @@
 
 		// ########## COLUMN 3 OF SUM - START ##########
 		// ##										  ##
-		NSMutableDictionary *dictSum = [[[NSMutableDictionary alloc] init] retain];
+		NSMutableDictionary *dictSum = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
 		NSString *sTagLabelSum = [NSString  stringWithFormat:@"%i", iTagRow];
 		NSString *sWavSum = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", strTableSelected];
@@ -122,7 +121,6 @@
 		[NSTimer scheduledTimerWithTimeInterval:accumSecs
 										 target:self selector:@selector(playSoundShowLabel:) 
 									   userInfo:dictSum repeats:NO];
-		[dictSum release];
 		
 		accumSecs += [Speaking getTrackLength:sWavSumAc];		
 		// ##										  ##
@@ -130,7 +128,7 @@
 
 		// ########## COLUMN EQUALS - START   ##########
 		// ##										  ##
-		NSMutableDictionary *dictEquals = [[[NSMutableDictionary alloc] init] retain];
+		NSMutableDictionary *dictEquals = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
 		NSString *sTagLabelEquals = [NSString  stringWithFormat:@"%i", iTagRow];
 		NSString *sWavEquals = [NSString stringWithFormat:@"%@%@", sVoice, @"-equals"];
@@ -143,7 +141,6 @@
 		[NSTimer scheduledTimerWithTimeInterval:accumSecs
 										 target:self selector:@selector(playSoundShowLabel:) 
 									   userInfo:dictEquals repeats:NO];
-		[dictEquals release];
 		
 		accumSecs += [Speaking getTrackLength:sWavEqualsAc];		
 		// ##										  ##
@@ -163,15 +160,15 @@
 
 		[Speaking GetSoundForNumber:iSum sArrFiles:arrFiles];	
 		
-		int arrayCount = [arrFiles count];
-		int cnt = 0;
+		NSInteger arrayCount = [arrFiles count];
+		NSInteger cnt = 0;
 		
 		for (cnt = 0; cnt < arrayCount; cnt++)
 		{
-			NSString *sFile = [arrFiles objectAtIndex:cnt];
-			NSString *sFileAc = [arrFiles objectAtIndex:cnt];
+			NSString *sFile = arrFiles[cnt];
+			NSString *sFileAc = arrFiles[cnt];
 			
-			NSMutableDictionary *dictResult = [[[NSMutableDictionary alloc] init] retain];
+			NSMutableDictionary *dictResult = [[NSMutableDictionary alloc] init];
 			
 			[dictResult setValue:sFile			forKey:@"sWav"];	
 			[dictResult setValue:sSum				forKey:@"sLabelValue"];
@@ -181,7 +178,6 @@
 			[NSTimer scheduledTimerWithTimeInterval:accumSecs
 											 target:self selector:@selector(playSoundShowLabel:) 
 										   userInfo:dictResult repeats:NO];
-			[dictResult release];
 			
 			accumSecs += [Speaking getTrackLength:sFileAc];			
 
@@ -197,41 +193,45 @@
 
 - (void) playSoundShowLabel:(NSTimer*)theTimer
 {
-	NSMutableDictionary *dict = [theTimer userInfo];
-	
+	//NSMutableDictionary *dict = [theTimer userInfo];
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[theTimer userInfo]];
+    
 	int iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
 	NSString *sLabelValue = [dict valueForKey:@"sLabelValue"];
 	NSString *sGUIDCheck = [dict valueForKey:@"sGUIDCheck"];
 	
-	//NSLog(@"val=%@ wav=%@", sLabelValue, [dict valueForKey:@"sWav"]);
-		  
-		  
+
 	if (sTimerStatusGuid == sGUIDCheck) {
 		UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagLabel];
 		lbl.text = sLabelValue;		
 		lbl.hidden = NO;
-		
-		//TODO
-		NSString *path = [[NSBundle mainBundle] pathForResource:[dict valueForKey:@"sWav"] ofType:@"mp3"];
-	
-		/*
-		SystemSoundID soundID;
-		AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:path], &soundID);
-		AudioServicesPlaySystemSound(soundID);
-		 */
-
-		AVAudioPlayer* theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL]; 
+             
+        NSURL *clickURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.mp3", [[NSBundle mainBundle] resourcePath], [dict valueForKey:@"sWav"]]];  
+        
+        theAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:
+                    clickURL error:nil];
+        theAudio.delegate = self;
+        
 		[theAudio play];
 		theAudio.numberOfLoops = 0;
-		
-		
-		[dict release];
-		[path release];
+
 	}
+    
+    //[dict release];
+    
 	//Removed invalidate as don`t need it as I`m not using repeat, see http://www.iphonedevsdk.com/forum/iphone-sdk-development/48229-nstimer-problems.html
 	//[theTimer invalidate];
 	//[sGUIDCheck release];
 }
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (player == theAudio)
+    {
+        theAudio = nil;
+    }
+}
+
 - (void) hideLabels
 {
 	int row =1;
@@ -245,59 +245,28 @@
 	}
 }
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 
-	/*
-	NSError *error;
-	if (![[GANTracker sharedTracker] trackPageview:@"/learn_opened"
-										 withError:&error]) {
-		// Handle error here
-	}
-	*/
-	
-	//strTableSelected = [NSMutableString stringWithString: @""];
-	strTableSelected = [NSString stringWithString: @""];
+	strTableSelected = @"";
 	
 	tblTableSelect.backgroundColor = [UIColor clearColor];
 	
 	placeholderView.backgroundColor = [UIColor clearColor];
 	
-	//this add the back button for the answers screen - weird putting it here.
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backButton;
-	[backButton release];
 	
     [super viewDidLoad];
 	
-	//Path get the path to MyTestList.plist
-	//NSString *path=[[NSBundle mainBundle] pathForResource:@"MyTestList" ofType:@"plist"];
-		
-	//Next create the dictionary from the contents of the file.
-	//NSDictionary *dict=[NSDictionary dictionaryWithContentsOfFile:path];
-	
-	//dict=[NSDictionary dictionaryWithContentsOfFile:path];
-	
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    strTableSelected = @"";
 
+    
+}
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -305,21 +274,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	//strTableSelected = [NSMutableString stringWithString: @""];
-	strTableSelected = [NSString stringWithString: @""];
-	
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)dealloc {
-	[placeholderView release];
-	[tblTableSelect release];
-	[tableSelectViewController release];
-	[super dealloc];
-}
 
 
 #pragma mark Table view methods
@@ -341,12 +295,12 @@
 	static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    //if (cell == nil) {
-	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    //}
+    if (cell == nil) {
+	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
 	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,300,45)];
-	if (strTableSelected == @"") {
+	if ([strTableSelected  isEqual: @""]) {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];
     } else {
 		[btnBackground setTitle:[NSString stringWithFormat:@"   The %@ Times Table", strTableSelected] forState:UIControlStateNormal];
@@ -367,7 +321,6 @@
 	
 	// add button first and then label to display label 
 	[cell.contentView addSubview:btnBackground];
-	[btnBackground release];
 	
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
@@ -387,7 +340,7 @@
 	nextController.title = @"Choose times table";	
 	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.navigationController pushViewController:nextController animated:YES];	
-	
+    
 }
 
 #pragma mark -
@@ -398,6 +351,7 @@
 	nextController.title = @"Choose times table";	
 	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.navigationController pushViewController:nextController animated:YES];
+    
 }
 
 @end

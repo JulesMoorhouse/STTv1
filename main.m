@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "SpeakTimesTableAppDelegate.h"
 
 int main(int argc, char *argv[]) {
     
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-	
-    return retVal;
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SpeakTimesTableAppDelegate class]));
+    }
 }

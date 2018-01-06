@@ -9,11 +9,12 @@
 #import "SpeakTimesTableAppDelegate.h"
 #import "RootViewController.h"
 #import "Constants.h"
-#import "Appirater.h"
-//#import "GANTracker.h"
 #import	"RootViewController.h"
 #import "Preloader.h"
 #import "AppBasic.h"
+
+NSString *strTableSelected = @"";
+NSString *sTimerStatusGuid = @"";
 
 @implementation SpeakTimesTableAppDelegate
 
@@ -28,128 +29,27 @@
     // Override point for customization after app launch    
 	
 	strTableSelected = @"";
-	booNumericKeyboard = YES;
-	
-#ifndef NDEBUG
     
-#else
-    //
-    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-	//BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:(@"%@/_CodeSignature", bundlePath)];
-	BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[bundlePath stringByAppendingPathComponent:keyboardFix]];
-	
-	if (!fileExists) {
-		//pirated
-		close(0);
-		UIWebView *a = [UIWebView alloc];
-		UIWindow *b = [UIWindow alloc];
-		UIView *c = [UIView alloc];
-		UILabel *d = [UILabel alloc];
-		UITextField *e = [UITextField alloc];
-		UIImageView *f = [UIImageView alloc];
-		UIImage *g = [UIImage alloc];
-		UISwitch *h = [UISwitch alloc];
-		UISegmentedControl *i = [UISegmentedControl alloc];
-		UITabBar *j = [UITabBar alloc];
-		[a alloc];
-		[b alloc];
-		[c alloc];
-		[d alloc];
-		[e alloc];
-		[f alloc];
-		[g alloc];
-		[h alloc];
-		[i alloc];
-		[j alloc];
-		system("killall SpringBoard");
-	}
-	
-	//BOOL fileExists2 = [[NSFileManager defaultManager] fileExistsAtPath:(@"%@/CodeResources", bundlePath)];
-	BOOL fileExists2 = [[NSFileManager defaultManager] fileExistsAtPath:[bundlePath stringByAppendingPathComponent:viesService]];
+    NSString *sRet = [prefs objectForKey:@"VoiceSegIdx"];
     
-	if (!fileExists2) {
-		//pirated
-		close(0);
-		UIWebView *a = [UIWebView alloc];
-		UIWindow *b = [UIWindow alloc];
-		UIView *c = [UIView alloc];
-		UILabel *d = [UILabel alloc];
-		UITextField *e = [UITextField alloc];
-		UIImageView *f = [UIImageView alloc];
-		UIImage *g = [UIImage alloc];
-		UISwitch *h = [UISwitch alloc];
-		UISegmentedControl *i = [UISegmentedControl alloc];
-		UITabBar *j = [UITabBar alloc];
-		[a alloc];
-		[b alloc];
-		[c alloc];
-		[d alloc];
-		[e alloc];
-		[f alloc];
-		[g alloc];
-		[h alloc];
-		[i alloc];
-		[j alloc];
-		system("killall SpringBoard");
-	}
-	
-	//BOOL fileExists3 = [[NSFileManager defaultManager] fileExistsAtPath:(@"%@/ResourceRules.plist", bundlePath)];
-	BOOL fileExists3 = [[NSFileManager defaultManager] fileExistsAtPath:[bundlePath stringByAppendingPathComponent:vatCheck]];
-	if (!fileExists3) {
-		close(0);
-		UIWebView *a = [UIWebView alloc];
-		UIWindow *b = [UIWindow alloc];
-		UIView *c = [UIView alloc];
-		UILabel *d = [UILabel alloc];
-		UITextField *e = [UITextField alloc];
-		UIImageView *f = [UIImageView alloc];
-		UIImage *g = [UIImage alloc];
-		UISwitch *h = [UISwitch alloc];
-		UISegmentedControl *i = [UISegmentedControl alloc];
-		UITabBar *j = [UITabBar alloc];
-		[a alloc];
-		[b alloc];
-		[c alloc];
-		[d alloc];
-		[e alloc];
-		[f alloc];
-		[g alloc];
-		[h alloc];
-		[i alloc];
-		[j alloc];
-		system("killall SpringBoard");
-	}
-	
-	
-#endif
+    if (sRet == nil) {
+        [prefs setInteger:1 forKey:@"VoiceSegIdx"];
+        [prefs synchronize];
+    }
 
-	self.resLoader = [[[Preloader alloc] init] autorelease];
+	self.resLoader = [[Preloader alloc] init];
 	
 	// the actual loading (and time consuming) happens here:
 	[resLoader load];
 	RootViewController* rootViewController = (RootViewController*)[navigationController topViewController];
 	[rootViewController setLoader:resLoader];
 	
-	[window addSubview:[navigationController view]];
+	//[window addSubview:[navigationController view]];
+    [self.window setRootViewController:rootViewController];
+
     [window makeKeyAndVisible];
-	
-	// call the Appirater class
-    //[Appirater appLaunched];
-	//put back in and change the APPIRATER_APP_ID in the h file when you have 
-	//your app id when your app is published on itunes
-	
-	/*
-	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-4176161-11"
-										   dispatchPeriod:10
-												 delegate:nil];
-	
-	NSError *error;
-	if (![[GANTracker sharedTracker] trackPageview:@"/app_launched"
-										 withError:&error]) {
-		// Handle error here
-	}
-	*/
 	
 	return YES;
 }
@@ -157,23 +57,12 @@
 - (void) applicationDidEnterBackground:(UIApplication *)application
 {
 
-	sTimerStatusGuid = [[AppBasic GUIDString] retain];
+	sTimerStatusGuid = [AppBasic GUIDString];
 	
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
-}
-
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc {
-	[resLoader release];
-	[navigationController release];
-	[window release];
-	[super dealloc];
 }
 
 

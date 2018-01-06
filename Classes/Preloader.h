@@ -13,7 +13,7 @@
 	AVAudioPlayer *ApplauseSoundPlayer;
 }
 
-@property (nonatomic, retain) AVAudioPlayer *ApplauseSoundPlayer;
+@property (nonatomic, strong) AVAudioPlayer *ApplauseSoundPlayer;
 
 
 - (void)load;

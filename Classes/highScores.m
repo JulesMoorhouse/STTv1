@@ -7,33 +7,29 @@
 //
 
 #import "highScores.h"
-
+#import "Constants.h"
 
 @implementation highScores
 
 struct high_score_entry structArray[20]; 
 
 -(id)init{
-	//NSLog(@"highScores.init start");
-	if (self == [super init])
+	//DLog(@"highScores.init start");
+    //if (self == [super init])
+	if (self = [super init])
     {
 		userPreferences = [NSUserDefaults standardUserDefaults]; 
+        ii = -1; 
 	}
-	//NSLog(@"highScores.init end");
+	//DLog(@"highScores.init end");
 	
-	ii = -1; 
+	//ii = -1; 
 	
 	
 	return self;
 }
--(void)dealloc{
-	//NSLog(@"highScores.dealloc");
-	//absolutly don't need this!!!!
-	//[userPreferences release];
-	[super dealloc];
-}
 -(void)load {
-	//NSLog(@"highScores.load start");
+	//DLog(@"highScores.load start");
 	//this block retreives
 	for (i = 0; i < 20; i++) { 
 		if ([userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%d", i]] != nil && [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreEntry%d", i]] != nil) { 
@@ -49,56 +45,56 @@ struct high_score_entry structArray[20];
 	//this block retreives
 	//[self debug];
 	//[self sort];
-	//NSLog(@"highScores.load end");
+	//DLog(@"highScores.load end");
 }
 -(void)debug{
-	//NSLog(@"highScores.debug");
+	//DLog(@"highScores.debug");
 	for (i = 0; i <= ii; i++) { 
-		NSLog(@"Score=%@ %i", structArray[i].name, structArray[i].highScore);
+        DLog(@"Score=%@ %li", structArray[i].name, (long)structArray[i].highScore);
 	}
 }
 
 -(NSString*)GetNameByIdx:(int)idx
 {
-	//NSLog(@"highScores.GetNameByIdx");
+	//DLog(@"highScores.GetNameByIdx");
 	return structArray[idx].name;
 }
 
 -(NSString*)GetMarkByIdx:(int)idx
 {
-	//NSLog(@"highScores.GetScoreByIdx");
+	//DLog(@"highScores.GetScoreByIdx");
 	//return [NSString stringWithFormat:@"%i", structArray[idx].highScore];
-	return [NSString stringWithFormat:@"%i/12", structArray[idx].mark];
+    return [NSString stringWithFormat:@"%li/12", (long)structArray[idx].mark];
 }
 
 -(NSString*)GetTestDateByIdx:(int)idx
 {
-	//NSLog(@"highScores.GetTestDateByIdx");
+	//DLog(@"highScores.GetTestDateByIdx");
 	return structArray[idx].testDateString;	
 }
 
 -(NSString*)GetTableScoreByIdx:(int)idx
 {
-	//NSLog(@"highScores.GetTableScoreByIdx");
+	//DLog(@"highScores.GetTableScoreByIdx");
 	return structArray[idx].tableScore;
 }
 
 -(void)save:(int)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(int)iMark{
 	
-	//NSLog(@"highScores.save start");
+	//DLog(@"highScores.save start");
 	
 	score = iscore;
 	scoreNameEntry = name;
 	mark = iMark;
 	NSDate *date = [NSDate date];
 	//Create the dateformatter object
-	NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+	NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 	//Set the required date format
 	[formatter setDateFormat:@"yyyy-MM-dd"];
 	//Get the string date
 	NSString *str = [formatter stringFromDate:date];
 	//Display on the console
-	//NSLog(@"%@",str);
+	//DLog(@"%@",str);
 	
 	
 	//strDate = @"freddy";
@@ -107,7 +103,7 @@ struct high_score_entry structArray[20];
 	
 	[self load];
 	[self sort]; //- removed as your no longer sorting
-	//NSLog(@"highScores.save middle");
+	//DLog(@"highScores.save middle");
 	//saves
 	for (i = 0; i <= ii; i++) { 
 		[userPreferences setObject:structArray[i].name forKey:[NSString stringWithFormat:@"highScoreNameEntry%d", i]]; 
@@ -121,10 +117,10 @@ struct high_score_entry structArray[20];
 	
 	//[structArray release];
 	//[userPreferences release];
-	//NSLog(@"highScores.save end");
+	//DLog(@"highScores.save end");
 }
 -(void)sort{
-	//NSLog(@"highScores.sort start");
+	//DLog(@"highScores.sort start");
 	//sorting
 	if (score > 0) { 
 		for (i = ii; i >= 0; i--) 
@@ -160,7 +156,7 @@ struct high_score_entry structArray[20];
 		ii = 0; 
 	} 
 	//sorting
-	//NSLog(@"highScores.sort end");
+	//DLog(@"highScores.sort end");
 }
 
 

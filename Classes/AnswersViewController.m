@@ -14,6 +14,7 @@
 #import "AppBasic.h"
 //#import "GANTracker.h"
 #import "Preloader.h"
+#import "Prefs.h"
 
 @implementation AnswersViewController
 @synthesize lblMessage;
@@ -53,7 +54,6 @@
     [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
     self.navigationItem.leftBarButtonItem = backButton;
-    [backButton release];
 	/*
 	 You may need to use this code if apple reject the lines above
 	 
@@ -80,15 +80,14 @@
 	frame.size.height = 31;
 	lblKeyboard.frame = frame; 
 	lblKeyboard.font = [UIFont systemFontOfSize:20];
-	
-	booNumericKeyboard = NO;
-	
+    
 	txtNickName.delegate = self;
 	
 	[AppBasic setButton:btnSave str:@"blue"];
 	
 	//NSString *msg = nil;
-
+    int iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
+    
 	if (iTableScore != 12) {
 		//msg = sCorrections;
 		lblScore.text = [NSString  stringWithFormat:@"%i", iTableScore];
@@ -122,8 +121,9 @@
 		resLoaderRef.ApplauseSoundPlayer.currentTime = 0;
 	}
 	
-	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-	[delegate.navigationController popViewControllerAnimated:YES];	
+    //SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    //[delegate.navigationController popViewControllerAnimated:YES];	
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)doneButton:(NSNotification *)notification {
@@ -153,7 +153,6 @@
 		UIAlertView *alert = [[UIAlertView alloc]
 							  initWithTitle:@"Saving score" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 	} else {
 		
 		/*
@@ -170,15 +169,16 @@
 		NSDateFormatter *dateForm = [[NSDateFormatter alloc] init];
 		[dateForm setDateFormat:@"g"];
 		NSString *dateString = [dateForm stringFromDate:[NSDate date]];
-		[dateForm release];
 		int iJulian = [dateString intValue];
 		
+        int iRankScore = [Prefs returnSettingInt:pfRankScore defaultValue:1];
+        
 		highScores *MyHigh = [[highScores alloc] init];
-		MyHigh.load;
+		[MyHigh load];
 		//[MyHigh save:99 name:txtNickName.text tableScore:sTimesTableUsed mark:iRankScore];
+        NSString *sTimesTableUsed = [Prefs returnSettingStr:pfTimesTableUsed defaultValue:@""];
 		[MyHigh save:iJulian name:txtNickName.text tableScore:sTimesTableUsed mark:iRankScore];
-		MyHigh.debug;
-		[MyHigh release];
+		[MyHigh debug];
 		//[[self navigationController] popViewControllerAnimated: YES];
 		[self.navigationController popToRootViewControllerAnimated:YES];
 	}
@@ -199,28 +199,6 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	
-	booNumericKeyboard = YES;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-	[resLoaderRef release];
-	[lblMessage release];
-	[txtNickName release];
-	[lblScore release];
-	[lblOutOf release];
-	[lblOutOfLabel release];
-	[lblResultStatus release];
-	[btnSave release];
-	[lblKeyboard release];
-    [super dealloc];
 }
 
 -(void)touchesBegan :(NSSet *)touches withEvent:(UIEvent *)event

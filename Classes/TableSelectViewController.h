@@ -23,17 +23,17 @@
 	IBOutlet UIButton *btn11;
 	IBOutlet UIButton *btn12;
 }
-@property (nonatomic, retain) UIButton *btn1;
-@property (nonatomic, retain) UIButton *btn2;
-@property (nonatomic, retain) UIButton *btn3;
-@property (nonatomic, retain) UIButton *btn4;
-@property (nonatomic, retain) UIButton *btn5;
-@property (nonatomic, retain) UIButton *btn6;
-@property (nonatomic, retain) UIButton *btn7;
-@property (nonatomic, retain) UIButton *btn8;
-@property (nonatomic, retain) UIButton *btn9;
-@property (nonatomic, retain) UIButton *btn10;
-@property (nonatomic, retain) UIButton *btn11;
-@property (nonatomic, retain) UIButton *btn12;
+@property (nonatomic, strong) UIButton *btn1;
+@property (nonatomic, strong) UIButton *btn2;
+@property (nonatomic, strong) UIButton *btn3;
+@property (nonatomic, strong) UIButton *btn4;
+@property (nonatomic, strong) UIButton *btn5;
+@property (nonatomic, strong) UIButton *btn6;
+@property (nonatomic, strong) UIButton *btn7;
+@property (nonatomic, strong) UIButton *btn8;
+@property (nonatomic, strong) UIButton *btn9;
+@property (nonatomic, strong) UIButton *btn10;
+@property (nonatomic, strong) UIButton *btn11;
+@property (nonatomic, strong) UIButton *btn12;
 - (IBAction)buttonTablePressed:(id)sender;
 @end

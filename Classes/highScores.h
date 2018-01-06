@@ -22,11 +22,11 @@
 }
 
 struct high_score_entry { 
-	NSString *name; 
-	int highScore; 
-	NSString *testDateString;
-	NSString *tableScore; 
-	int mark;
+	__unsafe_unretained NSString *name;
+	NSInteger highScore;
+	__unsafe_unretained NSString *testDateString;
+	__unsafe_unretained NSString *tableScore; 
+	NSInteger mark;
 }; 
 
 

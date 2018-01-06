@@ -15,9 +15,9 @@
 	IBOutlet UILabel *lblTitle;
 	IBOutlet UISegmentedControl *segOptions;
 }
-@property (nonatomic, retain) UIButton *btnDone;
-@property (nonatomic, retain) UITextView *txvContents;
-@property (nonatomic, retain) UISegmentedControl *segOptions;
+@property (nonatomic, strong) UIButton *btnDone;
+@property (nonatomic, strong) UITextView *txvContents;
+@property (nonatomic, strong) UISegmentedControl *segOptions;
 
 -(IBAction)buttonDonePressed:(id)sender;
 -(IBAction)segmentedAction:(id)sender;

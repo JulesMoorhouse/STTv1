@@ -16,18 +16,18 @@
 	float ret = 0.0;
 	int cnt = 0;
 	
-	if (sVoice == @"male") {
+	if ([sVoice  isEqual: @"male"]) {
 		for (cnt = 0; cnt < 35; cnt++)
 		{
-			//NSLog(@"loop str=%@ arr=%@", str, sTrackMale[cnt]);
+			//DLog(@"loop str=%@ arr=%@", str, sTrackMale[cnt]);
 			
 			if ([str isEqualToString:sTrackMale[cnt]]) {
 				ret = fTrackLengthMale[cnt];	
-				//NSLog(@"loop str=%@ arr=%@ ret=%f", str, sTrackMale[cnt], ret);
+				//DLog(@"loop str=%@ arr=%@ ret=%f", str, sTrackMale[cnt], ret);
 				break; 
 			}
 		}
-	} else if (sVoice == @"female") {
+	} else if ([sVoice  isEqual: @"female"]) {
 		for (cnt = 0; cnt < 35; cnt++)
 		{
 			if ([str isEqualToString:sTrackFemale[cnt]]) {
@@ -37,7 +37,7 @@
 		}
 	}
 	
-	//NSLog(@"getTrackLength=%f voice=%@", ret, sVoice);
+	//DLog(@"getTrackLength=%f voice=%@", ret, sVoice);
 	return ret;
 }
 
@@ -46,9 +46,9 @@
 	
 	//Common values variables - Certified OK
 	NSString *sSum = [NSString stringWithFormat:@"%d", iSum];
-	int iLen = sSum.length;
+	NSInteger iLen = sSum.length;
 	NSString *sFirstChar = [sSum substringWithRange: NSMakeRange(0, 1)];
-	int iStartOfLastChar = iLen - 1;
+	NSInteger iStartOfLastChar = iLen - 1;
 	NSString *sLastChar = [sSum substringWithRange: NSMakeRange(iStartOfLastChar, 1)];
 	//Common values variables - Certified OK
 	NSString *sThisWav;

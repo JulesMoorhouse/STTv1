@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "AppBasic.h"
+#import "Constants.h"
 
 @implementation InfoViewController
 @synthesize btnDone;
@@ -74,9 +75,9 @@
 
 -(IBAction)buttonDonePressed:(id)sender{
 	
-	NSLog(@"Done pressed!");
-	[self dismissModalViewControllerAnimated:YES];
-	[self release];
+	DLog(@"Done pressed!");
+	[self dismissViewControllerAnimated:YES completion:nil];
+	//[self release];
 }
 
 /*
@@ -94,18 +95,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-	[btnDone release];
-	[txvContents release];
-    [super dealloc];
-}
 
 
 @end

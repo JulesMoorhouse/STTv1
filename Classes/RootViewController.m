@@ -74,13 +74,19 @@
 
 - (IBAction) toggleCreditsOpen:(id)inSender
 {	
-    UIViewController *theController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
-    [self.navigationController presentModalViewController:theController animated:TRUE];
+    InfoViewController *theController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+    [self.navigationController presentViewController:theController animated:YES completion:nil];
+    /*
+    SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.navigationController pushViewController:theController animated:YES];	
+    [theController release];
+     */
+    
 }
 
 - (IBAction) toggleCreditsClosed:(id)inSender
 {
-    [self.navigationController dismissModalViewControllerAnimated:TRUE];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)switchVoice:(id)sender
@@ -111,7 +117,7 @@
 	nextController.title = @"Learn";	
 	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.navigationController pushViewController:nextController animated:YES];	
-	
+    
 	//[UIView setAnimationTransition:UIViewAnimationCurveLinear 
 	//					   forView:delegate.navigationController.view cache:YES];
 	//[UIView commitAnimations];
@@ -125,7 +131,7 @@
 	
 	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.navigationController pushViewController:nextController animated:YES];	
-
+    
 	 }
 -(IBAction)switchToResultsView:(id)sender
 {
@@ -133,41 +139,18 @@
 	nextController.title = @"High Scores";	
 	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.navigationController pushViewController:nextController animated:YES];	
+    
 }
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
 
 - (void)viewDidAppear:(BOOL)animated {
 	
 	//needed to stop speak on return from learn screen
-	sTimerStatusGuid = [[AppBasic GUIDString] retain];
+	sTimerStatusGuid = [AppBasic GUIDString];
 	
     [super viewDidAppear:animated];
 	
 
 }
-
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -176,25 +159,6 @@
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release anything that can be recreated in viewDidLoad or on demand.
-	// e.g. self.myOutlet = nil;
-}
-
-
-
-- (void)dealloc {
-	[learnViewController release];
-	[testViewController release];
-	[resultsViewController release];
-	[tableSelectViewController release];
-	[btnLearn release];
-	[btnTest release];
-	[btnHighScores release];
-	[resLoaderRef release];
-	//[segVoiceChoice release];
-    [super dealloc];
-}
 
 
 @end

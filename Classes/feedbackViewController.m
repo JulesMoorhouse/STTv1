@@ -15,12 +15,6 @@
 @synthesize myWebView;
 
 
-- (void)dealloc
-{
-    [myWebView release];
- //   [activityIndicator release];
-    [super dealloc];
-}
 
 
 -(IBAction)backButton 
@@ -48,7 +42,7 @@
 
 -(IBAction)closeButton
 {
-    [super dismissModalViewControllerAnimated:YES];
+    [super dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,13 +70,6 @@
     
     //Load the request in the UIWebView.
     [myWebView loadRequest:requestObj];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -15,8 +15,9 @@
 
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     
-	//NSLog(@"ResultsViewController.viewDidLoad start");
+	//DLog(@"ResultsViewController.viewDidLoad start");
 	
 	/*
 	NSError *error;
@@ -30,20 +31,20 @@
 	highScores *MyResults = [[highScores alloc] init];
 	//MyHigh.initialize;
 
-	//NSLog(@"ResultsViewController.viewDidLoad a");
+	//DLog(@"ResultsViewController.viewDidLoad a");
 	
-	MyResults.load;
+	[MyResults load];
 	//[MyHigh save:50 name:@"billy"];
 	
-	//NSLog(@"ResultsViewController.viewDidLoad b");
+	//DLog(@"ResultsViewController.viewDidLoad b");
 	
-	MyResults.debug;
+	[MyResults debug];
 	
 	
     //NSDictionary *row1 = [[NSDictionary alloc] initWithObjectsAndKeys:
     //                      @"MacBook", @"Name", @"White", @"Color", nil];
 	
-	//NSLog(@"ResultsViewController.viewDidLoad 1");
+	//DLog(@"ResultsViewController.viewDidLoad 1");
 	
 	/*
 	NSDictionary *row1 = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -72,13 +73,13 @@
                           [MyResults GetNameByIdx:0], @"Name", [MyResults GetTableScoreByIdx:0], @"TableUsed", 
 						  [MyResults GetMarkByIdx:0], @"Score", [MyResults GetTestDateByIdx:0], @"Date", nil];
 	
-	//NSLog(@"ResultsViewController.viewDidLoad 1a");
+	//DLog(@"ResultsViewController.viewDidLoad 1a");
 	
 	NSDictionary *row2 = [[NSDictionary alloc] initWithObjectsAndKeys:
                           [MyResults GetNameByIdx:1], @"Name", [MyResults GetTableScoreByIdx:1], @"TableUsed", 
 						  [MyResults GetMarkByIdx:1], @"Score", [MyResults GetTestDateByIdx:1], @"Date", nil];
 	
-	//NSLog(@"ResultsViewController.viewDidLoad 1b");
+	//DLog(@"ResultsViewController.viewDidLoad 1b");
 	
 	NSDictionary *row3 = [[NSDictionary alloc] initWithObjectsAndKeys:
                           [MyResults GetNameByIdx:2], @"Name", [MyResults GetTableScoreByIdx:2], @"TableUsed", 
@@ -106,32 +107,26 @@
 						   [MyResults GetMarkByIdx:9], @"Score", [MyResults GetTestDateByIdx:9], @"sDate", nil];
 
 	
-    //NSLog(@"ResultsViewController.viewDidLoad 2");
+    //DLog(@"ResultsViewController.viewDidLoad 2");
 	
     NSArray *array = [[NSArray alloc] initWithObjects:row1, row2, 
                       row3, row4, row5, row6, row7, row8,row9, row10, nil];
     self.results = array;
     
-	//NSLog(@"ResultsViewController.viewDidLoad 3");
+	//DLog(@"ResultsViewController.viewDidLoad 3");
 	
-    [row1 release];
-    [row2 release];
-    [row3 release];
-    [row4 release];
-    [row5 release];
-	[row6 release];
-    [row7 release];
-    [row8 release];
-    [row9 release];
-    [row10 release];
-	//NSLog(@"ResultsViewController.viewDidLoad 4");
-	[MyResults release];
-	//NSLog(@"ResultsViewController.viewDidLoad 5");
-    [array release];
+	//DLog(@"ResultsViewController.viewDidLoad 4");
+	//DLog(@"ResultsViewController.viewDidLoad 5");
     
-	//NSLog(@"ResultsViewController.viewDidLoad end");
+	//DLog(@"ResultsViewController.viewDidLoad end");
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    self.results = nil;
+    
+}
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -139,15 +134,6 @@
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-    self.results = nil;
-}
-- (void)dealloc {
-    [results release];
-    [super dealloc];
-}
 #pragma mark -
 #pragma mark Table Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView 
@@ -158,7 +144,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView 
         cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	//NSLog(@"ResultsViewController.tableView.cellForRowAtIndexPath start");
+	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath start");
 	
     static NSString *CellTableIdentifier = @"CellTableIdentifier ";
     
@@ -169,8 +155,10 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier: CellTableIdentifier] autorelease];
 #else // Prior to 3.0, use this call which is available but deprecated in 3.0
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero
-                                       reuseIdentifier:CellTableIdentifier] autorelease];
+        //cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero
+        //                               reuseIdentifier:CellTableIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTableIdentifier];
+        
 #endif
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -189,143 +177,63 @@
 			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"row2.png"]];
 			
 		}
-		
-		//NSLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 1");
-		
-		/*
-		// BILLY
-		//CGRect nameLabelRect = CGRectMake(0, 5, 70, 15);
-		CGRect nameLabelRect = CGRectMake(10, 5, 60, 25);
-		UILabel *nameLabel = [[UILabel alloc] initWithFrame:nameLabelRect];
-        nameLabel.textAlignment = UITextAlignmentLeft;
-        //nameLabel.text = @"Name:";
-        nameLabel.font = [UIFont boldSystemFontOfSize:16];
-		//nameLabel.backgroundColor = [UIColor yellowColor];
-		nameLabel.tag = kNameValueTag; //NEW
-        [cell.contentView addSubview: nameLabel];
-        [nameLabel release];
-        		
-        // 1 to 144
-		//CGRect nameValueRect = CGRectMake(270, 5, 35, 25);
-		CGRect nameValueRect = CGRectMake(290, 5, 35, 15);
-        UILabel *nameValue = [[UILabel alloc] initWithFrame:nameValueRect];
-		//nameValue.textAlignment = UITextAlignmentCenter;
-		nameValue.textAlignment = UITextAlignmentLeft;
-		//nameValue.font = [UIFont boldSystemFontOfSize:16];
-		nameValue.font = [UIFont systemFontOfSize:10];
-		//nameValue.backgroundColor = [UIColor yellowColor];
-        nameValue.tag = kScoreValueTag;
-        [cell.contentView addSubview:nameValue];
-        [nameValue release];
-        
-		CGRect DateLabelRect = CGRectMake(80, 5, 40, 15);
-        UILabel *Datelabel = [[UILabel alloc] initWithFrame:DateLabelRect];
-		Datelabel.textAlignment = UITextAlignmentRight;
-        Datelabel.tag = kDateLabelTag;
-		Datelabel.font = [UIFont boldSystemFontOfSize:10];
-		//Datelabel.backgroundColor = [UIColor yellowColor];
-        [cell.contentView addSubview:Datelabel];
-        [Datelabel release];
-		
-		// date
-        //CGRect colorValueRect = CGRectMake(80, 25, 200, 15);
-		CGRect colorValueRect = CGRectMake(125, 5, 60, 15);
-        UILabel *colorValue = [[UILabel alloc] initWithFrame:colorValueRect];
-        colorValue.tag = kDateValueTag;
-		colorValue.font = [UIFont systemFontOfSize:10];
-		//colorValue.backgroundColor = [UIColor yellowColor];
-        [cell.contentView addSubview:colorValue];
-        [colorValue release];
-        
-		CGRect ResultLabelRect = CGRectMake(80, 20, 40, 15);
-        UILabel *Resultlabel = [[UILabel alloc] initWithFrame:ResultLabelRect];
-		Resultlabel.textAlignment = UITextAlignmentRight;
-        Resultlabel.tag = kResultLabelTag;
-		Resultlabel.font = [UIFont boldSystemFontOfSize:10];
-		//Resultlabel.backgroundColor = [UIColor yellowColor];
-        [cell.contentView addSubview:Resultlabel];
-        [Resultlabel release];
-		
-		CGRect ResultValueRect = CGRectMake(125, 20, 130, 15);
-        UILabel *ResultValue = [[UILabel alloc] initWithFrame:ResultValueRect];
-        ResultValue.tag = kResultValueTag;
-		ResultValue.font = [UIFont systemFontOfSize:10];
-		//ResultValue.backgroundColor = [UIColor yellowColor];
-        [cell.contentView addSubview:ResultValue];
-        [ResultValue release];
-		
-		//CGRect ScoreLabelRect = CGRectMake(225, 5, 40, 15);
-		CGRect ScoreLabelRect = CGRectMake(245, 5, 40, 15);
-        UILabel *Scorelabel = [[UILabel alloc] initWithFrame:ScoreLabelRect];
-		Scorelabel.textAlignment = UITextAlignmentRight;
-        Scorelabel.tag = kScoreLabelTag;
-		Scorelabel.font = [UIFont boldSystemFontOfSize:10];
-		//Scorelabel.backgroundColor = [UIColor yellowColor];
-        [cell.contentView addSubview:Scorelabel];
-        [Scorelabel release];
-		 
-		 */
-		 
+	
 		CGRect nameLabelRect = CGRectMake(10, 10, 70, 25);
 		UILabel *nameLabel = [[UILabel alloc] initWithFrame:nameLabelRect];
-        nameLabel.textAlignment = UITextAlignmentLeft;
+        nameLabel.textAlignment = NSTextAlignmentLeft;
         nameLabel.font = [UIFont systemFontOfSize:14];
 		nameLabel.adjustsFontSizeToFitWidth = YES;
 		nameLabel.backgroundColor = [UIColor clearColor];
 		//nameLabel.backgroundColor = [UIColor yellowColor];
 		nameLabel.tag = kNameValueTag; //NEW
         [cell.contentView addSubview: nameLabel];
-        [nameLabel release];
 		
 		CGRect DateValueRect = CGRectMake(90, 10, 80, 25);
         UILabel *DateValue = [[UILabel alloc] initWithFrame:DateValueRect];
-		DateValue.textAlignment = UITextAlignmentLeft;
+		DateValue.textAlignment = NSTextAlignmentLeft;
         DateValue.tag = kDateValueTag;
 		DateValue.font = [UIFont systemFontOfSize:14];
 		DateValue.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:DateValue];
-        [DateValue release];
 		
 		CGRect TableUsedRect = CGRectMake(190, 10, 70, 25);
         UILabel *TableUsed = [[UILabel alloc] initWithFrame:TableUsedRect];
-		TableUsed.textAlignment = UITextAlignmentCenter;
+		TableUsed.textAlignment = NSTextAlignmentCenter;
         TableUsed.tag = kTableUsedTag;
 		TableUsed.font = [UIFont systemFontOfSize:14];
 		TableUsed.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:TableUsed];
-        [TableUsed release];
 		
 		CGRect ScoreRect = CGRectMake(270, 10, 40, 25);
         UILabel *Score = [[UILabel alloc] initWithFrame:ScoreRect];
-		Score.textAlignment = UITextAlignmentRight;
+		Score.textAlignment = NSTextAlignmentRight;
         Score.tag = kScoreValueTag;
 		Score.font = [UIFont systemFontOfSize:14];
 		Score.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:Score];
-        [Score release];
 		 
     }
     
-	//NSLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 2");
+	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 2");
 	
     NSUInteger row = [indexPath row];
-    NSDictionary *rowData = [self.results objectAtIndex:row];
+    NSDictionary *rowData = (self.results)[row];
 	
-	//NSLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 3");
+	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 3");
 	
     UILabel *name = (UILabel *)[cell.contentView viewWithTag:kNameValueTag];
-    name.text = [rowData objectForKey:@"Name"];
+    name.text = rowData[@"Name"];
     	
 	UILabel *Score = (UILabel *)[cell.contentView viewWithTag:kScoreValueTag];
-    Score.text = [rowData objectForKey:@"Score"];
+    Score.text = rowData[@"Score"];
 
 	UILabel *sdate = (UILabel *)[cell.contentView viewWithTag:kDateValueTag];
-	sdate.text = [rowData objectForKey:@"Date"];
+	sdate.text = rowData[@"Date"];
 	
 	UILabel *sTableUsed = (UILabel *)[cell.contentView viewWithTag:kTableUsedTag];
-	sTableUsed.text = [rowData objectForKey:@"TableUsed"];
+	sTableUsed.text = rowData[@"TableUsed"];
 	
-	//NSLog(@"ResultsViewController.tableView.cellForRowAtIndexPath end");
+	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath end");
 	
     return cell;
 }

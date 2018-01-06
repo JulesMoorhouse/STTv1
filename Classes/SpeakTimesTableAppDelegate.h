@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kInfoSize 721
+//#define kInfoSize 721
 
 @class Preloader;
 @class myApplicationAppDelegate; 
@@ -20,21 +20,20 @@
 	myApplicationAppDelegate *appDelegate;
 }
 
-XX;
 
-NSMutableString *sTimesTableUsed;	//GLOBAL VARIABLE
-int iTableScore;					//GLOBAL VARIABLE
-int iRankScore;						//GLOBAL VARIABLE
-bool booNumericKeyboard;			//GLOBAL VARIABLE
-NSString *strTableSelected;			//GLOBAL VARIABLE
+//NSMutableString *sTimesTableUsed;	//GLOBAL VARIABLE
+//int iTableScore;					//GLOBAL VARIABLE
+//int iRankScore;						//GLOBAL VARIABLE
+//bool booNumericKeyboard;			//GLOBAL VARIABLE
+extern NSString *strTableSelected;			//GLOBAL VARIABLE
 //NSMutableString *strTableSelected;
 
-NSString *sTimerStatusGuid;			//GLOBAL VARIABLE. this is the guid we want to be 
+extern NSString *sTimerStatusGuid;			//GLOBAL VARIABLE. this is the guid we want to be 
 									//running now, so we would set to something differenty to stop it
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic, retain) Preloader *resLoader;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, strong) Preloader *resLoader;
 
 @end
 
