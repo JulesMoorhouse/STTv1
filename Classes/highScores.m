@@ -32,12 +32,12 @@ struct high_score_entry structArray[20];
 	//DLog(@"highScores.load start");
 	//this block retreives
 	for (i = 0; i < 20; i++) { 
-		if ([userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%d", i]] != nil && [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreEntry%d", i]] != nil) { 
-			structArray[i].name = [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%d", i]]; 
-			structArray[i].highScore = [userPreferences integerForKey:[NSString stringWithFormat:@"highScoreEntry%d", i]]; 
-			structArray[i].testDateString = [userPreferences stringForKey:[NSString stringWithFormat:@"highTestDateStringEntry%d", i]]; 
-			structArray[i].tableScore = [userPreferences stringForKey:[NSString stringWithFormat:@"highTableScoreEntry%d", i]]; 
-			structArray[i].mark = [userPreferences integerForKey:[NSString stringWithFormat:@"highTableMarkEntry%d", i]]; 
+        if ([userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]] != nil && [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreEntry%ld", (long)i]] != nil) { 
+            structArray[i].name = [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]]; 
+            structArray[i].highScore = [userPreferences integerForKey:[NSString stringWithFormat:@"highScoreEntry%ld", (long)i]]; 
+            structArray[i].testDateString = [userPreferences stringForKey:[NSString stringWithFormat:@"highTestDateStringEntry%ld", (long)i]]; 
+            structArray[i].tableScore = [userPreferences stringForKey:[NSString stringWithFormat:@"highTableScoreEntry%ld", (long)i]]; 
+            structArray[i].mark = [userPreferences integerForKey:[NSString stringWithFormat:@"highTableMarkEntry%ld", (long)i]]; 
 			
 			ii = i; 
 		} 
@@ -54,32 +54,32 @@ struct high_score_entry structArray[20];
 	}
 }
 
--(NSString*)GetNameByIdx:(int)idx
+-(NSString*)GetNameByIdx:(NSInteger)idx
 {
 	//DLog(@"highScores.GetNameByIdx");
 	return structArray[idx].name;
 }
 
--(NSString*)GetMarkByIdx:(int)idx
+-(NSString*)GetMarkByIdx:(NSInteger)idx
 {
 	//DLog(@"highScores.GetScoreByIdx");
 	//return [NSString stringWithFormat:@"%i", structArray[idx].highScore];
     return [NSString stringWithFormat:@"%li/12", (long)structArray[idx].mark];
 }
 
--(NSString*)GetTestDateByIdx:(int)idx
+-(NSString*)GetTestDateByIdx:(NSInteger)idx
 {
 	//DLog(@"highScores.GetTestDateByIdx");
 	return structArray[idx].testDateString;	
 }
 
--(NSString*)GetTableScoreByIdx:(int)idx
+-(NSString*)GetTableScoreByIdx:(NSInteger)idx
 {
 	//DLog(@"highScores.GetTableScoreByIdx");
 	return structArray[idx].tableScore;
 }
 
--(void)save:(int)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(int)iMark{
+-(void)save:(NSInteger)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(NSInteger)iMark{
 	
 	//DLog(@"highScores.save start");
 	
@@ -106,11 +106,11 @@ struct high_score_entry structArray[20];
 	//DLog(@"highScores.save middle");
 	//saves
 	for (i = 0; i <= ii; i++) { 
-		[userPreferences setObject:structArray[i].name forKey:[NSString stringWithFormat:@"highScoreNameEntry%d", i]]; 
-		[userPreferences setInteger:structArray[i].highScore forKey:[NSString stringWithFormat:@"highScoreEntry%d", i]]; 
-		[userPreferences setObject:structArray[i].testDateString forKey:[NSString stringWithFormat:@"highTestDateStringEntry%d", i]]; 
-		[userPreferences setObject:structArray[i].tableScore forKey:[NSString stringWithFormat:@"highTableScoreEntry%d", i]]; 
-		[userPreferences setInteger:structArray[i].mark forKey:[NSString stringWithFormat:@"highTableMarkEntry%d", i]]; 
+        [userPreferences setObject:structArray[i].name forKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]]; 
+        [userPreferences setInteger:structArray[i].highScore forKey:[NSString stringWithFormat:@"highScoreEntry%ld", (long)i]]; 
+        [userPreferences setObject:structArray[i].testDateString forKey:[NSString stringWithFormat:@"highTestDateStringEntry%ld", (long)i]]; 
+        [userPreferences setObject:structArray[i].tableScore forKey:[NSString stringWithFormat:@"highTableScoreEntry%ld", (long)i]]; 
+        [userPreferences setInteger:structArray[i].mark forKey:[NSString stringWithFormat:@"highTableMarkEntry%ld", (long)i]]; 
 	}	
 	//saves
 	

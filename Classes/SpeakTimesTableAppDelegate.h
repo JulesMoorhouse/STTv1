@@ -20,16 +20,9 @@
 	myApplicationAppDelegate *appDelegate;
 }
 
+extern NSString *strTableSelected;
 
-//NSMutableString *sTimesTableUsed;	//GLOBAL VARIABLE
-//int iTableScore;					//GLOBAL VARIABLE
-//int iRankScore;						//GLOBAL VARIABLE
-//bool booNumericKeyboard;			//GLOBAL VARIABLE
-extern NSString *strTableSelected;			//GLOBAL VARIABLE
-//NSMutableString *strTableSelected;
-
-extern NSString *sTimerStatusGuid;			//GLOBAL VARIABLE. this is the guid we want to be 
-									//running now, so we would set to something differenty to stop it
+extern NSString *sTimerStatusGuid;
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
 @property (nonatomic, strong) IBOutlet UINavigationController *navigationController;

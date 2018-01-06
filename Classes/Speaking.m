@@ -14,7 +14,7 @@
 + (float) getTrackLength:(NSString *)str
 {
 	float ret = 0.0;
-	int cnt = 0;
+	NSInteger cnt = 0;
 	
 	if ([sVoice  isEqual: @"male"]) {
 		for (cnt = 0; cnt < 35; cnt++)
@@ -41,11 +41,11 @@
 	return ret;
 }
 
-+(void)GetSoundForNumber:(int)iSum sArrFiles:(NSMutableArray*)sArrFiles
++(void)GetSoundForNumber:(NSInteger)iSum sArrFiles:(NSMutableArray*)sArrFiles
 {
 	
 	//Common values variables - Certified OK
-	NSString *sSum = [NSString stringWithFormat:@"%d", iSum];
+    NSString *sSum = [NSString stringWithFormat:@"%ld", (long)iSum];
 	NSInteger iLen = sSum.length;
 	NSString *sFirstChar = [sSum substringWithRange: NSMakeRange(0, 1)];
 	NSInteger iStartOfLastChar = iLen - 1;

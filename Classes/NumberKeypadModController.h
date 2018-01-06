@@ -17,7 +17,7 @@
 	UIButton *doneButton;
 	UITextField *currentTextField;
 	id<NumberKeypadModControllerDelegate> delegate;
-	int		showHideCounter;
+	NSInteger		showHideCounter;
 	BOOL	doneButtonShown;
 	BOOL	doneButtonShownRecently;
 }

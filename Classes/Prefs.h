@@ -17,10 +17,10 @@
 @interface Prefs : NSObject
 
 + (void)storeSettingStr:(NSString *)setting Value:(NSString *)value;
-+ (void)storeSettingInt:(NSString *)setting Value:(int)value;
++ (void)storeSettingInt:(NSString *)setting Value:(NSInteger)value;
 
 + (NSString*)returnSettingStr:(NSString *)setting defaultValue:(NSString*)def;
-+ (int)returnSettingInt:(NSString *)setting defaultValue:(int)def;
++ (NSInteger)returnSettingInt:(NSString *)setting defaultValue:(NSInteger)def;
 
 - (void)removeAllDefaults;
 

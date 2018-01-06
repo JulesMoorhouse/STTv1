@@ -11,14 +11,14 @@
 #import <Foundation/Foundation.h>
 
 @interface highScores : NSObject {
-	int score;
+	NSInteger score;
 	NSString *scoreNameEntry;
 	NSString *strDate;
 	NSString *sTableScore;
-	int mark;
+	NSInteger mark;
 	NSUserDefaults *userPreferences; 
-	int i;
-	int ii;	
+	NSInteger i;
+	NSInteger ii;	
 }
 
 struct high_score_entry { 
@@ -31,11 +31,11 @@ struct high_score_entry {
 
 
 -(void)load;
--(void)save:(int)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(int)iMark;
+-(void)save:(NSInteger)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(NSInteger)iMark;
 -(void)sort;
 -(void)debug;
--(NSString*)GetNameByIdx:(int)idx;
--(NSString*)GetMarkByIdx:(int)idx;
--(NSString*)GetTestDateByIdx:(int)idx;
--(NSString*)GetTableScoreByIdx:(int)idx;
+-(NSString*)GetNameByIdx:(NSInteger)idx;
+-(NSString*)GetMarkByIdx:(NSInteger)idx;
+-(NSString*)GetTestDateByIdx:(NSInteger)idx;
+-(NSString*)GetTableScoreByIdx:(NSInteger)idx;
 @end

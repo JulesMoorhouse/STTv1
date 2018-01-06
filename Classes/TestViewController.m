@@ -16,7 +16,6 @@
 #import "AnswersViewController.h"
 #import "TableSelectViewController.h"
 #import "RootViewController.h"
-//#import "GANTracker.h"
 #import "NumberKeypadModController.h"
 #import "Preloader.h"
 #import "RoundRectView.h"
@@ -62,19 +61,17 @@
 @synthesize rrv;
 @synthesize theAudio;
 
-//int mRow;
-- (void) SayShowRow:(int)row
+- (void) SayShowRow:(NSInteger)row
 {
-	
 	float accumSecs = 0;
 	NSString *rowAsString;
 	
 	//DLog(@"SayShowRow1 %@", strTableSelected);
 	
 	//you probably don`t need retain here now
-	rowAsString = [NSString stringWithFormat: @"%d", row];
+    rowAsString = [NSString stringWithFormat: @"%ld", (long)row];
 	
-	int iTagRow = 100 + (row * 10);
+	NSInteger iTagRow = 100 + (row * 10);
 	
 	//DLog(@"row=%@ tag=%@", rowAsString, sTagLabel);
 	
@@ -82,7 +79,7 @@
 	// ##										  ##
     //NSMutableDictionary *dict1 = [[[NSMutableDictionary alloc] init] retain];
 	NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] init];
-	NSString *sTagLabel1 = [NSString  stringWithFormat:@"%i", iTagRow];
+    NSString *sTagLabel1 = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 	NSString *sWav1 = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 	NSString *sWav1Ac = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 	
@@ -109,7 +106,7 @@
 	//NSMutableDictionary *dictTimes = [[[NSMutableDictionary alloc] init] retain];
     NSMutableDictionary *dictTimes = [[NSMutableDictionary alloc] init];
 	iTagRow ++;
-	NSString *sTagLabelTimes = [NSString  stringWithFormat:@"%i", iTagRow];
+    NSString *sTagLabelTimes = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 	NSString *sWavTimes = [NSString stringWithFormat:@"%@%@", sVoice, @"-times"];
 	NSString *sWavTimesAc = [NSString stringWithFormat:@"%@%@", sVoice, @"-times"];
 	
@@ -135,7 +132,7 @@
     NSMutableDictionary *dictSum = [[NSMutableDictionary alloc] init];
 	iTagRow ++;
 	//DLog(@"SayShowRow32 %i", iTagRow);
-	NSString *sTagLabelSum = [NSString  stringWithFormat:@"%i", iTagRow];
+    NSString *sTagLabelSum = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 	//DLog(@"SayShowRow33 %@ %@", sVoice, strTableSelected);
 	NSString *sWavSum = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", strTableSelected];
 	NSString *sWavSumAc = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", strTableSelected];
@@ -160,7 +157,7 @@
 	//NSMutableDictionary *dictEquals = [[[NSMutableDictionary alloc] init] retain];
     NSMutableDictionary *dictEquals = [[NSMutableDictionary alloc] init];
 	iTagRow ++;
-	NSString *sTagLabelEquals = [NSString  stringWithFormat:@"%i", iTagRow];
+    NSString *sTagLabelEquals = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 	NSString *sWavEquals = [NSString stringWithFormat:@"%@%@", sVoice, @"-equals"];
 	NSString *sWavEqualsAc = [NSString stringWithFormat:@"%@%@", sVoice, @"-equals"];
 	[dictEquals setValue:sWavEquals			forKey:@"sWav"];	
@@ -183,7 +180,7 @@
 	//NSMutableDictionary *dictResult = [[[NSMutableDictionary alloc] init] retain];
     NSMutableDictionary *dictResult = [[NSMutableDictionary alloc] init];
 	iTagRow ++;
-	NSString *sTagLabelResult = [NSString  stringWithFormat:@"%i", iTagRow];
+    NSString *sTagLabelResult = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 	[dictResult setValue:@""			forKey:@"sWav"];	
 	[dictResult setValue:@""				forKey:@"sLabelValue"];
 	[dictResult setValue:sTagLabelResult		forKey:@"sTagLabel"];
@@ -218,7 +215,7 @@
 	
 	if (sTimerStatusGuid == sGUIDCheck) {
 		
-		int iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
+		NSInteger iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
 		NSString *sLabelValue = [dict valueForKey:@"sLabelValue"];
 			
 		//DLog(@"playSoundShowLabel %@ %i", sLabelValue, iTagLabel);
@@ -286,10 +283,10 @@
 
 - (void) hideLabels
 {
-	int row =1;
-	int col = 1;
+	NSInteger row =1;
+	NSInteger col = 1;
 	for (row = 1; row < 13; row++) {
-		int iTagRow = 100 + (row * 10);
+		NSInteger iTagRow = 100 + (row * 10);
 		for (col = 0; col < 6; col++) {	
 			if (col < 5) {
 				UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
@@ -347,6 +344,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
+        [super viewDidLoad];
 	
 	//DLog(@"view did load!");
 	
@@ -464,8 +462,6 @@
 	 [cancelButton release];
 	*/
 	
-	
-    [super viewDidLoad];
 }
 
 - (void) BackButtonPressed
@@ -501,9 +497,6 @@
 		[[numberKeyPadModController.doneButton layer] addAnimation:animation forKey:@"fcext_fade"];
 		[CATransaction commit];
 		
-
-		//SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-        //[delegate.navigationController popViewControllerAnimated:YES];	
         [self.navigationController popViewControllerAnimated:YES];
 	}
 }
@@ -520,9 +513,7 @@
 			
 			UIView* firstResponder = [self.view findFirstResponder];
 			[firstResponder resignFirstResponder];
-			
-            //SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-            //[delegate.navigationController popViewControllerAnimated:YES];	
+	
             [self.navigationController popViewControllerAnimated:YES];
 		}
 	}
@@ -540,70 +531,52 @@
 			
 			TableSelectViewController *nextController = [TableSelectViewController alloc];
 			nextController.title = @"Choose times table";	
-			SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-			[delegate.navigationController pushViewController:nextController animated:YES];			
+			[self.navigationController pushViewController:nextController animated:YES];
 		}
 	}
 	
 	//[alertView release];
 }
 
-/*
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	
-	if ( row < 12 ) {
-		int iTagLabel = (100 + (row * 10)) + 4;
-		UITextField *txtLastVisible = (UITextField *)[placeholderView viewWithTag:iTagLabel];	
-		
-		if (![txtLastVisible.text isEqualToString:@""]) {
-			row++;
-			[self SayShowRow:row];
-		}
-	}
-	[textField resignFirstResponder];
-	return YES;
-}
-*/
-
 - (void)buttonNavDone:(id)sender {
 	
 	BOOL booUnanswered = FALSE;
-	int row =1;
-	int iScore = 0;
+	NSInteger row =1;
+	NSInteger iScore = 0;
 	
 	sCorrections = [[NSMutableString alloc] initWithString:@""];
 	
-	int iTableFromCol = 0;
+	NSInteger iTableFromCol = 0;
 	
 	for (row = 1; row < 13; row++) {
-		int iTagRow = (100 + (row * 10));
+		NSInteger iTagRow = (100 + (row * 10));
 		
-		int iTagAnswer = iTagRow+4;
+		NSInteger iTagAnswer = iTagRow+4;
 		UITextField *txtAnswer = (UITextField *)[placeholderView viewWithTag:iTagAnswer];		
 
 		if ([txtAnswer.text isEqualToString:@""]) {	
 			booUnanswered = TRUE;
 			break;
 		}		
-		int iValTheirAnswer = [txtAnswer.text intValue];
+		NSInteger iValTheirAnswer = [txtAnswer.text intValue];
 		
-		int iTagCol1 = iTagRow;
+		NSInteger iTagCol1 = iTagRow;
 		UITextField *txtCol1 = (UITextField *)[placeholderView viewWithTag:iTagCol1];	
-		int iValCol1 = [txtCol1.text intValue];
+		NSInteger iValCol1 = [txtCol1.text intValue];
 		
-		int iTagCol3 = iTagRow+2;
+		NSInteger iTagCol3 = iTagRow+2;
 		UITextField *txtCol3 = (UITextField *)[placeholderView viewWithTag:iTagCol3];	
-		int iValCol3 = [txtCol3.text intValue];
+		NSInteger iValCol3 = [txtCol3.text intValue];
 
 		if (iTableFromCol == 0) {
 			iTableFromCol = iValCol3;
 		}
 		
-		int iCorrectAnswer = iValCol1 * iValCol3;
+		NSInteger iCorrectAnswer = iValCol1 * iValCol3;
 		
 		if (iCorrectAnswer != iValTheirAnswer) {
-			NSString *sTemp = [NSString stringWithFormat:@"%i x %i = %i not %i\n", 
-										 iValCol1, iValCol3, iCorrectAnswer, iValTheirAnswer];
+            NSString *sTemp = [NSString stringWithFormat:@"%li x %li = %li not %li\n",
+                               (long)iValCol1, (long)iValCol3, (long)iCorrectAnswer, (long)iValTheirAnswer];
 			[sCorrections appendString:sTemp];
 		} else {
 			iScore ++;
@@ -611,7 +584,7 @@
 	}
 
 	[Prefs storeSettingInt:pfRankScore Value:iScore];
-    [Prefs storeSettingStr:pfTimesTableUsed Value:[[NSMutableString alloc] initWithFormat:@"%i x Table", iTableFromCol]];	
+    [Prefs storeSettingStr:pfTimesTableUsed Value:[[NSMutableString alloc] initWithFormat:@"%li x Table", (long)iTableFromCol]];
     [Prefs storeSettingInt:pfTableScore Value:iScore];
     
 	NSString *msg = nil;
@@ -642,17 +615,12 @@
 		AnswersViewController *nextController = [AnswersViewController alloc];
 		nextController.title = @"Results";	
 		[nextController setLoader:resLoaderRef];
-		SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		[delegate.navigationController pushViewController:nextController animated:YES];	
-		
+		[self.navigationController pushViewController:nextController animated:YES];
 	}
-	
 }
-
 
 -(IBAction)buttonCheat:(id)sender
 {
-	
 	rrv.hidden = NO;
 	
 	[UIView beginAnimations:@"rrvFadeIn" context:(__bridge void *)(rrv)];
@@ -665,96 +633,106 @@
 	
 	//DLog(@"cheat button pressed");
 
-	int row =1;
-	int col = 1;
+	NSInteger row =1;
+	NSInteger col = 1;
 	NSString *strCol1Row1;
 	
-	for (row = 1; row < 13; row++) {
-		int iTagRow = 100 + (row * 10);
-		
-		for (col = 0; col < 5; col++) {	
-			
+	for (row = 1; row < 13; row++)
+    {
+		NSInteger iTagRow = 100 + (row * 10);
+		for (col = 0; col < 5; col++)
+        {
 			UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
 			lbl.hidden = NO;
-			if (row == 1 ){
-				if (col == 2) {
+			if (row == 1)
+            {
+				if (col == 2)
+                {
 					strCol1Row1 = lbl.text;
 				}
 			}
-			if (col == 2) {
+			if (col == 2)
+            {
 				lbl.text = strCol1Row1;
 			}
 		}		
 	}
-	
 
-	for (row = 1; row < 13; row++) {
-		int iTagRow = 100 + (row * 10);
-		int col1;
-		int col3;
-		int res;
-		for (col = 0; col < 6; col++) {	
-			if (col < 5) {
+	for (row = 1; row < 13; row++)
+    {
+		NSInteger iTagRow = 100 + (row * 10);
+		NSInteger col1;
+		NSInteger col3;
+		NSInteger res;
+		for (col = 0; col < 6; col++)
+        {
+			if (col < 5)
+            {
 				UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
 				lbl.hidden = NO;
-				if (col == 0) {
+				if (col == 0)
+                {
 					col1 = [lbl.text intValue];
 				}
-				if (col == 2) {
+				if (col == 2)
+                {
 					col3 = [lbl.text intValue];
 				}
-			} else {
+			}
+            else
+            {
 				UITextField *txt = (UITextField *)[placeholderView viewWithTag:iTagRow + col];	
 				txt.hidden = NO;
 				res = col1 * col3;
 			}
-			switch (row) {
+			switch (row)
+            {
 				case 1: {
-					textFieldRow1.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow1.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 2: {
-					textFieldRow2.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow2.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 3: {
-					textFieldRow3.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow3.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 4: {
-					textFieldRow4.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow4.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 5: {
-					textFieldRow5.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow5.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 6: {
-					textFieldRow6.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow6.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 7: {
-					textFieldRow7.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow7.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 8: {
-					textFieldRow8.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow8.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 9: {
-					textFieldRow9.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow9.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 10: {
-					textFieldRow10.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow10.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 11: {
-					textFieldRow11.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow11.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 				case 12: {
-					textFieldRow12.text = [NSString stringWithFormat:@"%d", res];
+                    textFieldRow12.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
 					
@@ -764,73 +742,78 @@
 		}		
 	}
 	
-
-	
-	
-	/*
-	textFieldRow1.text = @"99";textFieldRow2.text = @"99";textFieldRow3.text = @"99";textFieldRow4.text = @"99";
-	textFieldRow5.text = @"99";textFieldRow6.text = @"99";textFieldRow7.text = @"99";textFieldRow8.text = @"99";
-	textFieldRow9.text = @"99";textFieldRow10.text = @"99";textFieldRow11.text = @"99";textFieldRow12.text = @"99";
-	*/
-
-	
 }
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 
-- (void)doneButtonPressed:(UITextField*)sender{
+- (void)doneButtonPressed:(UITextField*)sender
+{
 	
-	if ([textFieldRow1 isEditing]) {
+	if ([textFieldRow1 isEditing])
+    {
 		[textFieldRow1 resignFirstResponder];
 		
-	} else if ([textFieldRow2 isEditing]) {
+	}
+    else if ([textFieldRow2 isEditing])
+    {
 		[textFieldRow2 resignFirstResponder];
-		
-	} else if ([textFieldRow3 isEditing]) {
+	}
+    else if ([textFieldRow3 isEditing])
+    {
 		[textFieldRow3 resignFirstResponder];
-		
-	} else if ([textFieldRow4 isEditing]) {
+	}
+    else if ([textFieldRow4 isEditing])
+    {
 		[textFieldRow4 resignFirstResponder];
-		
-	} else if ([textFieldRow5 isEditing]) {
+	}
+    else if ([textFieldRow5 isEditing])
+    {
 		[textFieldRow5 resignFirstResponder];
-		
-	} else if ([textFieldRow6 isEditing]) {
+	}
+    else if ([textFieldRow6 isEditing])
+    {
 		[textFieldRow6 resignFirstResponder];
-		
-	} else if ([textFieldRow7 isEditing]) {
+	}
+    else if ([textFieldRow7 isEditing])
+    {
 		[textFieldRow7 resignFirstResponder];
-		
-	} else if ([textFieldRow8 isEditing]) {
+	}
+    else if ([textFieldRow8 isEditing])
+    {
 		[textFieldRow8 resignFirstResponder];
-		
-	} else if ([textFieldRow9 isEditing]) {
+	}
+    else if ([textFieldRow9 isEditing])
+    {
 		[textFieldRow9 resignFirstResponder];
-		
-	} else if ([textFieldRow10 isEditing]) {
+	}
+    else if ([textFieldRow10 isEditing])
+    {
 		[textFieldRow10 resignFirstResponder];
-		
-	} else if ([textFieldRow11 isEditing]) {
+	}
+    else if ([textFieldRow11 isEditing])
+    {
 		[textFieldRow11 resignFirstResponder];
-		
-	} else if ([textFieldRow12 isEditing]) {
+	}
+    else if ([textFieldRow12 isEditing])
+    {
 		[textFieldRow12 resignFirstResponder];
 	}
 
 }
 
 // NumberKeypadModControllerDelegate method
-- (void) donePressed:(id)sender {
-	
+- (void) donePressed:(id)sender
+{
 	lblKeyboard.hidden = YES;
 	UIView* firstResponder = [self.view findFirstResponder];
 	[firstResponder resignFirstResponder];
 	
 	
-	if ( mRow < 12 ) {
-		int iTagLabel = (100 + (mRow * 10)) + 4;
+	if ( mRow < 12 )
+    {
+		NSInteger iTagLabel = (100 + (mRow * 10)) + 4;
 		UITextField *txtLastVisible = (UITextField *)[placeholderView viewWithTag:iTagLabel];	
 		//DLog(@"PosE");
-		if (![txtLastVisible.text isEqualToString:@""]) {
+		if (![txtLastVisible.text isEqualToString:@""])
+        {
 			//DLog(@"PosE1");
 			//mRow++;
 			mRow = mRow + 1;
@@ -838,7 +821,9 @@
 			[self SayShowRow:mRow];
 		}
 		//DLog(@"PosF");
-	} else {
+	}
+    else
+    {
 		rrv.hidden = NO;
 		
 		[UIView beginAnimations:@"rrvFadeIn" context:(__bridge void *)(rrv)];
@@ -847,55 +832,27 @@
 		[UIView setAnimationDelegate:self];
 		[UIView commitAnimations];
 		
-		finishShowingPathNavHighlighter = NO;	
-		
+		finishShowingPathNavHighlighter = NO;
 	}
 	
 	
 }
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewDidDisappear:(BOOL)animated
+{
     [super viewDidDisappear:animated];
     
     strTableSelected = @"";
-	
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 -(void)touchesBegan :(NSSet *)touches withEvent:(UIEvent *)event
 {
-	
-	//You might not need this method now since you added the done button 
-	//to the numeric pad and handle text fields differently
-	
-	/*
-	[textFieldRow1 resignFirstResponder];
-	[textFieldRow2 resignFirstResponder];	
-	[textFieldRow3 resignFirstResponder];
-	[textFieldRow4 resignFirstResponder];	
-	[textFieldRow5 resignFirstResponder];
-	[textFieldRow6 resignFirstResponder];	
-	[textFieldRow7 resignFirstResponder];
-	[textFieldRow8 resignFirstResponder];	
-	[textFieldRow9 resignFirstResponder];
-	[textFieldRow10 resignFirstResponder];	
-	[textFieldRow11 resignFirstResponder];
-	[textFieldRow12 resignFirstResponder];	
-	*/
-	
 	UIView* firstResponder = [self.view findFirstResponder];
 	[firstResponder resignFirstResponder];
 	[numberKeyPadModController resignedResponderWithView:firstResponder];
@@ -907,11 +864,16 @@
 
 - (void)animationDidStop:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context
 {
-	if (finishShowingPathNavHighlighter) {
+	if (finishShowingPathNavHighlighter)
+    {
 		rrv.hidden = YES;
-	} else {
-		if (context) {
-			if ([animationID isEqualToString:@"rrvFadeIn"]) {
+	}
+    else
+    {
+		if (context)
+        {
+			if ([animationID isEqualToString:@"rrvFadeIn"])
+            {
 				[UIView beginAnimations:@"rrvFadeOut" context:context];
 				[UIView setAnimationDuration:1];
 				[(__bridge RoundRectView*)context setAlpha:0];
@@ -919,7 +881,8 @@
 				[UIView commitAnimations];
 				return;
 			}
-			if ([animationID isEqualToString:@"rrvFadeOut"]) {
+			if ([animationID isEqualToString:@"rrvFadeOut"])
+            {
 				[UIView beginAnimations:@"rrvFadeIn" context:context];
 				[UIView setAnimationDuration:1];
 				[(__bridge RoundRectView*)context setAlpha:1];
@@ -938,11 +901,14 @@
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     res = !([newString length] > 3);
 		
-	//lblKeyboard.text = [NSString stringWithFormat:@"%@%@", strKeyboardLabelBase, string];
-	if (res == TRUE) {
-		if ([newString isEqualToString:@""]) {
+	if (res == TRUE)
+    {
+		if ([newString isEqualToString:@""])
+        {
 			lblKeyboard.text = [NSString stringWithFormat:@"%@%@", strKeyboardLabelBase, @"?"];
-		} else {
+		}
+        else
+        {
 			lblKeyboard.text = [NSString stringWithFormat:@"%@%@", strKeyboardLabelBase, newString];
 		}
 	}
@@ -952,14 +918,11 @@
 
 -(IBAction)textFieldDoneEditing:(id)sender
 {
-	//You might not need this method now since you added the done button 
-	//to the numeric pad and handle text fields differently
 	[sender resignFirstResponder];
-	
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-	
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
 	UILabel *lblRow = (UILabel *)[placeholderView viewWithTag:(textField.tag-4)];
 	
 	strKeyboardLabelBase = [[NSMutableString alloc] initWithFormat:@"%@ x %@ = ", lblRow.text, strTableSelected];
@@ -970,7 +933,8 @@
 	return YES;
 }
 
-- (void) textFieldDidBeginEditing:(UITextField *)textField {
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
 	lblKeyboard.hidden = NO; 
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -982,7 +946,8 @@
 	[numberKeyPadModController textFieldDidBeginEditing:textField];
 }
 
-- (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
+- (BOOL) textFieldShouldEndEditing:(UITextField *)textField
+{
 	lblKeyboard.hidden = YES; 
 	[numberKeyPadModController textFieldShouldEndEditing:textField];
 	return YES;
@@ -991,32 +956,37 @@
 
 #pragma mark Table view methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
 
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 1;
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,300,45)];
-	if ([strTableSelected  isEqual: @""]) {
+	if ([strTableSelected  isEqual: @""])
+    {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];
-    } else {
+    }
+    else
+    {
 		[btnBackground setTitle:[NSString stringWithFormat:@"   The %@ Times Table", strTableSelected] forState:UIControlStateNormal];
 	}		
 	
@@ -1039,13 +1009,11 @@
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
     return cell;
-
-		
 }
 
 // Override to support row selection in the table view.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	//DONT THINK THIS IS CALLED ANYMORE
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -1066,23 +1034,24 @@
 		alert.tag = AlertTableButton;
 		[alert show];	
         
-	} else {	
+	}
+    else
+    {
 		finishShowingPathNavHighlighter = YES;
 		rrv.hidden = YES;
 		
 		TableSelectViewController *nextController = [TableSelectViewController alloc];
 		nextController.title = @"Choose times table";	
-		SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		[delegate.navigationController pushViewController:nextController animated:YES];	
+		//SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+		[self.navigationController pushViewController:nextController animated:YES];
 	}
 	
 }
 #pragma mark -
 #pragma mark Button Event management
 
--(IBAction)btnDiscolsurePressed:(id)sender {
-	
-	
+-(IBAction)btnDiscolsurePressed:(id)sender
+{
 	NSString *strAllValues = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@", textFieldRow1.text, 
 							  textFieldRow2.text, textFieldRow3.text, textFieldRow4.text, textFieldRow5.text, 
 							  textFieldRow6.text, textFieldRow7.text, textFieldRow8.text, textFieldRow9.text, 
@@ -1096,8 +1065,9 @@
 											  otherButtonTitles:@"Yes",nil];
 		alert.tag = AlertTableButton;
 		[alert show];	
-	} else {	
-		
+	}
+    else
+    {
 		finishShowingPathNavHighlighter = YES;
 		rrv.hidden = YES;
 		
@@ -1115,8 +1085,8 @@
 		
 		TableSelectViewController *nextController = [TableSelectViewController alloc];
 		nextController.title = @"Choose times table";	
-		SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		[delegate.navigationController pushViewController:nextController animated:YES];
+		//SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+		[self.navigationController pushViewController:nextController animated:YES];
 	}
 }
 

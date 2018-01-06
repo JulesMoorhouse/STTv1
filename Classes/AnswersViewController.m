@@ -9,7 +9,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AnswersViewController.h"
-#import "SpeakTimesTableAppDelegate.h"
+//#import "SpeakTimesTableAppDelegate.h"
 #import "highScores.h"
 #import "AppBasic.h"
 //#import "GANTracker.h"
@@ -86,11 +86,11 @@
 	[AppBasic setButton:btnSave str:@"blue"];
 	
 	//NSString *msg = nil;
-    int iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
+    NSInteger iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
     
 	if (iTableScore != 12) {
 		//msg = sCorrections;
-		lblScore.text = [NSString  stringWithFormat:@"%i", iTableScore];
+        lblScore.text = [NSString  stringWithFormat:@"%li", (long)iTableScore];
 	} else {
 		lblResultStatus.text = @"Well done !!";	
 		//lblResultStatus.font = [UIFont systemFontOfSize:16];
@@ -120,9 +120,6 @@
 		[resLoaderRef.ApplauseSoundPlayer stop];
 		resLoaderRef.ApplauseSoundPlayer.currentTime = 0;
 	}
-	
-    //SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    //[delegate.navigationController popViewControllerAnimated:YES];	
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -169,9 +166,9 @@
 		NSDateFormatter *dateForm = [[NSDateFormatter alloc] init];
 		[dateForm setDateFormat:@"g"];
 		NSString *dateString = [dateForm stringFromDate:[NSDate date]];
-		int iJulian = [dateString intValue];
+		NSInteger iJulian = [dateString intValue];
 		
-        int iRankScore = [Prefs returnSettingInt:pfRankScore defaultValue:1];
+        NSInteger iRankScore = [Prefs returnSettingInt:pfRankScore defaultValue:1];
         
 		highScores *MyHigh = [[highScores alloc] init];
 		[MyHigh load];

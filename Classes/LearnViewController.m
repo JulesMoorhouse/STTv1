@@ -22,50 +22,51 @@
 @synthesize tableSelectViewController;
 @synthesize theAudio;
 
--(void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear: animated];
     
 	[tblTableSelect reloadData];
 	[self hideLabels];
 	
-	if ([strTableSelected  isEqual: @""]) {
+	if ([strTableSelected  isEqual: @""])
+    {
 		//
-	} else {
-		//[tblTableSelect reloadData];
-		//[self hideLabels];
+	}
+    else
+    {
 		sTimerStatusGuid = [AppBasic GUIDString];
 		[self ShowTimesTable];
 	}
-	
 }
+
 - (void)ShowTimesTable
 {
-	
 	[self hideLabels];
 
 	sTimerStatusGuid = [AppBasic GUIDString];
 
 	//DLog(@"Table change Run=%@", sTimerStatusGuid);
 		
-	int row =1;
+	NSInteger row =1;
 	float accumSecs = 2;
 	//NSTimer *timer;
 	
 	NSString *rowAsString;
 	
-	for (row = 1; row < 13; row++) {
-		
+	for (row = 1; row < 13; row++)
+    {
 		//you probably don`t need retain here now
-		rowAsString = [NSString stringWithFormat: @"%d", row];
+        rowAsString = [NSString stringWithFormat: @"%ld", (long)row];
 		
-		int iTagRow = 100 + (row * 10);
+		NSInteger iTagRow = 100 + (row * 10);
 		
 		//DLog(@"row=%@ tag=%@", rowAsString, sTagLabel);
 		
 		// ########## COLUMN 1 OF SUM - START ##########
 		// ##										  ##
 		NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] init];
-		NSString *sTagLabel1 = [NSString  stringWithFormat:@"%i", iTagRow];
+        NSString *sTagLabel1 = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 		NSString *sWav1 = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 		NSString *sWav1Ac = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 		
@@ -89,7 +90,7 @@
 		// ##										  ##	
 		NSMutableDictionary *dictTimes = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
-		NSString *sTagLabelTimes = [NSString  stringWithFormat:@"%i", iTagRow];
+        NSString *sTagLabelTimes = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 		NSString *sWavTimes = [NSString stringWithFormat:@"%@%@", sVoice, @"-times"];
 		NSString *sWavTimesAc = [NSString stringWithFormat:@"%@%@", sVoice, @"-times"];
 		
@@ -110,7 +111,7 @@
 		// ##										  ##
 		NSMutableDictionary *dictSum = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
-		NSString *sTagLabelSum = [NSString  stringWithFormat:@"%i", iTagRow];
+        NSString *sTagLabelSum = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 		NSString *sWavSum = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", strTableSelected];
 		NSString *sWavSumAc = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", strTableSelected];
 		[dictSum setValue:sWavSum				forKey:@"sWav"];	
@@ -130,7 +131,7 @@
 		// ##										  ##
 		NSMutableDictionary *dictEquals = [[NSMutableDictionary alloc] init];
 		iTagRow ++;
-		NSString *sTagLabelEquals = [NSString  stringWithFormat:@"%i", iTagRow];
+        NSString *sTagLabelEquals = [NSString  stringWithFormat:@"%li", (long)iTagRow];
 		NSString *sWavEquals = [NSString stringWithFormat:@"%@%@", sVoice, @"-equals"];
 		NSString *sWavEqualsAc = [NSString stringWithFormat:@"%@%@", sVoice, @"-equals"];
 		[dictEquals setValue:sWavEquals			forKey:@"sWav"];	
@@ -150,11 +151,11 @@
 		// ########## COLUMN RESULT - START   ##########
 		// ##										  ##
 		iTagRow ++;
-		int iTable = [strTableSelected intValue];
-		int iSum = row * iTable;
+		NSInteger iTable = [strTableSelected intValue];
+		NSInteger iSum = row * iTable;
 		// need to convert number into multi files
-		NSString *sTagLabelResult = [NSString stringWithFormat:@"%i", iTagRow];
-		NSString *sSum = [NSString stringWithFormat:@"%d", iSum];
+        NSString *sTagLabelResult = [NSString stringWithFormat:@"%li", (long)iTagRow];
+        NSString *sSum = [NSString stringWithFormat:@"%ld", (long)iSum];
 	
 		NSMutableArray *arrFiles = [[NSMutableArray alloc] init];  
 
@@ -196,7 +197,7 @@
 	//NSMutableDictionary *dict = [theTimer userInfo];
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[theTimer userInfo]];
     
-	int iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
+	NSInteger iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
 	NSString *sLabelValue = [dict valueForKey:@"sLabelValue"];
 	NSString *sGUIDCheck = [dict valueForKey:@"sGUIDCheck"];
 	
@@ -234,10 +235,10 @@
 
 - (void) hideLabels
 {
-	int row =1;
-	int col = 1;
+	NSInteger row =1;
+	NSInteger col = 1;
 	for (row = 1; row < 13; row++) {
-		int iTagRow = 100 + (row * 10);
+		NSInteger iTagRow = 100 + (row * 10);
 		for (col = 0; col < 6; col++) {	
 			UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
 			lbl.hidden = YES;		
@@ -300,9 +301,12 @@
     }
     
 	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,300,45)];
-	if ([strTableSelected  isEqual: @""]) {
+	if ([strTableSelected  isEqual: @""])
+    {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];
-    } else {
+    }
+    else
+    {
 		[btnBackground setTitle:[NSString stringWithFormat:@"   The %@ Times Table", strTableSelected] forState:UIControlStateNormal];
 	}		
 	
@@ -329,8 +333,8 @@
 
 
 // Override to support row selection in the table view.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
     // Navigation logic may go here -- for example, create and push another view controller.
@@ -338,20 +342,17 @@
 	
 	TableSelectViewController *nextController = [TableSelectViewController alloc];
 	nextController.title = @"Choose times table";	
-	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-	[delegate.navigationController pushViewController:nextController animated:YES];	
-    
+	[self.navigationController pushViewController:nextController animated:YES];
 }
 
 #pragma mark -
 #pragma mark Button Event management
 
--(IBAction)btnDiscolsurePressed:(id)sender {
+-(IBAction)btnDiscolsurePressed:(id)sender
+{
 	TableSelectViewController *nextController = [TableSelectViewController alloc];
 	nextController.title = @"Choose times table";	
-	SpeakTimesTableAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-	[delegate.navigationController pushViewController:nextController animated:YES];
-    
+	[self.navigationController pushViewController:nextController animated:YES];
 }
 
 @end

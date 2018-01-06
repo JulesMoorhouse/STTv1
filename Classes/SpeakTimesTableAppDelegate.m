@@ -46,8 +46,11 @@ NSString *sTimerStatusGuid = @"";
 	RootViewController* rootViewController = (RootViewController*)[navigationController topViewController];
 	[rootViewController setLoader:resLoader];
 	
+    UINavigationController *navController1 = [[UINavigationController alloc]
+                                              initWithRootViewController:rootViewController];
+    
 	//[window addSubview:[navigationController view]];
-    [self.window setRootViewController:rootViewController];
+    [self.window setRootViewController:navController1];
 
     [window makeKeyAndVisible];
 	

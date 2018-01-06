@@ -13,5 +13,5 @@
 
 }
 + (float) getTrackLength:(NSString *)str;
-+(void)GetSoundForNumber:(int)iSum sArrFiles:(NSMutableArray*)sArrFiles;
++(void)GetSoundForNumber:(NSInteger)iSum sArrFiles:(NSMutableArray*)sArrFiles;
 @end

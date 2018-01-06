@@ -22,14 +22,14 @@
     }
 }
 
-+ (void)storeSettingInt:(NSString *)setting Value:(int)value {
++ (void)storeSettingInt:(NSString *)setting Value:(NSInteger)value {
     
     NSUserDefaults *myDefaults = [NSUserDefaults standardUserDefaults];
     
     NSInteger current = [myDefaults integerForKey:setting];
     
     if (current != value) {
-        DLog(@"Prefs.storeSettingInt  setting=%@ value=%i", setting, value);
+        DLog(@"Prefs.storeSettingInt  setting=%@ value=%li", setting, (long)value);
         [myDefaults setInteger:value forKey:setting];
         [myDefaults synchronize];
     }
@@ -48,9 +48,9 @@
     return ret;
 }
 
-+ (int)returnSettingInt:(NSString *)setting defaultValue:(int)def{
++ (NSInteger)returnSettingInt:(NSString *)setting defaultValue:(NSInteger)def{
     
-    int ret = def;
+    NSInteger ret = def;
     NSUserDefaults *myDefaults = [NSUserDefaults standardUserDefaults];
     NSString *sRet = [myDefaults objectForKey:setting];
     
@@ -59,7 +59,7 @@
         ret = [sRet intValue];
     }
     
-    DLog(@"Prefs.retrunSettingInt setting=%@ ret=%i", setting, ret);
+    DLog(@"Prefs.retrunSettingInt setting=%@ ret=%li", setting, (long)ret);
     
     return ret;
 }

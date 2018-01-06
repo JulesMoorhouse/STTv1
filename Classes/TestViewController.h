@@ -42,7 +42,7 @@
 	IBOutlet UITableView *tblTableSelect;	
 	IBOutlet UILabel *lblKeyboard;
 	
-	int mRow;
+	NSInteger mRow;
 	NSString *sTable;
 	NSMutableString *strKeyboardLabelBase;
 	NSMutableString *sCorrections;
@@ -75,7 +75,7 @@
 - (void)buttonNavDone:(id)sender;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;
 - (void) hideLabels;
-- (void) SayShowRow:(int)row;
+- (void) SayShowRow:(NSInteger)row;
 - (void) clearUITextFields;
 
 -(IBAction)textFieldDoneEditing:(id)sender;
