@@ -300,7 +300,9 @@
 	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,300,45)];
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    CGFloat width = screenBounds.size.width;
+	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width,45)];
 	if ([strTableSelected  isEqual: @""])
     {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];

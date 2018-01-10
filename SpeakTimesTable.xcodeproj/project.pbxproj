@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,10 +12,10 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
-		882A4BC920016DBE0024D2D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 882A4BC820016DBE0024D2D6 /* Default-568h@2x.png */; };
+		2F690B1F4BE66E77513855D6 /* libPods-SpeakTimesTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */; };
+		882A4BCC200185CF0024D2D6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */; };
 		9903298111E092C70083E7A4 /* LargeCrowdApplauseE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */; };
 		990329A411E092E40083E7A4 /* male-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298211E092E40083E7A4 /* male-1.mp3 */; };
 		990329A511E092E40083E7A4 /* male-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298311E092E40083E7A4 /* male-2.mp3 */; };
@@ -106,7 +106,6 @@
 		9948AA4F1164ACEB00308C21 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948AA4E1164ACEB00308C21 /* Constants.m */; };
 		995469B31394012000C0727D /* feedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995469B01394012000C0727D /* feedbackViewController.m */; };
 		995469B41394012000C0727D /* feedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995469B21394012000C0727D /* feedbackView.xib */; };
-		995B97E811A40CCB000BC130 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 995B97E711A40CCB000BC130 /* Appirater.m */; };
 		995B97FC11A40E1E000BC130 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995B97FB11A40E1E000BC130 /* CFNetwork.framework */; };
 		995B980211A40E7E000BC130 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995B980111A40E7E000BC130 /* SystemConfiguration.framework */; };
 		995B981211A41755000BC130 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 995B981111A41754000BC130 /* libsqlite3.0.dylib */; };
@@ -123,7 +122,6 @@
 		99AAB36C11A05912006FB09B /* action-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36A11A05912006FB09B /* action-normal.png */; };
 		99AAB36D11A05912006FB09B /* action-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36B11A05912006FB09B /* action-pressed.png */; };
 		99BC855B11BEA0210070EB66 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BC855A11BEA0210070EB66 /* QuartzCore.framework */; };
-		99BC856211BEA0740070EB66 /* NumberKeypadModController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BC856111BEA0740070EB66 /* NumberKeypadModController.m */; };
 		99BD13E911CFA616006C910A /* RoundRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BD13E811CFA616006C910A /* RoundRectView.m */; };
 		99C0F5731189926B0038EB7A /* AnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C0F5711189926B0038EB7A /* AnswersViewController.m */; };
 		99C0F5741189926B0038EB7A /* AnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C0F5721189926B0038EB7A /* AnswersViewController.xib */; };
@@ -151,12 +149,14 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* SpeakTimesTable_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakTimesTable_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = ../RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		882A4BC820016DBE0024D2D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6EF9C131E5CD593D3834EFC5 /* Pods-SpeakTimesTable.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.ad hoc.xcconfig"; sourceTree = "<group>"; };
+		715A042D0AAF304CBA925EAF /* Pods-SpeakTimesTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.debug.xcconfig"; sourceTree = "<group>"; };
+		8346CFCE3DF243FF0D971E15 /* Pods-SpeakTimesTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.release.xcconfig"; sourceTree = "<group>"; };
+		882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SpeakTimesTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SpeakTimesTable-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LargeCrowdApplauseE.mp3; sourceTree = "<group>"; };
 		9903298211E092E40083E7A4 /* male-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "male-1.mp3"; sourceTree = "<group>"; };
@@ -255,8 +255,6 @@
 		995469B01394012000C0727D /* feedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackViewController.m; sourceTree = "<group>"; };
 		995469B11394012000C0727D /* feedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedbackViewController.h; sourceTree = "<group>"; };
 		995469B21394012000C0727D /* feedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = feedbackView.xib; sourceTree = "<group>"; };
-		995B97E611A40CCB000BC130 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		995B97E711A40CCB000BC130 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		995B97FB11A40E1E000BC130 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		995B980111A40E7E000BC130 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		995B981111A41754000BC130 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -277,8 +275,6 @@
 		99AAB36A11A05912006FB09B /* action-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-normal.png"; sourceTree = "<group>"; };
 		99AAB36B11A05912006FB09B /* action-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-pressed.png"; sourceTree = "<group>"; };
 		99BC855A11BEA0210070EB66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		99BC856011BEA0740070EB66 /* NumberKeypadModController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberKeypadModController.h; sourceTree = "<group>"; };
-		99BC856111BEA0740070EB66 /* NumberKeypadModController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberKeypadModController.m; sourceTree = "<group>"; };
 		99BD13E711CFA616006C910A /* RoundRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundRectView.h; sourceTree = "<group>"; };
 		99BD13E811CFA616006C910A /* RoundRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundRectView.m; sourceTree = "<group>"; };
 		99C0F5701189926B0038EB7A /* AnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswersViewController.h; sourceTree = "<group>"; };
@@ -300,6 +296,8 @@
 		99F55F8B11C2EC7E00C7A5D4 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		99F55FB911C3002B00C7A5D4 /* row1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = row1.png; sourceTree = "<group>"; };
 		99F55FBA11C3002B00C7A5D4 /* row2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = row2.png; sourceTree = "<group>"; };
+		B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeakTimesTable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA456AAF7F4C9A5856ACE005 /* Pods-SpeakTimesTable.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +314,7 @@
 				995B980211A40E7E000BC130 /* SystemConfiguration.framework in Frameworks */,
 				995B981211A41755000BC130 /* libsqlite3.0.dylib in Frameworks */,
 				99BC855B11BEA0210070EB66 /* QuartzCore.framework in Frameworks */,
+				2F690B1F4BE66E77513855D6 /* libPods-SpeakTimesTable.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +328,6 @@
 				99C0F5711189926B0038EB7A /* AnswersViewController.m */,
 				99A48EB9117A467F00477BD2 /* AppBasic.h */,
 				99A48EBA117A467F00477BD2 /* AppBasic.m */,
-				995B97E611A40CCB000BC130 /* Appirater.h */,
-				995B97E711A40CCB000BC130 /* Appirater.m */,
 				9948AA4D1164ACEB00308C21 /* Constants.h */,
 				9948AA4E1164ACEB00308C21 /* Constants.m */,
 				995469B11394012000C0727D /* feedbackViewController.h */,
@@ -341,8 +338,6 @@
 				9934A66E11BF945400CDDC41 /* InfoViewController.m */,
 				992507851163624B00148AF8 /* LearnViewController.h */,
 				992507861163624B00148AF8 /* LearnViewController.m */,
-				99BC856011BEA0740070EB66 /* NumberKeypadModController.h */,
-				99BC856111BEA0740070EB66 /* NumberKeypadModController.m */,
 				9936450714B24E1C0080B212 /* Prefs.h */,
 				9936450814B24E1C0080B212 /* Prefs.m */,
 				99E72A1511C3F6140061ABA1 /* Preloader.h */,
@@ -378,13 +373,13 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				882A4BC820016DBE0024D2D6 /* Default-568h@2x.png */,
 				9934A66811BF93D400CDDC41 /* Nibs */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources-iPhone */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				B43A76C82F9872D95D445342 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -444,6 +439,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				99BC855A11BEA0210070EB66 /* QuartzCore.framework */,
+				B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -451,7 +447,6 @@
 		9934A66811BF93D400CDDC41 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				9925078C1163626800148AF8 /* TestView.xib */,
 				992507871163624B00148AF8 /* LearnView.xib */,
@@ -460,6 +455,7 @@
 				99A44236118839B700885977 /* ResultsViewController.xib */,
 				9934A66F11BF945400CDDC41 /* InfoViewController.xib */,
 				995469B21394012000C0727D /* feedbackView.xib */,
+				882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */,
 			);
 			name = Nibs;
 			path = Classes;
@@ -558,6 +554,17 @@
 			name = MaleWavs;
 			sourceTree = "<group>";
 		};
+		B43A76C82F9872D95D445342 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				715A042D0AAF304CBA925EAF /* Pods-SpeakTimesTable.debug.xcconfig */,
+				8346CFCE3DF243FF0D971E15 /* Pods-SpeakTimesTable.release.xcconfig */,
+				DA456AAF7F4C9A5856ACE005 /* Pods-SpeakTimesTable.distribution.xcconfig */,
+				6EF9C131E5CD593D3834EFC5 /* Pods-SpeakTimesTable.ad hoc.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -565,9 +572,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SpeakTimesTable" */;
 			buildPhases = (
+				73C57EDDD744FDB2C74EDE3E /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				9610D12932DFE4C54D82D03C /* [CP] Embed Pods Frameworks */,
+				9B604CCD3C6B2B1A94456585 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -592,7 +602,7 @@
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SpeakTimesTable" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -603,6 +613,7 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -616,7 +627,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				992507891163624B00148AF8 /* LearnView.xib in Resources */,
 				9925078E1163626800148AF8 /* TestView.xib in Resources */,
@@ -648,6 +658,7 @@
 				99F55F9011C2EC7E00C7A5D4 /* table.png in Resources */,
 				99F55F9111C2EC7E00C7A5D4 /* test.png in Resources */,
 				99F55FBB11C3002B00C7A5D4 /* row1.png in Resources */,
+				882A4BCC200185CF0024D2D6 /* Launch Screen.storyboard in Resources */,
 				99F55FBC11C3002B00C7A5D4 /* row2.png in Resources */,
 				99E72A9111C413700061ABA1 /* icon 7.png in Resources */,
 				9903298111E092C70083E7A4 /* LargeCrowdApplauseE.mp3 in Resources */,
@@ -684,7 +695,6 @@
 				990329C211E092E40083E7A4 /* male-table.mp3 in Resources */,
 				990329C311E092E40083E7A4 /* male-the.mp3 in Resources */,
 				990329C411E092E40083E7A4 /* male-thousand.mp3 in Resources */,
-				882A4BC920016DBE0024D2D6 /* Default-568h@2x.png in Resources */,
 				990329C511E092E40083E7A4 /* male-times.mp3 in Resources */,
 				99032B1B11E092FE0083E7A4 /* female-1.mp3 in Resources */,
 				99032B1C11E092FE0083E7A4 /* female-2.mp3 in Resources */,
@@ -726,6 +736,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73C57EDDD744FDB2C74EDE3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpeakTimesTable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9610D12932DFE4C54D82D03C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B604CCD3C6B2B1A94456585 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -744,8 +808,6 @@
 				99A44237118839B700885977 /* ResultsViewController.m in Sources */,
 				99C0F5731189926B0038EB7A /* AnswersViewController.m in Sources */,
 				99D9DD281192EBC0008C0533 /* TableSelectViewController.m in Sources */,
-				995B97E811A40CCB000BC130 /* Appirater.m in Sources */,
-				99BC856211BEA0740070EB66 /* NumberKeypadModController.m in Sources */,
 				9934A67011BF945400CDDC41 /* InfoViewController.m in Sources */,
 				99E72A1711C3F6140061ABA1 /* Preloader.m in Sources */,
 				99BD13E911CFA616006C910A /* RoundRectView.m in Sources */,
@@ -759,6 +821,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 715A042D0AAF304CBA925EAF /* Pods-SpeakTimesTable.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -785,6 +848,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8346CFCE3DF243FF0D971E15 /* Pods-SpeakTimesTable.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -846,6 +910,7 @@
 		};
 		997B0D2911D23A97001F150C /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA456AAF7F4C9A5856ACE005 /* Pods-SpeakTimesTable.distribution.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -908,6 +973,7 @@
 		};
 		99C5EE6C11A54620001425D8 /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EF9C131E5CD593D3834EFC5 /* Pods-SpeakTimesTable.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;

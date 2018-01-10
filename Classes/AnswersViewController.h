@@ -18,7 +18,6 @@
 	IBOutlet UILabel *lblOutOfLabel;
 	IBOutlet UILabel *lblResultStatus;
 	IBOutlet UIButton *btnSave;
-	IBOutlet UILabel *lblKeyboard;
 	Preloader *resLoaderRef;	
 }
 -(IBAction)textFieldDoneEditing:(id)sender;
@@ -30,7 +29,6 @@
 @property (strong, nonatomic) UILabel *lblOutOfLabel;
 @property (strong, nonatomic) UILabel *lblResultStatus;
 @property (strong, nonatomic) UIButton *btnSave;
-@property (nonatomic, strong) UILabel *lblKeyboard;
 @property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 
 @end

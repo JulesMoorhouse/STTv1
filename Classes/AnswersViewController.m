@@ -9,7 +9,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AnswersViewController.h"
-//#import "SpeakTimesTableAppDelegate.h"
+#import "SpeakTimesTableAppDelegate.h"
 #import "highScores.h"
 #import "AppBasic.h"
 //#import "GANTracker.h"
@@ -24,7 +24,6 @@
 @synthesize lblOutOfLabel;
 @synthesize lblResultStatus;
 @synthesize btnSave;
-@synthesize lblKeyboard;
 @synthesize resLoaderRef;
 
 /*
@@ -54,59 +53,24 @@
     [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
     self.navigationItem.leftBarButtonItem = backButton;
-	/*
-	 You may need to use this code if apple reject the lines above
-	 
-	 Suspicious line is:
-	 UIButton* _backButton = [UIButton buttonWithType:101];
-	 It uses button initialization method that is not documented by Apple...
-	 
-	 Button index (101) is not mentioned in Apple's developer documentation. But from the other hand, compiler didn't show any warnings... So it's hard to predict Apple's reaction regarding this button.
-	 
-	 UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
-	 self.navigationItem.leftBarButtonItem = cancelButton;
-	 [cancelButton release];
-	 */
-	
-	
-	CGRect cgRect =[[UIScreen mainScreen] bounds];
-	CGSize cgSize = cgRect.size;
-	CGRect frame = lblKeyboard.frame;
-	frame.origin.x = 0;
-	//frame.origin.y = 180;
-	frame.origin.y = 170;
-	frame.size.width = cgSize.width;
-	//frame.size.height = 21;
-	frame.size.height = 31;
-	lblKeyboard.frame = frame; 
-	lblKeyboard.font = [UIFont systemFontOfSize:20];
-    
+
 	txtNickName.delegate = self;
 	
 	[AppBasic setButton:btnSave str:@"blue"];
 	
-	//NSString *msg = nil;
     NSInteger iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
     
 	if (iTableScore != 12) {
 		//msg = sCorrections;
         lblScore.text = [NSString  stringWithFormat:@"%li", (long)iTableScore];
+        lblOutOfLabel.numberOfLines = 0;
 	} else {
 		lblResultStatus.text = @"Well done !!";	
-		//lblResultStatus.font = [UIFont systemFontOfSize:16];
-		lblOutOf.hidden = YES;
-		//lblOutOfLabel.hidden = YES;
-		lblOutOfLabel.frame = CGRectMake(20,99, 280, 43);
-		lblOutOfLabel.text = @"You've got them all correct!";	
+
+        lblOutOf.hidden = YES;
+		lblOutOfLabel.text = @"You've got them\n all correct!";
 		lblScore.hidden = YES;
-		
-		/*
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"LargeCrowdApplauseE" ofType:@"wav"];
-		AVAudioPlayer* theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL]; 
-		[theAudio play];
-		theAudio.numberOfLoops = 0;
-		[path release];
-		 */
+        lblOutOfLabel.numberOfLines = 2;
 		
 		[resLoaderRef.ApplauseSoundPlayer play];	
 		
@@ -128,18 +92,9 @@
 	if ([txtNickName isEditing]) {
 		[txtNickName resignFirstResponder];
 	} 
-	
-	lblKeyboard.hidden = YES;	
-	
+		
 }	
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 -(IBAction)buttonSavePressed:(id)sender {
 
 	NSString *msg = nil;
@@ -152,17 +107,6 @@
 		[alert show];
 	} else {
 		
-		/*
-		NSError *error;
-		if (![[GANTracker sharedTracker] trackEvent:@"button_click"
-											 action:@"save_answer"
-											  label:[UIDevice currentDevice].uniqueIdentifier
-											  value:-1
-										  withError:&error]) {
-			// Handle error here
-		}
-		 */
-		
 		NSDateFormatter *dateForm = [[NSDateFormatter alloc] init];
 		[dateForm setDateFormat:@"g"];
 		NSString *dateString = [dateForm stringFromDate:[NSDate date]];
@@ -172,38 +116,25 @@
         
 		highScores *MyHigh = [[highScores alloc] init];
 		[MyHigh load];
-		//[MyHigh save:99 name:txtNickName.text tableScore:sTimesTableUsed mark:iRankScore];
         NSString *sTimesTableUsed = [Prefs returnSettingStr:pfTimesTableUsed defaultValue:@""];
 		[MyHigh save:iJulian name:txtNickName.text tableScore:sTimesTableUsed mark:iRankScore];
 		[MyHigh debug];
-		//[[self navigationController] popViewControllerAnimated: YES];
-		[self.navigationController popToRootViewControllerAnimated:YES];
+
+        [self.navigationController popToRootViewControllerAnimated:YES];
 	}
 	
 }
 
-/*
- removed for - Evgeny Kostenko: in other words, for future safety, both would be better (too easy to get lost in notifications)
-- (void)keyboardDidShow:(NSNotification *)note
+- (void)didReceiveMemoryWarning
 {
-	lblKeyboard.hidden = NO;
-	
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 -(void)touchesBegan :(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[txtNickName resignFirstResponder];	
-	
-	lblKeyboard.hidden = YES;
-	
+		
 	[super touchesBegan:touches withEvent:event];
 }
 
@@ -217,9 +148,10 @@
 	
 	if (res == TRUE) {
 		if ([newString isEqualToString:@""]) {
-			lblKeyboard.text = [NSString stringWithFormat:@"Your name :- %@", @"?"];
+			textField.toolbarPlaceholder= [NSString stringWithFormat:@"Your name :- %@", @"?"];
+            
 		} else {
-			lblKeyboard.text = [NSString stringWithFormat:@"Your name :- %@", newString];
+			textField.toolbarPlaceholder = [NSString stringWithFormat:@"Your name :- %@", newString];
 		}
 	}
 	
@@ -230,36 +162,30 @@
 -(IBAction)textFieldDoneEditing:(id)sender
 {
 	[sender resignFirstResponder];
-	lblKeyboard.hidden = YES;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)theTextField {
 	
-	lblKeyboard.text = [NSString stringWithFormat:@"Your name :- %@", @"?"];
+	theTextField.toolbarPlaceholder = [NSString stringWithFormat:@"Your name :- %@", @"?"];
 	
 	return YES;
 }
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
-	lblKeyboard.hidden = NO; 
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	[animation setFromValue:[NSValue valueWithCGPoint:CGPointMake(160, 480)]];
 	[animation setToValue:[NSValue valueWithCGPoint:CGPointMake(160, 185)]];
 	[animation setDuration:0.268];
-	[[lblKeyboard layer] addAnimation:animation forKey:@"positionAnimation"];
 }
 
 - (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
-	lblKeyboard.hidden = YES; 
 	return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
 	[textField resignFirstResponder];
-	lblKeyboard.hidden = YES;
 	return YES;
 }
-
 
 @end

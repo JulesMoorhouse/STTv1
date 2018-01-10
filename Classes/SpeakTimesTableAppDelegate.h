@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 //#define kInfoSize 721
 
@@ -24,8 +26,9 @@ extern NSString *strTableSelected;
 
 extern NSString *sTimerStatusGuid;
 
-@property (nonatomic, strong) IBOutlet UIWindow *window;
-@property (nonatomic, strong) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (strong, nonatomic) RootViewController *viewController;
 @property (nonatomic, strong) Preloader *resLoader;
 
 @end

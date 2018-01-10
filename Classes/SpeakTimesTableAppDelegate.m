@@ -9,7 +9,6 @@
 #import "SpeakTimesTableAppDelegate.h"
 #import "RootViewController.h"
 #import "Constants.h"
-#import	"RootViewController.h"
 #import "Preloader.h"
 #import "AppBasic.h"
 
@@ -28,6 +27,14 @@ NSString *sTimerStatusGuid = @"";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     // Override point for customization after app launch    
 	
+    IQKeyboardManager.sharedManager.enable = YES;
+    IQKeyboardManager.sharedManager.previousNextDisplayMode = IQPreviousNextDisplayModeAlwaysShow;
+    IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = YES;
+    IQKeyboardManager.sharedManager.placeholderFont = [UIFont systemFontOfSize:16];
+    IQKeyboardManager.sharedManager.shouldShowToolbarPlaceholder = YES;
+
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    
 	strTableSelected = @"";
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -43,17 +50,22 @@ NSString *sTimerStatusGuid = @"";
 	
 	// the actual loading (and time consuming) happens here:
 	[resLoader load];
-	RootViewController* rootViewController = (RootViewController*)[navigationController topViewController];
-	[rootViewController setLoader:resLoader];
+    self.viewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+	[self.viewController setLoader:resLoader];
 	
-    UINavigationController *navController1 = [[UINavigationController alloc]
-                                              initWithRootViewController:rootViewController];
-    
-	//[window addSubview:[navigationController view]];
-    [self.window setRootViewController:navController1];
+    //[self.viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
 
-    [window makeKeyAndVisible];
-	
+    [self.viewController.navigationItem setTitle:@"Speaking Times Tables"];
+
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: self.viewController];
+    
+    navController.navigationBar.translucent = NO;
+
+    self.window.rootViewController = navController;
+
+    [self.window makeKeyAndVisible];
+
 	return YES;
 }
 

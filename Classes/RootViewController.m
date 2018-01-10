@@ -32,6 +32,8 @@
 {
 	[super viewDidLoad];
 	
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
 	[AppBasic setButton:btnLearn str:@"red"];
 	[AppBasic setButton:btnTest str:@"blue"];
 	[AppBasic setButton:btnHighScores str:@"green"];
@@ -39,10 +41,13 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSInteger theSelectedIndex = [prefs integerForKey:@"VoiceSegIdx"];
 	segVoiceChoice.selectedSegmentIndex = theSelectedIndex;
-	if (theSelectedIndex == 0) {
+	if (theSelectedIndex == 0)
+    {
 		//Male
 		sVoice = @"male";
-	}else if (theSelectedIndex == 1) {
+	}
+    else if (theSelectedIndex == 1)
+    {
 		//Female
 		sVoice = @"female";
 	}
@@ -82,6 +87,7 @@
 	[prefs synchronize];
 	
 }
+
 - (IBAction)switchToLearnView:(id)sender
 {
 	LearnViewController *nextController = [LearnViewController alloc];
