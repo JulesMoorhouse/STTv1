@@ -69,6 +69,11 @@
 
     self.view.backgroundColor = [Constants standardBackgound];
 
+    NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
+                                                          owner:nil
+                                                        options:nil];
+    [self.panel addSubview: arrayOfViews[0]];
+    
 	[AppBasic setButton:btn1 str:@"red"];
 	[AppBasic setButton:btn2 str:@"blue"];
 	[AppBasic setButton:btn3 str:@"green"];
@@ -108,7 +113,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-
-
+-(IBAction)STT2PanelViewTap:(id)sender
+{
+    [AppBasic STTV2Tap];
+}
 
 @end

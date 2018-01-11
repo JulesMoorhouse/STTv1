@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <CMPopTipView/CMPopTipView.h>
 #import "Constants.h"
+#import "STT2PanelView.h"
 
 #define AlertNavBackButton 1
 #define AlertTableButton 2
@@ -64,6 +65,9 @@
 @property (nonatomic, strong) UIView *placeholderView;
 @property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 @property (nonatomic, strong) AVAudioPlayer *theAudio;
+
+@property (strong, nonatomic) IBOutlet STT2PanelView *panel;
+-(IBAction)STT2PanelViewTap:(id)sender;
 
 - (void)buttonNavDone:(id)sender;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "STT2PanelView.h"
 
 @class LearnViewController;
 @class TestViewController;
@@ -38,6 +39,9 @@
 @property (strong, nonatomic) UIButton *btnHighScores;
 
 @property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
+
+@property (strong, nonatomic) IBOutlet STT2PanelView *panel;
+-(IBAction)STT2PanelViewTap:(id)sender;
 
 -(IBAction)switchToLearnView:(id)sender;
 -(IBAction)switchToTestView:(id)sender;

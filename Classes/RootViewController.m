@@ -26,6 +26,7 @@
 @synthesize btnHighScores;
 @synthesize resLoaderRef;
 @synthesize segVoiceChoice;
+@synthesize panel;
 
 -(void)viewDidLoad
 {
@@ -34,7 +35,12 @@
     self.view.backgroundColor = [Constants standardBackgound];
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    
+    NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
+                                                         owner:nil
+                                                       options:nil];
+    [self.panel addSubview: arrayOfViews[0]];
+    
 	[AppBasic setButton:btnLearn str:@"red"];
 	[AppBasic setButton:btnTest str:@"blue"];
 	[AppBasic setButton:btnHighScores str:@"green"];
@@ -123,6 +129,10 @@
 {
     [super didReceiveMemoryWarning];
 	
+}
+-(IBAction)STT2PanelViewTap:(id)sender
+{
+    [AppBasic STTV2Tap];
 }
 
 @end

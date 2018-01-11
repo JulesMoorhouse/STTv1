@@ -249,6 +249,11 @@
 
     self.view.backgroundColor = [Constants standardBackgound];
 
+    NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
+                                                          owner:nil
+                                                        options:nil];
+    [self.panel addSubview: arrayOfViews[0]];
+    
 	strTableSelected = @"";
 	
 	tblTableSelect.backgroundColor = [UIColor clearColor];
@@ -358,4 +363,8 @@
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 
+-(IBAction)STT2PanelViewTap:(id)sender
+{
+    [AppBasic STTV2Tap];
+}
 @end

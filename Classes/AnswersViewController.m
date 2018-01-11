@@ -6,9 +6,9 @@
 //  Copyright 2010 Mindwarp Consultancy Ltd. All rights reserved.
 //
 
+#import "AnswersViewController.h"
 #import <AVFoundation/AVAudioPlayer.h>
 #import <QuartzCore/QuartzCore.h>
-#import "AnswersViewController.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "highScores.h"
 #import "AppBasic.h"
@@ -42,6 +42,11 @@
 {
 
     self.view.backgroundColor = [Constants standardBackgound];
+    
+    NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
+                                                          owner:nil
+                                                        options:nil];
+    [self.panel addSubview: arrayOfViews[0]];
     
 	// removed for - Evgeny Kostenko: in other words, for future safety, both would be better (too easy to get lost in notifications)
 	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -105,9 +110,21 @@
 	if ([txtNickName.text isEqualToString:@""]) {
 		msg = @"You haven't entered your name!";
 		
-		UIAlertView *alert = [[UIAlertView alloc]
-							  initWithTitle:@"Saving score" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
+
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Saving score"
+                                     message: msg
+                                     preferredStyle: UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            
+            //do something when click button
+        }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+
+        
 	} else {
 		
 		NSDateFormatter *dateForm = [[NSDateFormatter alloc] init];
@@ -189,6 +206,11 @@
 	
 	[textField resignFirstResponder];
 	return YES;
+}
+
+-(IBAction)STT2PanelViewTap:(id)sender
+{
+    [AppBasic STTV2Tap];
 }
 
 @end

@@ -18,4 +18,6 @@
 //+(UIImage*)setButtonImageNormal;
 //+(UIImage*)setButtonImagePressed;
 +(void)setButton:(UIButton *)button str:(NSString *)str;
++(void)STTV2Tap;
+
 @end

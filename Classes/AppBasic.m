@@ -8,7 +8,6 @@
 
 #import "AppBasic.h"
 
-
 @implementation AppBasic
 +(NSString*)GUIDString {
     /*
@@ -51,6 +50,11 @@
 	UIColor *colorDarkYellow = RGB(210,212,0);
 	[button setTitleColor:colorDarkYellow forState:UIControlStateHighlighted];
 	[button setTitleShadowColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+}
+
++(void)STTV2Tap
+{
+    NSLog(@"STTV2 panel tapped");
 }
 
 @end

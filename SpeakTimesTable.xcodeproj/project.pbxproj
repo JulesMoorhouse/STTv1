@@ -16,6 +16,8 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		2F690B1F4BE66E77513855D6 /* libPods-SpeakTimesTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */; };
 		882A4BCC200185CF0024D2D6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */; };
+		8839B2722007EDB800DA3FBC /* STT2PanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8839B2712007EDB800DA3FBC /* STT2PanelView.m */; };
+		8839B2742007EDD600DA3FBC /* STT2PanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8839B2732007EDD600DA3FBC /* STT2PanelView.xib */; };
 		9903298111E092C70083E7A4 /* LargeCrowdApplauseE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */; };
 		990329A411E092E40083E7A4 /* male-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298211E092E40083E7A4 /* male-1.mp3 */; };
 		990329A511E092E40083E7A4 /* male-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298311E092E40083E7A4 /* male-2.mp3 */; };
@@ -157,6 +159,9 @@
 		715A042D0AAF304CBA925EAF /* Pods-SpeakTimesTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.debug.xcconfig"; sourceTree = "<group>"; };
 		8346CFCE3DF243FF0D971E15 /* Pods-SpeakTimesTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.release.xcconfig"; sourceTree = "<group>"; };
 		882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8839B2702007EDB800DA3FBC /* STT2PanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STT2PanelView.h; sourceTree = "<group>"; };
+		8839B2712007EDB800DA3FBC /* STT2PanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STT2PanelView.m; sourceTree = "<group>"; };
+		8839B2732007EDD600DA3FBC /* STT2PanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = STT2PanelView.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SpeakTimesTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SpeakTimesTable-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LargeCrowdApplauseE.mp3; sourceTree = "<group>"; };
 		9903298211E092E40083E7A4 /* male-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "male-1.mp3"; sourceTree = "<group>"; };
@@ -358,6 +363,8 @@
 				99D9DD261192EBC0008C0533 /* TableSelectViewController.m */,
 				9925078A1163626800148AF8 /* TestViewController.h */,
 				9925078B1163626800148AF8 /* TestViewController.m */,
+				8839B2702007EDB800DA3FBC /* STT2PanelView.h */,
+				8839B2712007EDB800DA3FBC /* STT2PanelView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -456,6 +463,7 @@
 				9934A66F11BF945400CDDC41 /* InfoViewController.xib */,
 				995469B21394012000C0727D /* feedbackView.xib */,
 				882A4BCB200185CF0024D2D6 /* Launch Screen.storyboard */,
+				8839B2732007EDD600DA3FBC /* STT2PanelView.xib */,
 			);
 			name = Nibs;
 			path = Classes;
@@ -698,6 +706,7 @@
 				990329C511E092E40083E7A4 /* male-times.mp3 in Resources */,
 				99032B1B11E092FE0083E7A4 /* female-1.mp3 in Resources */,
 				99032B1C11E092FE0083E7A4 /* female-2.mp3 in Resources */,
+				8839B2742007EDD600DA3FBC /* STT2PanelView.xib in Resources */,
 				99032B1D11E092FE0083E7A4 /* female-3.mp3 in Resources */,
 				99032B1E11E092FE0083E7A4 /* female-4.mp3 in Resources */,
 				99032B1F11E092FE0083E7A4 /* female-5.mp3 in Resources */,
@@ -798,6 +807,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* SpeakTimesTableAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				8839B2722007EDB800DA3FBC /* STT2PanelView.m in Sources */,
 				992507881163624B00148AF8 /* LearnViewController.m in Sources */,
 				9925078D1163626800148AF8 /* TestViewController.m in Sources */,
 				9948AA441164AC8D00308C21 /* SoundEffect.m in Sources */,

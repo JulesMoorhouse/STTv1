@@ -300,6 +300,11 @@
 		
     self.view.backgroundColor = [Constants standardBackgound];
 
+    NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
+                                                          owner:nil
+                                                        options:nil];
+    [self.panel addSubview: arrayOfViews[0]];
+    
 	strTableSelected = @"";
 	
 	mRow = 1;
@@ -340,7 +345,7 @@
 	
     
     UIBarButtonItem *doneNavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Finish", @"")
-                                style:UIBarButtonItemStyleBordered  target:self action:@selector(buttonNavDone:)];
+                                style:UIBarButtonItemStylePlain  target:self action:@selector(buttonNavDone:)];
     
 	self.navigationItem.rightBarButtonItem = doneNavButton;
 
@@ -366,12 +371,7 @@
 	
     if (![strAllValues isEqualToString:@""])
     {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" 
-			message:@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)" 
-			delegate:self cancelButtonTitle:@"No" 
-			otherButtonTitles:@"Yes",nil];
-		alert.tag = AlertNavBackButton;
-		[alert show];
+        [self AreYouSure:NO];
 	}
     else
     {
@@ -379,34 +379,57 @@
 	}
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)AreYouSure:(BOOL)fromTableBtn
 {
-	NSInteger tagnum = alertView.tag;
-	if (tagnum == AlertNavBackButton)
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@""
+                                 message:@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    if (fromTableBtn)
     {
-		if (buttonIndex != alertView.cancelButtonIndex)
-        {
-			//user pressed "Yes"
-			UIView* firstResponder = [self.view findFirstResponder];
-			[firstResponder resignFirstResponder];
-	
-            [self.navigationController popViewControllerAnimated:YES];
-		}
-	}
-	
-	if (tagnum == AlertTableButton)
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        //Handle your yes please button action here
+                                        
+                                        UIView* firstResponder = [self.view findFirstResponder];
+                                        [firstResponder resignFirstResponder];
+                                        
+                                        TableSelectViewController *nextController = [TableSelectViewController alloc];
+                                        nextController.title = @"Choose times table";
+                                        [self.navigationController pushViewController:nextController animated:YES];
+                                        
+                                    }];
+        [alert addAction:yesButton];
+    }
+    else
     {
-		if (buttonIndex != alertView.cancelButtonIndex)
-        {
-			//user pressed "Yes"
-			UIView* firstResponder = [self.view findFirstResponder];
-			[firstResponder resignFirstResponder];
-			
-			TableSelectViewController *nextController = [TableSelectViewController alloc];
-			nextController.title = @"Choose times table";	
-			[self.navigationController pushViewController:nextController animated:YES];
-		}
-	}
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        //Handle your yes please button action here
+                                        
+                                        UIView* firstResponder = [self.view findFirstResponder];
+                                        [firstResponder resignFirstResponder];
+                                        
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                        
+                                    }];
+        [alert addAction:yesButton];
+        }
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"No"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle no, thanks button
+                               }];
+    
+    [alert addAction:noButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)buttonNavDone:(id)sender
@@ -470,11 +493,20 @@
     {
 		msg = @"You have not answered all the questions!";
 		
-		UIAlertView *alert = [[UIAlertView alloc]
-							  initWithTitle:@"Results" 
-                              message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-		
+
+        UIAlertController *alert = [UIAlertController
+                                     alertControllerWithTitle:@"Results"
+                                     message: msg
+                                     preferredStyle: UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            
+            //do something when click button
+        }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+
 	}
     else
     {
@@ -796,8 +828,8 @@
 	
 	btnBackground.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	btnBackground.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-	[btnBackground setBackgroundColor:[UIColor clearColor]];
-	
+    [btnBackground setBackgroundColor:[UIColor clearColor]];
+    
 	// Set button enabled to get it's touch effect & also set event receiver method
 	btnBackground.enabled = YES;
 	[btnBackground addTarget:self action:@selector(btnDiscolsurePressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -828,13 +860,8 @@
 	
     if (![strAllValues isEqualToString:@""])
     {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" 
-														message:@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)" 
-													   delegate:self cancelButtonTitle:@"No" 
-											  otherButtonTitles:@"Yes",nil];
-		alert.tag = AlertTableButton;
-		[alert show];	
-        
+        [self AreYouSure: YES];
+
 	}
     else
     {
@@ -854,12 +881,7 @@
 	
     if (![strAllValues isEqualToString:@""])
     {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" 
-														message:@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)" 
-													   delegate:self cancelButtonTitle:@"No" 
-											  otherButtonTitles:@"Yes",nil];
-		alert.tag = AlertTableButton;
-		[alert show];	
+        [self AreYouSure: YES];
 	}
     else
     {
@@ -876,6 +898,11 @@
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView
 {
     // any code
+}
+
+-(IBAction)STT2PanelViewTap:(id)sender
+{
+    [AppBasic STTV2Tap];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
-
+#import "STT2PanelView.h"
 
 @interface TableSelectViewController : UIViewController {
 	IBOutlet UIButton *btn1;
@@ -36,5 +36,9 @@
 @property (nonatomic, strong) UIButton *btn10;
 @property (nonatomic, strong) UIButton *btn11;
 @property (nonatomic, strong) UIButton *btn12;
+
+@property (strong, nonatomic) IBOutlet STT2PanelView *panel;
+-(IBAction)STT2PanelViewTap:(id)sender;
+
 - (IBAction)buttonTablePressed:(id)sender;
 @end

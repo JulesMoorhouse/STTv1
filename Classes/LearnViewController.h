@@ -10,6 +10,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "STT2PanelView.h"
 
 @class TableSelectViewController;
 
@@ -27,6 +28,8 @@
 @property (nonatomic, strong) TableSelectViewController *tableSelectViewController;
 @property (nonatomic, strong) AVAudioPlayer *theAudio;
 
+@property (strong, nonatomic) IBOutlet STT2PanelView *panel;
+-(IBAction)STT2PanelViewTap:(id)sender;
 
 - (void)ShowTimesTable;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;
