@@ -9,16 +9,18 @@
 #import "ResultsViewController.h"
 #import "highScores.h"
 //#import "GANTracker.h"
+#import <UIColor-HexUtils/UIColor+HexUtils.h>
 
 @implementation ResultsViewController
 @synthesize results;
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor yellowColor];
-    
+    self.view.backgroundColor = [Constants standardBackgound];
+
 	highScores *MyResults = [[highScores alloc] init];
 	[MyResults load];
 	[MyResults debug];
@@ -102,10 +104,10 @@
 
 		if (indexPath.row % 2)
         {
-			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"row1.png"]];
-			
+            cell.backgroundColor = [Constants standardBackgound];
+            			
 		} else {
-			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"row2.png"]];
+			cell.backgroundColor = [Constants standardBackgound];
 		}
 	
 		CGRect nameLabelRect = CGRectMake(10, 10, 70, 25);

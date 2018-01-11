@@ -8,7 +8,6 @@
 
 #import "LearnViewController.h"
 #import "SoundEffect.h"
-#import "Constants.h"
 #import "Speaking.h"
 #import "AppBasic.h"
 #import "SpeakTimesTableAppDelegate.h"
@@ -248,6 +247,8 @@
 
 - (void)viewDidLoad {
 
+    self.view.backgroundColor = [Constants standardBackgound];
+
 	strTableSelected = @"";
 	
 	tblTableSelect.backgroundColor = [UIColor clearColor];
@@ -302,7 +303,7 @@
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     CGFloat width = screenBounds.size.width;
-	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width,45)];
+	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
 	if ([strTableSelected  isEqual: @""])
     {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];

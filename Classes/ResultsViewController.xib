@@ -22,7 +22,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jYX-d8-qUi"/>
-            <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="sectionIndexBackgroundColor" red="0.40250426530838013" green="0.73860520124435425" blue="0.71960896253585815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="dataSource" destination="-1" id="6"/>
                 <outlet property="delegate" destination="-1" id="7"/>

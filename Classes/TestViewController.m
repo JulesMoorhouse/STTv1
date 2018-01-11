@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "TestViewController.h"
 #import "SoundEffect.h"
-#import "Constants.h"
 #import "Speaking.h"
 #import "AppBasic.h"
 #import "SpeakTimesTableAppDelegate.h"
@@ -299,6 +298,8 @@
 	
     [super viewDidLoad];
 		
+    self.view.backgroundColor = [Constants standardBackgound];
+
 	strTableSelected = @"";
 	
 	mRow = 1;
@@ -349,6 +350,7 @@
     [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateHighlighted];
     [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
+    
     self.navigationItem.leftBarButtonItem = backButton;
 }
 
@@ -779,7 +781,7 @@
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     CGFloat width = screenBounds.size.width;
-	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width,45)];
+	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
 	if ([strTableSelected  isEqual: @""])
     {
 		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];

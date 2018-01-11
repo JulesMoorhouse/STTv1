@@ -6,6 +6,10 @@
 //  Copyright 2010 Mindwarp Consultancy Ltd. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <UIColor-HexUtils/UIColor+HexUtils.h>
+
+
 //extern BOOL *const isPlaying;
 
 extern NSString *const MY_CONSTANT;
@@ -30,9 +34,11 @@ extern float fTrackLengthFemale[34];
 #   define DLog(...)
 #endif
 
-@interface myConsts : NSObject {
+@interface Constants : NSObject {
 	
 	
 }
+
++(UIColor*)standardBackgound;
 
 @end

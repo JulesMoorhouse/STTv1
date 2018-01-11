@@ -59,7 +59,7 @@ NSString *sTimerStatusGuid = @"";
 
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: self.viewController];
-    
+        
     navController.navigationBar.translucent = NO;
 
     self.window.rootViewController = navController;

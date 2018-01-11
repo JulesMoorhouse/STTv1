@@ -37,8 +37,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="table.png" translatesAutoresizingMaskIntoConstraints="NO" id="28">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="table.png" translatesAutoresizingMaskIntoConstraints="NO" id="28">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                    <color key="backgroundColor" red="0.50385802984237671" green="0.84510481357574463" blue="0.99979168176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <rect key="contentStretch" x="0.0" y="0.10000000000000001" width="1" height="1"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
@@ -214,7 +215,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.70392328500747681" green="0.53128319978713989" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="14" firstAttribute="width" secondItem="4" secondAttribute="width" id="4PJ-HC-BnU"/>
                 <constraint firstItem="6" firstAttribute="leading" secondItem="5" secondAttribute="trailing" constant="25" id="5os-9Y-NA2"/>

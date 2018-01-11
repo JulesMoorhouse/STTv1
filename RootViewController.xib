@@ -29,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
@@ -114,7 +114,7 @@
                     </connections>
                 </segmentedControl>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="0.55387711524963379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="20" firstAttribute="height" secondItem="6" secondAttribute="height" id="03g-hJ-XXQ"/>
                 <constraint firstItem="20" firstAttribute="top" secondItem="6" secondAttribute="top" id="086-oQ-FaR"/>

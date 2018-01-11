@@ -38,7 +38,10 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+
+    self.view.backgroundColor = [Constants standardBackgound];
     
 	// removed for - Evgeny Kostenko: in other words, for future safety, both would be better (too easy to get lost in notifications)
 	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];

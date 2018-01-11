@@ -9,7 +9,6 @@
 #import "TableSelectViewController.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "AppBasic.h"
-#import "Constants.h"
 //#import "GANTracker.h"
 
 @implementation TableSelectViewController
@@ -64,8 +63,12 @@
 */
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-	
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.view.backgroundColor = [Constants standardBackgound];
+
 	[AppBasic setButton:btn1 str:@"red"];
 	[AppBasic setButton:btn2 str:@"blue"];
 	[AppBasic setButton:btn3 str:@"green"];
@@ -82,7 +85,6 @@
 	[AppBasic setButton:btn12 str:@"yellow"];
 	
 	sTimerStatusGuid = [AppBasic GUIDString]; //added to stop sounds playing while the screen is shown
-    [super viewDidLoad];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

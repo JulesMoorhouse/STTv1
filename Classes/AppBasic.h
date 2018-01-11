@@ -13,6 +13,7 @@
 @interface AppBasic : NSObject {
 
 }
+
 +(NSString*)GUIDString;
 //+(UIImage*)setButtonImageNormal;
 //+(UIImage*)setButtonImagePressed;

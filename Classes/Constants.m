@@ -35,6 +35,11 @@ float fTrackLengthFemale[34] = {0.71, 0.77, 0.76, 0.85, 1.07, 1.12, 0.86, 1.18, 
 	0.76, 0.67, 0.99, 0.76, 1.15, 0.88, 0.81, 0.92, 0.94, 0.94, 0.84, 0.72, 0.65, 0.73, 0.71, 0.63, 1.00, 
 	0.89, 0.81, 0.52, 1.12, 0.99};
 
-@implementation myConsts
+@implementation Constants
 
++(UIColor*)standardBackgound
+{
+    return [UIColor colorWithHex: @"#FFFF7F"];
+}
+            
 @end

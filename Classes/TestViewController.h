@@ -10,6 +10,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <UIKit/UIKit.h>
 #import <CMPopTipView/CMPopTipView.h>
+#import "Constants.h"
 
 #define AlertNavBackButton 1
 #define AlertTableButton 2

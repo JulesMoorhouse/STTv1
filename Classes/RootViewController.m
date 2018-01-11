@@ -11,7 +11,6 @@
 #import "TestViewController.h"
 #import "ResultsViewController.h"
 #import "SpeakTimesTableAppDelegate.h"
-#import "Constants.h"
 #import "AppBasic.h"
 #import "highScores.h"
 #import "InfoViewController.h"
@@ -32,6 +31,8 @@
 {
 	[super viewDidLoad];
 	
+    self.view.backgroundColor = [Constants standardBackgound];
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
 	[AppBasic setButton:btnLearn str:@"red"];

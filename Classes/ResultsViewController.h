@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
+
 #define kNameValueTag     1
 #define kDateValueTag    2
 #define kTableUsedTag    3

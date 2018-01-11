@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="learn.png" translatesAutoresizingMaskIntoConstraints="NO" id="106">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="learn.png" translatesAutoresizingMaskIntoConstraints="NO" id="106">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85">
@@ -636,7 +636,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="102">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                    <rect key="frame" x="20" y="0.0" width="280" height="101"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="101" id="moo-Ke-KdT"/>
@@ -647,16 +647,16 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.50978529453277588" green="0.69579070806503296" blue="0.99880915880203247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="102" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" id="5Zh-j9-V0s"/>
-                <constraint firstItem="102" firstAttribute="width" secondItem="1" secondAttribute="width" id="PoD-D8-pBZ"/>
+                <constraint firstItem="t3H-rv-42K" firstAttribute="trailing" secondItem="102" secondAttribute="trailing" constant="20" id="K2F-fY-UGi"/>
                 <constraint firstItem="106" firstAttribute="height" secondItem="1" secondAttribute="height" id="UQv-wZ-7UM"/>
                 <constraint firstItem="106" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" id="e3e-07-fAg"/>
                 <constraint firstItem="85" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" constant="100" id="g0b-7Z-sUW"/>
                 <constraint firstItem="106" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" id="h6h-fK-inP"/>
                 <constraint firstItem="106" firstAttribute="width" secondItem="1" secondAttribute="width" id="l52-dQ-j4t"/>
-                <constraint firstItem="102" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" id="ohT-DE-s0r"/>
+                <constraint firstItem="102" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" constant="20" id="ohT-DE-s0r"/>
                 <constraint firstItem="85" firstAttribute="centerX" secondItem="t3H-rv-42K" secondAttribute="centerX" id="znq-xA-fxg"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
