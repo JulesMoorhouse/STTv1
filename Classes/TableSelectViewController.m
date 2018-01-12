@@ -27,42 +27,15 @@
 
 - (IBAction)buttonTablePressed:(id)sender
 {
-	//[self hideLabels];
-	// used a string here so we can add random too
 	NSString *str = [sender titleForState:UIControlStateNormal];
 	str = [str stringByReplacingOccurrencesOfString:@"x" withString:@""]; 
 	
-	/*
-	NSError *error;
-	if (![[GANTracker sharedTracker] trackEvent:@"button_click"
-										 action:@"table_select"
-										  label:str
-										  value:-1
-									  withError:&error]) {
-		// Handle error here
-	}
-	*/
-	
-	//strTableSelected = [[NSMutableString stringWithString: str] retain];	
-	strTableSelected = [NSString stringWithString: str];	// added retain 13/05/2010
-	
+	strTableSelected = [NSString stringWithString: str];
 	sTimerStatusGuid = [AppBasic GUIDString];
-	//row =1; // row will be incremented on the DONE click of the textfield
-	//[self SayShowRow:row];
-	[[self navigationController] popViewControllerAnimated: YES];
-	
-}
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+	[[self navigationController] popViewControllerAnimated: YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,25 +65,16 @@
 	sTimerStatusGuid = [AppBasic GUIDString]; //added to stop sounds playing while the screen is shown
 }
 
--(void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear: animated];
     
 	strTableSelected = @"";
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];    
 }
 
 -(IBAction)STT2PanelViewTap:(id)sender

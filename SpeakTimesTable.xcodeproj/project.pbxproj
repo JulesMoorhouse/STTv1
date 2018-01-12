@@ -104,9 +104,7 @@
 		9934A7D011BFC94600CDDC41 /* credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9934A7CF11BFC94600CDDC41 /* credits.txt */; };
 		9934A7DE11BFCA4000CDDC41 /* helptext.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9934A7DD11BFCA4000CDDC41 /* helptext.txt */; };
 		9936450914B24E1C0080B212 /* Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9936450814B24E1C0080B212 /* Prefs.m */; };
-		9948AA441164AC8D00308C21 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948AA431164AC8D00308C21 /* SoundEffect.m */; };
 		9948AA4F1164ACEB00308C21 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948AA4E1164ACEB00308C21 /* Constants.m */; };
-		995469B31394012000C0727D /* feedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995469B01394012000C0727D /* feedbackViewController.m */; };
 		995469B41394012000C0727D /* feedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995469B21394012000C0727D /* feedbackView.xib */; };
 		995B97FC11A40E1E000BC130 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995B97FB11A40E1E000BC130 /* CFNetwork.framework */; };
 		995B980211A40E7E000BC130 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995B980111A40E7E000BC130 /* SystemConfiguration.framework */; };
@@ -124,7 +122,6 @@
 		99AAB36C11A05912006FB09B /* action-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36A11A05912006FB09B /* action-normal.png */; };
 		99AAB36D11A05912006FB09B /* action-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36B11A05912006FB09B /* action-pressed.png */; };
 		99BC855B11BEA0210070EB66 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BC855A11BEA0210070EB66 /* QuartzCore.framework */; };
-		99BD13E911CFA616006C910A /* RoundRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BD13E811CFA616006C910A /* RoundRectView.m */; };
 		99C0F5731189926B0038EB7A /* AnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C0F5711189926B0038EB7A /* AnswersViewController.m */; };
 		99C0F5741189926B0038EB7A /* AnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C0F5721189926B0038EB7A /* AnswersViewController.xib */; };
 		99D9DD281192EBC0008C0533 /* TableSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D9DD261192EBC0008C0533 /* TableSelectViewController.m */; };
@@ -253,12 +250,8 @@
 		9934A7DD11BFCA4000CDDC41 /* helptext.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helptext.txt; sourceTree = "<group>"; };
 		9936450714B24E1C0080B212 /* Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefs.h; sourceTree = "<group>"; };
 		9936450814B24E1C0080B212 /* Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prefs.m; sourceTree = "<group>"; };
-		9948AA421164AC8D00308C21 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
-		9948AA431164AC8D00308C21 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 		9948AA4D1164ACEB00308C21 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9948AA4E1164ACEB00308C21 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		995469B01394012000C0727D /* feedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackViewController.m; sourceTree = "<group>"; };
-		995469B11394012000C0727D /* feedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedbackViewController.h; sourceTree = "<group>"; };
 		995469B21394012000C0727D /* feedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = feedbackView.xib; sourceTree = "<group>"; };
 		995B97FB11A40E1E000BC130 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		995B980111A40E7E000BC130 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -280,8 +273,6 @@
 		99AAB36A11A05912006FB09B /* action-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-normal.png"; sourceTree = "<group>"; };
 		99AAB36B11A05912006FB09B /* action-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-pressed.png"; sourceTree = "<group>"; };
 		99BC855A11BEA0210070EB66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		99BD13E711CFA616006C910A /* RoundRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundRectView.h; sourceTree = "<group>"; };
-		99BD13E811CFA616006C910A /* RoundRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundRectView.m; sourceTree = "<group>"; };
 		99C0F5701189926B0038EB7A /* AnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswersViewController.h; sourceTree = "<group>"; };
 		99C0F5711189926B0038EB7A /* AnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswersViewController.m; sourceTree = "<group>"; };
 		99C0F5721189926B0038EB7A /* AnswersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswersViewController.xib; sourceTree = "<group>"; };
@@ -335,8 +326,6 @@
 				99A48EBA117A467F00477BD2 /* AppBasic.m */,
 				9948AA4D1164ACEB00308C21 /* Constants.h */,
 				9948AA4E1164ACEB00308C21 /* Constants.m */,
-				995469B11394012000C0727D /* feedbackViewController.h */,
-				995469B01394012000C0727D /* feedbackViewController.m */,
 				99A442311188394B00885977 /* highScores.h */,
 				99A442321188394B00885977 /* highScores.m */,
 				9934A66D11BF945400CDDC41 /* InfoViewController.h */,
@@ -351,10 +340,6 @@
 				99A44235118839B700885977 /* ResultsViewController.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				99BD13E711CFA616006C910A /* RoundRectView.h */,
-				99BD13E811CFA616006C910A /* RoundRectView.m */,
-				9948AA421164AC8D00308C21 /* SoundEffect.h */,
-				9948AA431164AC8D00308C21 /* SoundEffect.m */,
 				99A48E81117A409600477BD2 /* Speaking.h */,
 				99A48E82117A409600477BD2 /* Speaking.m */,
 				1D3623240D0F684500981E51 /* SpeakTimesTableAppDelegate.h */,
@@ -810,7 +795,6 @@
 				8839B2722007EDB800DA3FBC /* STT2PanelView.m in Sources */,
 				992507881163624B00148AF8 /* LearnViewController.m in Sources */,
 				9925078D1163626800148AF8 /* TestViewController.m in Sources */,
-				9948AA441164AC8D00308C21 /* SoundEffect.m in Sources */,
 				9948AA4F1164ACEB00308C21 /* Constants.m in Sources */,
 				99A48E83117A409600477BD2 /* Speaking.m in Sources */,
 				99A48EBB117A467F00477BD2 /* AppBasic.m in Sources */,
@@ -820,8 +804,6 @@
 				99D9DD281192EBC0008C0533 /* TableSelectViewController.m in Sources */,
 				9934A67011BF945400CDDC41 /* InfoViewController.m in Sources */,
 				99E72A1711C3F6140061ABA1 /* Preloader.m in Sources */,
-				99BD13E911CFA616006C910A /* RoundRectView.m in Sources */,
-				995469B31394012000C0727D /* feedbackViewController.m in Sources */,
 				9936450914B24E1C0080B212 /* Prefs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

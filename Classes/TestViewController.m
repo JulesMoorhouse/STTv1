@@ -8,7 +8,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "TestViewController.h"
-#import "SoundEffect.h"
 #import "Speaking.h"
 #import "AppBasic.h"
 #import "SpeakTimesTableAppDelegate.h"
@@ -16,26 +15,27 @@
 #import "TableSelectViewController.h"
 #import "RootViewController.h"
 #import "Preloader.h"
-#import "RoundRectView.h"
 #import "Prefs.h"
 
 @interface UIView (FindAndResignFirstResponder)
 - (UIView*)findFirstResponder;
 @end
 @implementation UIView (FindAndResignFirstResponder)
-- (UIView*)findFirstResponder {
-    if (self.isFirstResponder) {
+- (UIView*)findFirstResponder
+{
+    if (self.isFirstResponder)
+    {
         [self resignFirstResponder];
         return self;
     }
-    for (UIView *subView in self.subviews) {
+    for (UIView *subView in self.subviews)
+    {
         if ([subView findFirstResponder])
             return subView;
     }
     return nil;
 }
 @end
-
 
 @implementation TestViewController
 @synthesize placeholderView;
@@ -73,8 +73,7 @@
 	NSString *sWav1 = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 	NSString *sWav1Ac = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 	
-	//[dict setValue:rowAsString								forKey:@"sRow"];
-	[dict1 setValue:sWav1					forKey:@"sWav"];	
+	[dict1 setValue:sWav1					forKey:@"sWav"];
 	[dict1 setValue:rowAsString				forKey:@"sLabelValue"];
 	[dict1 setValue:sTagLabel1				forKey:@"sTagLabel"];
 	[dict1 setValue:sTimerStatusGuid		forKey:@"sGUIDCheck"];
@@ -105,8 +104,7 @@
 									 target:self selector:@selector(playSoundShowLabel:) 
 								   userInfo:dictTimes repeats:NO];
 	
-	//DLog(@"SayShowRow3");
-	accumSecs += [Speaking getTrackLength:sWavTimesAc];		
+	accumSecs += [Speaking getTrackLength:sWavTimesAc];
 	// ##										  ##
 	// ########## COLUMN TIMES - END      ##########
 	
@@ -188,7 +186,6 @@
 
 - (void) playSoundShowLabel:(NSTimer*)theTimer
 {
-	//DLog(@"playSoundShowLabel");
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[theTimer userInfo]];
 
 	NSString *sGUIDCheck = [dict valueForKey:@"sGUIDCheck"];
@@ -294,8 +291,8 @@
 	}
 }
 
-- (void)viewDidLoad {
-	
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 		
     self.view.backgroundColor = [Constants standardBackgound];
@@ -340,12 +337,17 @@
 	[textFieldRow12 setBorderStyle:UITextBorderStyleRoundedRect];
 	
 	//this add the back button for the answers screen - weird putting it here.
-	UIBarButtonItem *backButtonAnswers = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	UIBarButtonItem *backButtonAnswers = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                          style: UIBarButtonItemStylePlain
+                                                                         target: nil
+                                                                         action: nil];
 	self.navigationItem.backBarButtonItem = backButtonAnswers;
 	
     
-    UIBarButtonItem *doneNavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Finish", @"")
-                                style:UIBarButtonItemStylePlain  target:self action:@selector(buttonNavDone:)];
+    UIBarButtonItem *doneNavButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Finish", @"")
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(buttonNavDone:)];
     
 	self.navigationItem.rightBarButtonItem = doneNavButton;
 
@@ -381,15 +383,16 @@
 
 -(void)AreYouSure:(BOOL)fromTableBtn
 {
+    NSString *msg = NSLocalizedString(@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)", @"");
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:@""
-                                 message:@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)"
-                                 preferredStyle:UIAlertControllerStyleAlert];
+                                 alertControllerWithTitle: @""
+                                 message: msg
+                                 preferredStyle: UIAlertControllerStyleAlert];
     
     if (fromTableBtn)
     {
         UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle:@"Yes"
+                                    actionWithTitle: NSLocalizedString(@"Yes", @"")
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
                                         //Handle your yes please button action here
@@ -398,7 +401,7 @@
                                         [firstResponder resignFirstResponder];
                                         
                                         TableSelectViewController *nextController = [TableSelectViewController alloc];
-                                        nextController.title = @"Choose times table";
+                                        nextController.title = NSLocalizedString(@"Choose times table", @"");
                                         [self.navigationController pushViewController:nextController animated:YES];
                                         
                                     }];
@@ -407,7 +410,7 @@
     else
     {
         UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle:@"Yes"
+                                    actionWithTitle: NSLocalizedString(@"Yes", @"")
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
                                         //Handle your yes please button action here
@@ -419,9 +422,9 @@
                                         
                                     }];
         [alert addAction:yesButton];
-        }
+    }
     UIAlertAction* noButton = [UIAlertAction
-                               actionWithTitle:@"No"
+                               actionWithTitle: NSLocalizedString(@"No", @"")
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    //Handle no, thanks button
@@ -491,15 +494,15 @@
 	
 	if (booUnanswered == TRUE)
     {
-		msg = @"You have not answered all the questions!";
+		msg = NSLocalizedString(@"You have not answered all the questions!", "");
 		
 
         UIAlertController *alert = [UIAlertController
-                                     alertControllerWithTitle:@"Results"
+                                     alertControllerWithTitle: NSLocalizedString(@"Results", @"")
                                      message: msg
                                      preferredStyle: UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
             
             //do something when click button
         }];
@@ -514,7 +517,7 @@
 		[firstResponder resignFirstResponder];
 
 		AnswersViewController *nextController = [AnswersViewController alloc];
-		nextController.title = @"Results";	
+        nextController.title = NSLocalizedString(@"Results", @"");
 		[nextController setLoader:resLoaderRef];
 		[self.navigationController pushViewController:nextController animated:YES];
 	}
@@ -576,55 +579,66 @@
 			}
 			switch (row)
             {
-				case 1: {
+				case 1:
+                {
                     textFieldRow1.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 2: {
+				case 2:
+                {
                     textFieldRow2.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 3: {
+				case 3:
+                {
                     textFieldRow3.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 4: {
+				case 4:
+                {
                     textFieldRow4.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 5: {
+				case 5:
+                {
                     textFieldRow5.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 6: {
+				case 6:
+                {
                     textFieldRow6.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 7: {
+				case 7:
+                {
                     textFieldRow7.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 8: {
+				case 8:
+                {
                     textFieldRow8.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 9: {
+				case 9:
+                {
                     textFieldRow9.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 10: {
+				case 10:
+                {
                     textFieldRow10.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 11: {
+				case 11:
+                {
                     textFieldRow11.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-				case 12: {
+				case 12:
+                {
                     textFieldRow12.text = [NSString stringWithFormat:@"%ld", (long)res];
 					break;	
 				}
-					
 				default:
 					break;
 			}
@@ -790,7 +804,6 @@
 }
 
 #pragma mark Table view methods
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -816,11 +829,12 @@
 	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
 	if ([strTableSelected  isEqual: @""])
     {
-		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];
+		[btnBackground setTitle: NSLocalizedString(@"   Choose Times Table", @"")
+                       forState:UIControlStateNormal];
     }
     else
     {
-		[btnBackground setTitle:[NSString stringWithFormat:@"   The %@ Times Table", strTableSelected] forState:UIControlStateNormal];
+		[btnBackground setTitle:[NSString stringWithFormat: NSLocalizedString(@"   The %@ Times Table", ""), strTableSelected] forState:UIControlStateNormal];
 	}		
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -866,7 +880,7 @@
     else
     {
 		TableSelectViewController *nextController = [TableSelectViewController alloc];
-		nextController.title = @"Choose times table";	
+        nextController.title = NSLocalizedString(@"Choose times table", @"");
 		[self.navigationController pushViewController:nextController animated:YES];
 	}
 	
@@ -889,7 +903,7 @@
 		[firstResponder resignFirstResponder];
 				
 		TableSelectViewController *nextController = [TableSelectViewController alloc];
-		nextController.title = @"Choose times table";	
+		nextController.title = NSLocalizedString(@"Choose times table", @"");
 		[self.navigationController pushViewController:nextController animated:YES];
 	}
 }

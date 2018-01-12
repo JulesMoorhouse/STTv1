@@ -8,12 +8,10 @@
 
 #import "ResultsViewController.h"
 #import "highScores.h"
-//#import "GANTracker.h"
 #import <UIColor-HexUtils/UIColor+HexUtils.h>
 
 @implementation ResultsViewController
 @synthesize results;
-
 
 - (void)viewDidLoad
 {
@@ -71,7 +69,6 @@
     [super viewDidDisappear:animated];
     
     self.results = nil;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,8 +113,7 @@
         nameLabel.font = [UIFont systemFontOfSize:14];
 		nameLabel.adjustsFontSizeToFitWidth = YES;
 		nameLabel.backgroundColor = [UIColor clearColor];
-		//nameLabel.backgroundColor = [UIColor yellowColor];
-		nameLabel.tag = kNameValueTag; //NEW
+		nameLabel.tag = kNameValueTag;
         [cell.contentView addSubview: nameLabel];
 		
 		CGRect DateValueRect = CGRectMake(90, 10, 80, 25);
@@ -143,16 +139,11 @@
 		Score.font = [UIFont systemFontOfSize:14];
 		Score.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:Score];
-		 
     }
     
-	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 2");
-	
     NSUInteger row = [indexPath row];
     NSDictionary *rowData = (self.results)[row];
-	
-	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath 3");
-	
+		
     UILabel *name = (UILabel *)[cell.contentView viewWithTag:kNameValueTag];
     name.text = rowData[@"Name"];
     	
@@ -164,12 +155,9 @@
 	
 	UILabel *sTableUsed = (UILabel *)[cell.contentView viewWithTag:kTableUsedTag];
 	sTableUsed.text = rowData[@"TableUsed"];
-	
-	//DLog(@"ResultsViewController.tableView.cellForRowAtIndexPath end");
-	
+		
     return cell;
 }
-
 
 @end
 

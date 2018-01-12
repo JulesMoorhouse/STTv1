@@ -7,13 +7,11 @@
 //
 
 #import "LearnViewController.h"
-#import "SoundEffect.h"
 #import "Speaking.h"
 #import "AppBasic.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "TableSelectViewController.h"
 #import "RootViewController.h"
-//#import "GANTracker.h"
 
 @implementation LearnViewController
 @synthesize placeholderView;
@@ -44,12 +42,9 @@
 	[self hideLabels];
 
 	sTimerStatusGuid = [AppBasic GUIDString];
-
-	//DLog(@"Table change Run=%@", sTimerStatusGuid);
 		
 	NSInteger row =1;
 	float accumSecs = 2;
-	//NSTimer *timer;
 	
 	NSString *rowAsString;
 	
@@ -60,8 +55,6 @@
 		
 		NSInteger iTagRow = 100 + (row * 10);
 		
-		//DLog(@"row=%@ tag=%@", rowAsString, sTagLabel);
-		
 		// ########## COLUMN 1 OF SUM - START ##########
 		// ##										  ##
 		NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] init];
@@ -69,8 +62,7 @@
 		NSString *sWav1 = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 		NSString *sWav1Ac = [NSString stringWithFormat:@"%@%@%@", sVoice, @"-", rowAsString];
 		
-		//[dict setValue:rowAsString								forKey:@"sRow"];
-		[dict1 setValue:sWav1					forKey:@"sWav"];	
+		[dict1 setValue:sWav1					forKey:@"sWav"];
 		[dict1 setValue:rowAsString				forKey:@"sLabelValue"];
 		[dict1 setValue:sTagLabel1				forKey:@"sTagLabel"];
 		[dict1 setValue:sTimerStatusGuid		forKey:@"sGUIDCheck"];
@@ -80,7 +72,6 @@
 										userInfo:dict1 repeats:NO];
 				
 		accumSecs += [Speaking getTrackLength:sWav1Ac];
-		//accumSecs += 2;
 		
 		// ##										  ##
 		// ########## COLUMN 1 OF SUM - END   ##########
@@ -179,8 +170,7 @@
 											 target:self selector:@selector(playSoundShowLabel:) 
 										   userInfo:dictResult repeats:NO];
 			
-			accumSecs += [Speaking getTrackLength:sFileAc];			
-
+			accumSecs += [Speaking getTrackLength:sFileAc];
 		}
 		
 		// ##										  ##
@@ -190,18 +180,16 @@
 	}
 }
 
-
 - (void) playSoundShowLabel:(NSTimer*)theTimer
 {
-	//NSMutableDictionary *dict = [theTimer userInfo];
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[theTimer userInfo]];
     
 	NSInteger iTagLabel = [[dict valueForKey:@"sTagLabel"] intValue];
 	NSString *sLabelValue = [dict valueForKey:@"sLabelValue"];
 	NSString *sGUIDCheck = [dict valueForKey:@"sGUIDCheck"];
 	
-
-	if (sTimerStatusGuid == sGUIDCheck) {
+	if (sTimerStatusGuid == sGUIDCheck)
+    {
 		UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagLabel];
 		lbl.text = sLabelValue;		
 		lbl.hidden = NO;
@@ -214,14 +202,7 @@
         
 		[theAudio play];
 		theAudio.numberOfLoops = 0;
-
 	}
-    
-    //[dict release];
-    
-	//Removed invalidate as don`t need it as I`m not using repeat, see http://www.iphonedevsdk.com/forum/iphone-sdk-development/48229-nstimer-problems.html
-	//[theTimer invalidate];
-	//[sGUIDCheck release];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -236,16 +217,20 @@
 {
 	NSInteger row =1;
 	NSInteger col = 1;
-	for (row = 1; row < 13; row++) {
+	for (row = 1; row < 13; row++)
+    {
 		NSInteger iTagRow = 100 + (row * 10);
-		for (col = 0; col < 6; col++) {	
+		for (col = 0; col < 6; col++)
+        {
 			UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
 			lbl.hidden = YES;		
 		}		
 	}
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 
     self.view.backgroundColor = [Constants standardBackgound];
 
@@ -260,62 +245,54 @@
 	
 	placeholderView.backgroundColor = [UIColor clearColor];
 	
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backButton;
-	
-    [super viewDidLoad];
-	
 }
 
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewDidDisappear:(BOOL)animated
+{
     [super viewDidDisappear:animated];
     
     strTableSelected = @"";
-
-    
 }
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
-
-
 
 #pragma mark Table view methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 1;
 }
 
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 	static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     CGFloat width = screenBounds.size.width;
 	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
+    
 	if ([strTableSelected  isEqual: @""])
     {
-		[btnBackground setTitle: @"   Choose Times Table" forState:UIControlStateNormal];
+		[btnBackground setTitle: NSLocalizedString(@"   Choose Times Table", @"")  forState:UIControlStateNormal];
     }
     else
     {
-		[btnBackground setTitle:[NSString stringWithFormat:@"   The %@ Times Table", strTableSelected] forState:UIControlStateNormal];
+		[btnBackground setTitle:[NSString stringWithFormat:NSLocalizedString(@"   The %@ Times Table", ""), strTableSelected] forState:UIControlStateNormal];
 	}		
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -339,27 +316,21 @@
     return cell;
 }
 
-
-// Override to support row selection in the table view.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-    // Navigation logic may go here -- for example, create and push another view controller.
-	
-	
 	TableSelectViewController *nextController = [TableSelectViewController alloc];
-	nextController.title = @"Choose times table";	
+	nextController.title = NSLocalizedString(@"Choose times table", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 
 #pragma mark -
 #pragma mark Button Event management
-
 -(IBAction)btnDiscolsurePressed:(id)sender
 {
 	TableSelectViewController *nextController = [TableSelectViewController alloc];
-	nextController.title = @"Choose times table";	
+	nextController.title = NSLocalizedString(@"Choose times table", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 

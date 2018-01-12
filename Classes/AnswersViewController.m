@@ -12,7 +12,6 @@
 #import "SpeakTimesTableAppDelegate.h"
 #import "highScores.h"
 #import "AppBasic.h"
-//#import "GANTracker.h"
 #import "Preloader.h"
 #import "Prefs.h"
 
@@ -26,20 +25,9 @@
 @synthesize btnSave;
 @synthesize resLoaderRef;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
 
     self.view.backgroundColor = [Constants standardBackgound];
     
@@ -48,9 +36,6 @@
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
     
-	// removed for - Evgeny Kostenko: in other words, for future safety, both would be better (too easy to get lost in notifications)
-	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-	
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(doneButton:) name:@"DoneButtonPressed" object:nil];	
 	
@@ -68,24 +53,24 @@
 	
     NSInteger iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
     
-	if (iTableScore != 12) {
-		//msg = sCorrections;
+	if (iTableScore != 12)
+    {
         lblScore.text = [NSString  stringWithFormat:@"%li", (long)iTableScore];
         lblOutOfLabel.numberOfLines = 0;
-	} else {
-		lblResultStatus.text = @"Well done !!";	
+	}
+    else
+    {
+        lblResultStatus.text = NSLocalizedString(@"Well done!", @"");
 
         lblOutOf.hidden = YES;
-		lblOutOfLabel.text = @"You've got them\n all correct!";
+		lblOutOfLabel.text = NSLocalizedString(@"You've got them\n all correct!", "");
 		lblScore.hidden = YES;
         lblOutOfLabel.numberOfLines = 2;
 		
-		[resLoaderRef.ApplauseSoundPlayer play];	
-		
+		[resLoaderRef.ApplauseSoundPlayer play];
 	}
-		
-	[super viewDidLoad];
 }
+
 - (void) BackButtonPressed
 {
 	if ([resLoaderRef.ApplauseSoundPlayer isPlaying]) {
@@ -95,38 +80,39 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)doneButton:(NSNotification *)notification {
-	
-	if ([txtNickName isEditing]) {
+- (void)doneButton:(NSNotification *)notification
+{
+	if ([txtNickName isEditing])
+    {
 		[txtNickName resignFirstResponder];
-	} 
-		
+	}
 }	
 
--(IBAction)buttonSavePressed:(id)sender {
-
+-(IBAction)buttonSavePressed:(id)sender
+{
 	NSString *msg = nil;
 	
-	if ([txtNickName.text isEqualToString:@""]) {
-		msg = @"You haven't entered your name!";
+	if ([txtNickName.text isEqualToString:@""])
+    {
+		msg = NSLocalizedString(@"You haven't entered your name!", @"");
 		
-
         UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:@"Saving score"
+                                     alertControllerWithTitle: NSLocalizedString(@"Saving score", @"")
                                      message: msg
                                      preferredStyle: UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"OK", @"")
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action){
             
             //do something when click button
         }];
         [alert addAction:okAction];
         
         [self presentViewController:alert animated:YES completion:nil];
-
-        
-	} else {
-		
+	}
+    else
+    {
 		NSDateFormatter *dateForm = [[NSDateFormatter alloc] init];
 		[dateForm setDateFormat:@"g"];
 		NSString *dateString = [dateForm stringFromDate:[NSDate date]];
@@ -142,19 +128,16 @@
 
         [self.navigationController popToRootViewControllerAnimated:YES];
 	}
-	
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
 }
 
 -(void)touchesBegan :(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[txtNickName resignFirstResponder];	
-		
+	[txtNickName resignFirstResponder];
 	[super touchesBegan:touches withEvent:event];
 }
 
@@ -168,15 +151,13 @@
 	
 	if (res == TRUE) {
 		if ([newString isEqualToString:@""]) {
-			textField.toolbarPlaceholder= [NSString stringWithFormat:@"Your name :- %@", @"?"];
-            
+            textField.toolbarPlaceholder = [NSString stringWithFormat:NSLocalizedString(@"Your name :- %@", ""), @"?"];
 		} else {
-			textField.toolbarPlaceholder = [NSString stringWithFormat:@"Your name :- %@", newString];
+			textField.toolbarPlaceholder = [NSString stringWithFormat:NSLocalizedString(@"Your name :- %@", ""), newString];
 		}
 	}
 	
 	return res;
-	
 }
 
 -(IBAction)textFieldDoneEditing:(id)sender
@@ -184,26 +165,27 @@
 	[sender resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)theTextField {
-	
-	theTextField.toolbarPlaceholder = [NSString stringWithFormat:@"Your name :- %@", @"?"];
-	
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.toolbarPlaceholder = [NSString stringWithFormat:NSLocalizedString(@"Your name :- %@", ""), @"?"];
 	return YES;
 }
 
-- (void) textFieldDidBeginEditing:(UITextField *)textField {
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	[animation setFromValue:[NSValue valueWithCGPoint:CGPointMake(160, 480)]];
 	[animation setToValue:[NSValue valueWithCGPoint:CGPointMake(160, 185)]];
 	[animation setDuration:0.268];
 }
 
-- (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
+- (BOOL) textFieldShouldEndEditing:(UITextField *)textField
+{
 	return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
 	[textField resignFirstResponder];
 	return YES;
 }

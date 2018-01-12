@@ -9,31 +9,13 @@
 #import "AppBasic.h"
 
 @implementation AppBasic
-+(NSString*)GUIDString {
-    /*
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);	
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    CFRelease(theUUID);
-    return (__bridge NSString *)string;
-     */
++(NSString*)GUIDString
+{
     return [[NSUUID UUID] UUIDString];
 }
-/*
-+(UIImage*)setButtonImageNormal {
-	UIImage *buttonImageNormal = [UIImage imageNamed:@"action-normal.png"];
-    UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-	return stretchableButtonImageNormal;
-}
 
-+(UIImage*)setButtonImagePressed {
-    UIImage *buttonImagePressed = [UIImage imageNamed:@"action-pressed.png"];
-    UIImage *stretchableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-	return stretchableButtonImagePressed;
-}
-*/
-+(void)setButton:(UIButton *)button str:(NSString *)str {
-
-	//UIImage *buttonImageNormal = [UIImage imageNamed:@"action-normal.png"];
++(void)setButton:(UIButton *)button str:(NSString *)str
+{
 	UIImage *buttonImageNormal = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@%@", @"action-normal-", str, @".png"]];
 	
     UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:12 topCapHeight:0];

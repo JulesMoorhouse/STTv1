@@ -15,19 +15,8 @@
 @synthesize txvContents;
 @synthesize segOptions;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 	
 	[AppBasic setButton:btnDone str:@"red"];
@@ -36,29 +25,35 @@
 												userInfo: nil repeats:YES];
 	[self setHelpText];
 }
--(void)setHelpText {
-	
+
+-(void)setHelpText
+{
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"helptext" ofType:@"txt"];  
 	if (filePath) {  
 		NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 		if (myText) {  
 			txvContents.text= myText;  
 		}  
-	}  
-	
+	}
 }
--(IBAction)segmentedAction:(id)sender {
 
-	if (segOptions.selectedSegmentIndex == 0) {
-		lblTitle.text = @"HELP";		
+-(IBAction)segmentedAction:(id)sender
+{
+	if (segOptions.selectedSegmentIndex == 0)
+    {
+		lblTitle.text = NSLocalizedString(@"HELP", @"");
 		[self setHelpText];
-	} else {
-		lblTitle.text = @"ABOUT";	
+	}
+    else
+    {
+		lblTitle.text = NSLocalizedString(@"ABOUT", @"");
 		
 		NSString *filePath = [[NSBundle mainBundle] pathForResource:@"credits" ofType:@"txt"];  
-		if (filePath) {  
+		if (filePath)
+        {
 			NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil]; 
-			if (myText) {  
+			if (myText)
+            {
 				txvContents.text= myText;  
 			}  
 		}  
@@ -73,26 +68,15 @@
 	[txvContents flashScrollIndicators];
 }
 
--(IBAction)buttonDonePressed:(id)sender{
-	
+-(IBAction)buttonDonePressed:(id)sender
+{
 	DLog(@"Done pressed!");
 	[self dismissViewControllerAnimated:YES completion:nil];
-	//[self release];
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 

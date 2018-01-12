@@ -13,24 +13,17 @@
 
 struct high_score_entry structArray[20]; 
 
--(id)init{
-	//DLog(@"highScores.init start");
-    //if (self == [super init])
+-(id)init
+{
 	if (self = [super init])
     {
 		userPreferences = [NSUserDefaults standardUserDefaults]; 
         ii = -1; 
 	}
-	//DLog(@"highScores.init end");
-	
-	//ii = -1; 
-	
-	
 	return self;
 }
--(void)load {
-	//DLog(@"highScores.load start");
-	//this block retreives
+-(void)load
+{
 	for (i = 0; i < 20; i++) { 
         if ([userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]] != nil && [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreEntry%ld", (long)i]] != nil) { 
             structArray[i].name = [userPreferences stringForKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]]; 
@@ -41,48 +34,39 @@ struct high_score_entry structArray[20];
 			
 			ii = i; 
 		} 
-	} 
-	//this block retreives
-	//[self debug];
-	//[self sort];
-	//DLog(@"highScores.load end");
+	}
 }
--(void)debug{
-	//DLog(@"highScores.debug");
-	for (i = 0; i <= ii; i++) { 
+
+-(void)debug
+{
+	for (i = 0; i <= ii; i++)
+    {
         DLog(@"Score=%@ %li", structArray[i].name, (long)structArray[i].highScore);
 	}
 }
 
 -(NSString*)GetNameByIdx:(NSInteger)idx
 {
-	//DLog(@"highScores.GetNameByIdx");
 	return structArray[idx].name;
 }
 
 -(NSString*)GetMarkByIdx:(NSInteger)idx
 {
-	//DLog(@"highScores.GetScoreByIdx");
-	//return [NSString stringWithFormat:@"%i", structArray[idx].highScore];
     return [NSString stringWithFormat:@"%li/12", (long)structArray[idx].mark];
 }
 
 -(NSString*)GetTestDateByIdx:(NSInteger)idx
 {
-	//DLog(@"highScores.GetTestDateByIdx");
-	return structArray[idx].testDateString;	
+	return structArray[idx].testDateString;
 }
 
 -(NSString*)GetTableScoreByIdx:(NSInteger)idx
 {
-	//DLog(@"highScores.GetTableScoreByIdx");
 	return structArray[idx].tableScore;
 }
 
--(void)save:(NSInteger)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(NSInteger)iMark{
-	
-	//DLog(@"highScores.save start");
-	
+-(void)save:(NSInteger)iscore name:(NSString *)name tableScore:(NSString *)tableScore mark:(NSInteger)iMark
+{
 	score = iscore;
 	scoreNameEntry = name;
 	mark = iMark;
@@ -93,19 +77,16 @@ struct high_score_entry structArray[20];
 	[formatter setDateFormat:@"yyyy-MM-dd"];
 	//Get the string date
 	NSString *str = [formatter stringFromDate:date];
-	//Display on the console
-	//DLog(@"%@",str);
-	
-	
-	//strDate = @"freddy";
+
 	strDate = str;
 	sTableScore = tableScore;
 	
 	[self load];
 	[self sort]; //- removed as your no longer sorting
-	//DLog(@"highScores.save middle");
-	//saves
-	for (i = 0; i <= ii; i++) { 
+
+    //saves
+	for (i = 0; i <= ii; i++)
+    {
         [userPreferences setObject:structArray[i].name forKey:[NSString stringWithFormat:@"highScoreNameEntry%ld", (long)i]]; 
         [userPreferences setInteger:structArray[i].highScore forKey:[NSString stringWithFormat:@"highScoreEntry%ld", (long)i]]; 
         [userPreferences setObject:structArray[i].testDateString forKey:[NSString stringWithFormat:@"highTestDateStringEntry%ld", (long)i]]; 
@@ -113,19 +94,17 @@ struct high_score_entry structArray[20];
         [userPreferences setInteger:structArray[i].mark forKey:[NSString stringWithFormat:@"highTableMarkEntry%ld", (long)i]]; 
 	}	
 	//saves
-	
-	
-	//[structArray release];
-	//[userPreferences release];
-	//DLog(@"highScores.save end");
 }
--(void)sort{
-	//DLog(@"highScores.sort start");
+
+-(void)sort
+{
 	//sorting
-	if (score > 0) { 
+	if (score > 0)
+    {
 		for (i = ii; i >= 0; i--) 
 		{ 
-			if (score > structArray[i].highScore) { 
+			if (score > structArray[i].highScore)
+            {
 				if (i < 19) 
 					structArray[i + 1] = structArray[i]; 
 				structArray[i].name = scoreNameEntry; 
@@ -135,8 +114,10 @@ struct high_score_entry structArray[20];
 				structArray[i].mark = mark;
 				if (i == ii && ii < 19) 
 					ii = i + 1; 
-			} else 
-				if (i == ii && i < 19) { 
+			}
+            else
+				if (i == ii && i < 19)
+                {
 					structArray[i + 1].name = scoreNameEntry; 
 					structArray[i + 1].highScore = score; 
 					structArray[i + 1].testDateString = strDate; 
@@ -146,7 +127,8 @@ struct high_score_entry structArray[20];
 				} 
 		} 
 	} 
-	if (ii == -1 && score > 0) { 
+	if (ii == -1 && score > 0)
+    {
 		structArray[0].name = scoreNameEntry; 
 		structArray[0].highScore = score; 
 		structArray[0].testDateString = strDate; 
@@ -156,8 +138,6 @@ struct high_score_entry structArray[20];
 		ii = 0; 
 	} 
 	//sorting
-	//DLog(@"highScores.sort end");
 }
-
 
 @end

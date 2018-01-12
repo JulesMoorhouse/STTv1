@@ -98,14 +98,14 @@
 - (IBAction)switchToLearnView:(id)sender
 {
 	LearnViewController *nextController = [LearnViewController alloc];
-	nextController.title = @"Learn";	
+	nextController.title = NSLocalizedString(@"Learn", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 
 - (IBAction)switchToTestView:(id)sender
 {
 	TestViewController *nextController = [TestViewController alloc];
-	nextController.title = @"Test";	
+	nextController.title = NSLocalizedString(@"Test", @"");
 	[nextController setLoader:resLoaderRef];
     [self.navigationController pushViewController:nextController animated:YES];
 }
@@ -113,7 +113,7 @@
 -(IBAction)switchToResultsView:(id)sender
 {
 	ResultsViewController *nextController = [ResultsViewController alloc];
-	nextController.title = @"High Scores";	
+	nextController.title = NSLocalizedString(@"High Scores", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 
@@ -130,6 +130,7 @@
     [super didReceiveMemoryWarning];
 	
 }
+
 -(IBAction)STT2PanelViewTap:(id)sender
 {
     [AppBasic STTV2Tap];

@@ -24,7 +24,8 @@ NSString *sTimerStatusGuid = @"";
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after app launch    
 	
     IQKeyboardManager.sharedManager.enable = YES;
@@ -55,7 +56,7 @@ NSString *sTimerStatusGuid = @"";
 	
     //[self.viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
 
-    [self.viewController.navigationItem setTitle:@"Speaking Times Tables"];
+    [self.viewController.navigationItem setTitle: NSLocalizedString(@"Speaking Times Tables", @"")];
 
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: self.viewController];
@@ -71,15 +72,13 @@ NSString *sTimerStatusGuid = @"";
 
 - (void) applicationDidEnterBackground:(UIApplication *)application
 {
-
 	sTimerStatusGuid = [AppBasic GUIDString];
-	
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void)applicationWillTerminate:(UIApplication *)application
+{
 	// Save data if appropriate
 }
-
 
 @end
 
