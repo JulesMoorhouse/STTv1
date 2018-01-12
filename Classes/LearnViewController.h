@@ -6,8 +6,7 @@
 //  Copyright 2010 Mindwarp Consultancy Ltd. All rights reserved.
 //
 
-//#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVAudioPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 #import "STT2PanelView.h"

@@ -294,7 +294,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-		
+        
     self.view.backgroundColor = [Constants standardBackgound];
 
     NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
@@ -344,21 +344,19 @@
 	self.navigationItem.backBarButtonItem = backButtonAnswers;
 	
     
-    UIBarButtonItem *doneNavButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Finish", @"")
+    UIBarButtonItem *finishNavButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Finish", @"")
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
-                                                                     action:@selector(buttonNavDone:)];
+                                                                     action:@selector(btnNavFinishedTest:)];
+	self.navigationItem.rightBarButtonItem = finishNavButton;
     
-	self.navigationItem.rightBarButtonItem = doneNavButton;
+    UIBarButtonItem *backNavButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(BackButtonPressed)];
+    self.navigationItem.leftBarButtonItem = backNavButton;
 
-	// Adding handler for back nav button on this view
-	UIButton* _backButton = [UIButton buttonWithType:101];
-    [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateNormal];
-    [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateHighlighted];
-    [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
-    
-    self.navigationItem.leftBarButtonItem = backButton;
+
 }
 
 - (void) BackButtonPressed
@@ -435,7 +433,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)buttonNavDone:(id)sender
+- (void)btnNavFinishedTest:(id)sender
 {
 	BOOL booUnanswered = FALSE;
 	NSInteger row =1;

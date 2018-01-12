@@ -15,9 +15,7 @@
 
 @property (nonatomic, strong) AVAudioPlayer *ApplauseSoundPlayer;
 
-
 - (void)load;
-
 
 @end
 

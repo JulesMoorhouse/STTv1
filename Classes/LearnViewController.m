@@ -245,7 +245,10 @@
 	
 	placeholderView.backgroundColor = [UIColor clearColor];
 	
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                   style: UIBarButtonItemStylePlain
+                                                                  target: nil
+                                                                  action: nil];
 	self.navigationItem.backBarButtonItem = backButton;
 }
 

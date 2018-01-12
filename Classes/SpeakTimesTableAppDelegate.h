@@ -10,8 +10,6 @@
 #import "RootViewController.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-//#define kInfoSize 721
-
 @class Preloader;
 @class myApplicationAppDelegate; 
 

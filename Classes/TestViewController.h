@@ -6,8 +6,7 @@
 //  Copyright 2010 Mindwarp Consultancy Ltd. All rights reserved.
 //
 
-//#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVAudioPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 #import <CMPopTipView/CMPopTipView.h>
 #import "Constants.h"
@@ -69,7 +68,6 @@
 @property (strong, nonatomic) IBOutlet STT2PanelView *panel;
 -(IBAction)STT2PanelViewTap:(id)sender;
 
-- (void)buttonNavDone:(id)sender;
 - (void) playSoundShowLabel:(NSTimer*)theTimer;
 - (void) hideLabels;
 - (void) SayShowRow:(NSInteger)row;
@@ -77,6 +75,5 @@
 
 -(IBAction)textFieldDoneEditing:(id)sender;
 -(IBAction)buttonCheat:(id)sender;
--(IBAction)btnDiscolsurePressed:(id)sender;
 
 @end

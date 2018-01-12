@@ -7,7 +7,7 @@
 //
 
 #import "AnswersViewController.h"
-#import <AVFoundation/AVAudioPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "SpeakTimesTableAppDelegate.h"
 #import "highScores.h"
@@ -39,13 +39,15 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(doneButton:) name:@"DoneButtonPressed" object:nil];	
 	
-	// Adding handler for back nav button on this view
-	UIButton* _backButton = [UIButton buttonWithType:101];
+     //Adding handler for back nav button on this view
+    UIButton* _backButton = [UIButton buttonWithType:101];
     [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateNormal];
     [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateHighlighted];
     [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    //NAV FIX HERE
 
 	txtNickName.delegate = self;
 	

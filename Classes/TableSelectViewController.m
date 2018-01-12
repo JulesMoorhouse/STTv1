@@ -9,7 +9,6 @@
 #import "TableSelectViewController.h"
 #import "SpeakTimesTableAppDelegate.h"
 #import "AppBasic.h"
-//#import "GANTracker.h"
 
 @implementation TableSelectViewController
 @synthesize btn1;
