@@ -13,10 +13,10 @@
 @end
 
 @implementation Preloader
-
 @synthesize ApplauseSoundPlayer;
 
-- (AVAudioPlayer*)playerWithSoundNamed:(NSString*)filename {
+- (AVAudioPlayer*)playerWithSoundNamed:(NSString*)filename
+{
 	NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:filename];
 	if (!path)
 		return nil;
@@ -31,19 +31,19 @@
 	return result;
 }
 
-- (id)init {
-    //if (self == [super init]) {
-	if (self = [super init]) {
+- (id)init
+{
+	if (self = [super init])
+    {
 		self.ApplauseSoundPlayer = nil;
 	}
 	
 	return self;
 }
 
-- (void)load {
+- (void)load
+{
 	self.ApplauseSoundPlayer = [self playerWithSoundNamed:@"LargeCrowdApplauseE.mp3"];
 }
-
-
 
 @end
