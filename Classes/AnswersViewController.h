@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 #import "STT2PanelView.h"
+#import "CBBezier.h"
 
 @class Preloader;
 
@@ -19,7 +20,7 @@
 	IBOutlet UILabel *lblOutOf;
 	IBOutlet UILabel *lblOutOfLabel;
 	IBOutlet UILabel *lblResultStatus;
-	IBOutlet UIButton *btnSave;
+	IBOutlet CBBezier *btnSave;
 	Preloader *resLoaderRef;	
 }
 -(IBAction)textFieldDoneEditing:(id)sender;

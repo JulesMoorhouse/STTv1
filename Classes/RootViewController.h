@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 #import "STT2PanelView.h"
+#import "CBBezier.h"
 
 @class LearnViewController;
 @class TestViewController;
@@ -24,9 +25,9 @@
 	TableSelectViewController *tableSelectViewController;
 	
 	IBOutlet UISegmentedControl *segVoiceChoice;
-	IBOutlet UIButton *btnLearn;
-	IBOutlet UIButton *btnTest;
-	IBOutlet UIButton *btnHighScores;
+	IBOutlet CBBezier *btnLearn;
+	IBOutlet CBBezier *btnTest;
+	IBOutlet CBBezier *btnHighScores;
 }
 @property (strong, nonatomic) LearnViewController *learnViewController;
 @property (strong, nonatomic) TestViewController *testViewController;
@@ -34,9 +35,9 @@
 @property (strong, nonatomic) TableSelectViewController *tableSelectViewController;
 @property (strong, nonatomic) UISegmentedControl *segVoiceChoice;
 
-@property (strong, nonatomic) UIButton *btnLearn;
-@property (strong, nonatomic) UIButton *btnTest;
-@property (strong, nonatomic) UIButton *btnHighScores;
+@property (strong, nonatomic) CBBezier *btnLearn;
+@property (strong, nonatomic) CBBezier *btnTest;
+@property (strong, nonatomic) CBBezier *btnHighScores;
 
 @property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 

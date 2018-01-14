@@ -16,6 +16,7 @@
 #import "RootViewController.h"
 #import "Preloader.h"
 #import "Prefs.h"
+#import "CBBezier.h"
 
 @interface UIView (FindAndResignFirstResponder)
 - (UIView*)findFirstResponder;
@@ -204,7 +205,18 @@
 	
 	strKeyboardLabelBase = [[NSMutableString alloc] initWithFormat:@"%@ x %@ = ", lblRow.text, strTableSelected];
 	textField.toolbarPlaceholder = [NSString stringWithFormat:@"%@%@", strKeyboardLabelBase, @"?"];
-		
+    
+    if (![textField.text isEqualToString:@""])
+    {
+        textField.text = @"";
+    }
+    NSInteger row = (((textField.tag)-100)/10);
+    if (mRow != row)
+    {
+        mRow = row;
+        [self SayShowRow: row];
+    }
+
 	return YES;
 }
 
@@ -241,7 +253,7 @@
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     CGFloat width = screenBounds.size.width;
-	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
+	CBBezier *btnBackground = [[CBBezier alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
 	if ([strTableSelected  isEqual: @""])
     {
 		[btnBackground setTitle: NSLocalizedString(@"   Choose Times Table", @"")
@@ -257,13 +269,16 @@
 	
 	btnBackground.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	btnBackground.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    //btnBackground.titleLabel.textColor = [UIColor darkGrayColor];
     [btnBackground setBackgroundColor:[UIColor clearColor]];
     
+    [btnBackground setTitleColor: [UIColor darkGrayColor] forState:UIControlStateNormal];
+
 	// Set button enabled to get it's touch effect & also set event receiver method
 	btnBackground.enabled = YES;
 	[btnBackground addTarget:self action:@selector(btnDiscolsurePressed:) forControlEvents:UIControlEventTouchUpInside];
 	
-	[AppBasic setButton:btnBackground str:@"blue"];
+	//[AppBasic setButton:btnBackground str:@"blue"];
 	
 	// add button first and then label to display label 
 	[cell.contentView addSubview:btnBackground];
@@ -583,17 +598,16 @@
     // any code
 }
 
-
 #pragma mark - Functions
 - (void) SayShowRow:(NSInteger)row
 {
     NSInteger iTagRow = 100 + (row * 10);
     
     UITextField *txt = (UITextField *)[placeholderView viewWithTag: iTagRow+4];
-    if (![txt.text isEqualToString:@""])
-    {
-        return;
-    }
+//    if (![txt.text isEqualToString:@""])
+//    {
+//        return;
+//    }
     
     float accumSecs = 0;
     NSString *rowAsString;
@@ -795,61 +809,6 @@
     }
 }
 
--(void)AreYouSure:(BOOL)fromTableBtn
-{
-    NSString *msg = NSLocalizedString(@"Are you sure ?\n\n(You've given answers, which will be lost, press Finish for results!)", @"");
-    UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle: @""
-                                 message: msg
-                                 preferredStyle: UIAlertControllerStyleAlert];
-    
-    if (fromTableBtn)
-    {
-        UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle: NSLocalizedString(@"Yes", @"")
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                        //Handle your yes please button action here
-                                        
-                                        UIView* firstResponder = [self.view findFirstResponder];
-                                        [firstResponder resignFirstResponder];
-                                        
-                                        TableSelectViewController *nextController = [TableSelectViewController alloc];
-                                        nextController.title = NSLocalizedString(@"Choose times table", @"");
-                                        [self.navigationController pushViewController:nextController animated:YES];
-                                        
-                                    }];
-        [alert addAction:yesButton];
-    }
-    else
-    {
-        UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle: NSLocalizedString(@"Yes", @"")
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                        //Handle your yes please button action here
-                                        
-                                        UIView* firstResponder = [self.view findFirstResponder];
-                                        [firstResponder resignFirstResponder];
-                                        
-                                        [self.navigationController popViewControllerAnimated:YES];
-                                        
-                                    }];
-        [alert addAction:yesButton];
-    }
-    UIAlertAction* noButton = [UIAlertAction
-                               actionWithTitle: NSLocalizedString(@"No", @"")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action) {
-                                   //Handle no, thanks button
-                               }];
-    
-    [alert addAction:noButton];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-
 -(void)showTooltip
 {
     CMPopTipView *navBarLeftButtonPopTipView = [[CMPopTipView alloc] initWithMessage:@"Tap finish now?"];
@@ -933,7 +892,21 @@
             }
         }
 
-        //mRow = mRow + 1;
+        //unhide any below rows which are not answered too
+        for (NSInteger row = 1; row <= mRow; row++)
+        {
+            NSInteger iTagRow = 100 + (row * 10);
+
+            for (col = 0; col < 4; col++)
+            {
+                UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];
+                lbl.hidden = NO;
+            }
+            UITextField *txt = (UITextField *)[placeholderView viewWithTag: iTagRow + 4];
+            txt.hidden = NO;
+
+        }
+        
         [self SayShowRow: mRow];
     }
 }

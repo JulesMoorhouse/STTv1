@@ -41,9 +41,9 @@
                                                        options:nil];
     [self.panel addSubview: arrayOfViews[0]];
     
-	[AppBasic setButton:btnLearn str:@"red"];
-	[AppBasic setButton:btnTest str:@"blue"];
-	[AppBasic setButton:btnHighScores str:@"green"];
+//    [AppBasic setButton:btnLearn str:@"red"];
+//    [AppBasic setButton:btnTest str:@"blue"];
+//    [AppBasic setButton:btnHighScores str:@"green"];
 
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSInteger theSelectedIndex = [prefs integerForKey:@"VoiceSegIdx"];
@@ -62,6 +62,7 @@
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     infoButton.frame = CGRectMake(290.0, 10.0, 15.0, 15.0); // puts it top-right
     [infoButton addTarget:self action:@selector(toggleCreditsOpen:) forControlEvents:UIControlEventTouchUpInside];
+    infoButton.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:infoButton];
 }
 

@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Preloader.h"
 #import "AppBasic.h"
+#import <UIColor-HexUtils/UIColor+HexUtils.h>
 
 NSString *strTableSelected = @"";
 NSString *sTimerStatusGuid = @"";
@@ -54,15 +55,24 @@ NSString *sTimerStatusGuid = @"";
     self.viewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	[self.viewController setLoader:resLoader];
 	
-    //[self.viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
+    //[self.viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:231.0f/255.0f green:227.0f/255.0f blue:0.0f/255.0f alpha:1.0]}];
 
-    [self.viewController.navigationItem setTitle: NSLocalizedString(@"Speaking Times Tables", @"")];
+    [self.viewController.navigationItem setTitle: NSLocalizedString(@"Speaking Times Tables - Classic", @"")];
 
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: self.viewController];
         
     navController.navigationBar.translucent = NO;
 
+    //navController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:141.0/255.0f alpha:1.0];
+    navController.navigationBar.barTintColor = [UIColor colorWithHex: @"#FBFF7D"];
+
+    navController.navigationBar.tintColor = [UIColor darkGrayColor];
+    
+    //title
+    [navController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor darkGrayColor]}];
+    
     self.window.rootViewController = navController;
 
     [self.window makeKeyAndVisible];

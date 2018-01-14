@@ -39,7 +39,8 @@ float fTrackLengthFemale[34] = {0.71, 0.77, 0.76, 0.85, 1.07, 1.12, 0.86, 1.18, 
 
 +(UIColor*)standardBackgound
 {
-    return [UIColor colorWithHex: @"#FFFF7F"];
+    //return [UIColor colorWithHex: @"#FFFF7F"];
+    return [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:141.0/255.0f alpha:1.0];
 }
             
 @end

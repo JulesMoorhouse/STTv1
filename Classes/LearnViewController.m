@@ -12,6 +12,7 @@
 #import "SpeakTimesTableAppDelegate.h"
 #import "TableSelectViewController.h"
 #import "RootViewController.h"
+#import "CBBezier.h"
 
 @implementation LearnViewController
 @synthesize placeholderView;
@@ -286,7 +287,7 @@
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     CGFloat width = screenBounds.size.width;
-	UIButton *btnBackground = [[UIButton alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
+	CBBezier *btnBackground = [[CBBezier alloc] initWithFrame:CGRectMake(0,0,width-40,45)];
     
 	if ([strTableSelected  isEqual: @""])
     {
@@ -302,13 +303,17 @@
 	
 	btnBackground.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	btnBackground.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    //btnBackground.titleLabel.textColor = [UIColor darkGrayColor];
+    
+    [btnBackground setTitleColor: [UIColor darkGrayColor] forState:UIControlStateNormal];
+
 	[btnBackground setBackgroundColor:[UIColor clearColor]];
 	
 	// Set button enabled to get it's touch effect & also set event receiver method
 	btnBackground.enabled = YES;
 	[btnBackground addTarget:self action:@selector(btnDiscolsurePressed:) forControlEvents:UIControlEventTouchUpInside];
 	
-	[AppBasic setButton:btnBackground str:@"blue"];
+	//[AppBasic setButton:btnBackground str:@"blue"];
 	
 	// add button first and then label to display label 
 	[cell.contentView addSubview:btnBackground];
