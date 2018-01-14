@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="568"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85">
-                    <rect key="frame" x="65.5" y="70" width="189" height="356"/>
+                    <rect key="frame" x="65.5" y="75" width="189" height="356"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" fixedFrame="YES" text="10" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="50">
                             <rect key="frame" x="0.0" y="267" width="28" height="21"/>
@@ -648,11 +648,10 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-os-lRO" customClass="STT2PanelView">
-                    <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="478" width="320" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="lVd-aS-63m"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="qud-Vw-dVt"/>
+                        <constraint firstAttribute="height" constant="90" id="lVd-aS-63m"/>
                     </constraints>
                     <connections>
                         <action selector="STT2PanelViewTap:" destination="-1" eventType="valueChanged" id="tUU-S0-Ml1"/>
@@ -667,7 +666,7 @@
                 <constraint firstItem="t3H-rv-42K" firstAttribute="bottom" secondItem="3wT-os-lRO" secondAttribute="bottom" id="Opm-wX-FYQ"/>
                 <constraint firstItem="106" firstAttribute="height" secondItem="1" secondAttribute="height" id="UQv-wZ-7UM"/>
                 <constraint firstItem="106" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" id="e3e-07-fAg"/>
-                <constraint firstItem="85" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" constant="50" id="g0b-7Z-sUW"/>
+                <constraint firstItem="85" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" constant="55" id="g0b-7Z-sUW"/>
                 <constraint firstItem="106" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" id="h6h-fK-inP"/>
                 <constraint firstItem="106" firstAttribute="width" secondItem="1" secondAttribute="width" id="l52-dQ-j4t"/>
                 <constraint firstItem="102" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" constant="20" id="ohT-DE-s0r"/>

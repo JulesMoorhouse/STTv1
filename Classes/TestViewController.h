@@ -19,10 +19,8 @@
 @class Preloader;
 @class RoundRectView;
 
-//NSString *sTimerStatusGuid;//this is the guid we want to be running now, so we would set to something differenty to stop it
-
-@interface TestViewController : UIViewController < UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate, CMPopTipViewDelegate> {
-
+@interface TestViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate, CMPopTipViewDelegate>
+{
 	TableSelectViewController *tableSelectViewController;
 	
 	IBOutlet UIView *placeholderView;
@@ -41,7 +39,6 @@
 	IBOutlet UITableView *tblTableSelect;	
 	
 	NSInteger mRow;
-	NSString *sTable;
 	NSMutableString *strKeyboardLabelBase;
 	NSMutableString *sCorrections;
 	Preloader *resLoaderRef;	

@@ -13,8 +13,6 @@
 
 @class TableSelectViewController;
 
-//NSString *sTimerStatusGuid;//this is the guid we want to be running now, so we would set to something differenty to stop it
-
 @interface LearnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate>{
 	IBOutlet UIView *placeholderView;
 	IBOutlet UITableView *tblTableSelect;

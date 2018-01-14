@@ -30,6 +30,8 @@
 	str = [str stringByReplacingOccurrencesOfString:@"x" withString:@""]; 
 	
 	strTableSelected = [NSString stringWithString: str];
+    DLog(@"### strTableSelected=%@      buttonTablePressed", strTableSelected);
+    
 	sTimerStatusGuid = [AppBasic GUIDString];
 
 	[[self navigationController] popViewControllerAnimated: YES];
@@ -69,6 +71,7 @@
     [super viewWillAppear: animated];
     
 	strTableSelected = @"";
+    DLog(@"### strTableSelected=%@      viewWillAppear", strTableSelected);
 }
 
 - (void)didReceiveMemoryWarning

@@ -115,10 +115,10 @@
                     </connections>
                 </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yY-rB-TZ8" customClass="STT2PanelView">
-                    <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="478" width="320" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="Al0-XQ-xgo"/>
+                        <constraint firstAttribute="height" constant="90" id="Al0-XQ-xgo"/>
                     </constraints>
                     <connections>
                         <action selector="STT2PanelViewTap:" destination="-1" eventType="valueChanged" id="vXG-bG-Nty"/>

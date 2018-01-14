@@ -18,7 +18,7 @@
 	
 	if ([sVoice  isEqual: @"male"])
     {
-		for (cnt = 0; cnt < 35; cnt++)
+		for (cnt = 0; cnt < 34; cnt++)
 		{
 			if ([str isEqualToString:sTrackMale[cnt]])
             {
@@ -29,7 +29,7 @@
 	}
     else if ([sVoice  isEqual: @"female"])
     {
-		for (cnt = 0; cnt < 35; cnt++)
+		for (cnt = 0; cnt < 34; cnt++)
 		{
 			if ([str isEqualToString:sTrackFemale[cnt]])
             {

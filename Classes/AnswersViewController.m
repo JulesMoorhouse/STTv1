@@ -39,16 +39,12 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(doneButton:) name:@"DoneButtonPressed" object:nil];	
 	
-     //Adding handler for back nav button on this view
-    UIButton* _backButton = [UIButton buttonWithType:101];
-    [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateNormal];
-    [_backButton setTitle:NSLocalizedString(@"Back", @"") forState:UIControlStateHighlighted];
-    [_backButton addTarget:self action:@selector(BackButtonPressed) forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:_backButton];
-    self.navigationItem.leftBarButtonItem = backButton;
+    UIBarButtonItem *backNavButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(BackButtonPressed)];
+    self.navigationItem.leftBarButtonItem = backNavButton;
     
-    //NAV FIX HERE
-
 	txtNickName.delegate = self;
 	
 	[AppBasic setButton:btnSave str:@"blue"];

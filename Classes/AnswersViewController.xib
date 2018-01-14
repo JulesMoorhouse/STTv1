@@ -110,11 +110,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oko-f8-VXa" customClass="STT2PanelView">
-                    <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="478" width="320" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="TbG-R9-tx0"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ZVs-jL-4iD"/>
+                        <constraint firstAttribute="height" constant="90" id="TbG-R9-tx0"/>
                     </constraints>
                     <connections>
                         <action selector="STT2PanelViewTap:" destination="-1" eventType="valueChanged" id="8fI-13-4EY"/>

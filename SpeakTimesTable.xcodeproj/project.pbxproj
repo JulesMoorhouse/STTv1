@@ -115,10 +115,6 @@
 		99A44238118839B700885977 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A44236118839B700885977 /* ResultsViewController.xib */; };
 		99A48E83117A409600477BD2 /* Speaking.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A48E82117A409600477BD2 /* Speaking.m */; };
 		99A48EBB117A467F00477BD2 /* AppBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A48EBA117A467F00477BD2 /* AppBasic.m */; };
-		99AA20B9118AFB6A00DBA3F8 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AA20B5118AFB6A00DBA3F8 /* DoneDown.png */; };
-		99AA20BA118AFB6A00DBA3F8 /* DoneDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AA20B6118AFB6A00DBA3F8 /* DoneDown3.png */; };
-		99AA20BB118AFB6A00DBA3F8 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AA20B7118AFB6A00DBA3F8 /* DoneUp.png */; };
-		99AA20BC118AFB6A00DBA3F8 /* DoneUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AA20B8118AFB6A00DBA3F8 /* DoneUp3.png */; };
 		99AAB36C11A05912006FB09B /* action-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36A11A05912006FB09B /* action-normal.png */; };
 		99AAB36D11A05912006FB09B /* action-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AAB36B11A05912006FB09B /* action-pressed.png */; };
 		99BC855B11BEA0210070EB66 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BC855A11BEA0210070EB66 /* QuartzCore.framework */; };
@@ -136,8 +132,6 @@
 		99F55F8F11C2EC7E00C7A5D4 /* results.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F55F8911C2EC7E00C7A5D4 /* results.png */; };
 		99F55F9011C2EC7E00C7A5D4 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F55F8A11C2EC7E00C7A5D4 /* table.png */; };
 		99F55F9111C2EC7E00C7A5D4 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F55F8B11C2EC7E00C7A5D4 /* test.png */; };
-		99F55FBB11C3002B00C7A5D4 /* row1.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F55FB911C3002B00C7A5D4 /* row1.png */; };
-		99F55FBC11C3002B00C7A5D4 /* row2.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F55FBA11C3002B00C7A5D4 /* row2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -266,10 +260,6 @@
 		99A48E82117A409600477BD2 /* Speaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaking.m; sourceTree = "<group>"; };
 		99A48EB9117A467F00477BD2 /* AppBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasic.h; sourceTree = "<group>"; };
 		99A48EBA117A467F00477BD2 /* AppBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasic.m; sourceTree = "<group>"; };
-		99AA20B5118AFB6A00DBA3F8 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneDown.png; sourceTree = "<group>"; };
-		99AA20B6118AFB6A00DBA3F8 /* DoneDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneDown3.png; sourceTree = "<group>"; };
-		99AA20B7118AFB6A00DBA3F8 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneUp.png; sourceTree = "<group>"; };
-		99AA20B8118AFB6A00DBA3F8 /* DoneUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneUp3.png; sourceTree = "<group>"; };
 		99AAB36A11A05912006FB09B /* action-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-normal.png"; sourceTree = "<group>"; };
 		99AAB36B11A05912006FB09B /* action-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-pressed.png"; sourceTree = "<group>"; };
 		99BC855A11BEA0210070EB66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -290,8 +280,6 @@
 		99F55F8911C2EC7E00C7A5D4 /* results.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = results.png; sourceTree = "<group>"; };
 		99F55F8A11C2EC7E00C7A5D4 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
 		99F55F8B11C2EC7E00C7A5D4 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		99F55FB911C3002B00C7A5D4 /* row1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = row1.png; sourceTree = "<group>"; };
-		99F55FBA11C3002B00C7A5D4 /* row2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = row2.png; sourceTree = "<group>"; };
 		B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeakTimesTable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA456AAF7F4C9A5856ACE005 /* Pods-SpeakTimesTable.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakTimesTable.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakTimesTable/Pods-SpeakTimesTable.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -390,8 +378,6 @@
 			children = (
 				9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */,
 				99E72A9011C413700061ABA1 /* icon 7.png */,
-				99F55FB911C3002B00C7A5D4 /* row1.png */,
-				99F55FBA11C3002B00C7A5D4 /* row2.png */,
 				99F55F8611C2EC7E00C7A5D4 /* high score.png */,
 				99F55F8711C2EC7E00C7A5D4 /* learn.png */,
 				99F55F8811C2EC7E00C7A5D4 /* menu.png */,
@@ -410,7 +396,6 @@
 				9918D93711A143D400529752 /* action-pressed-yellow.png */,
 				99AAB36A11A05912006FB09B /* action-normal.png */,
 				99AAB36B11A05912006FB09B /* action-pressed.png */,
-				99AA20B4118AFB4500DBA3F8 /* NumDoneButton */,
 				99D309531170E60C001CE3AD /* MaleWavs */,
 				99D309521170E5F9001CE3AD /* FemaleWavs */,
 				8D1107310486CEB800E47090 /* SpeakTimesTable-Info.plist */,
@@ -452,17 +437,6 @@
 			);
 			name = Nibs;
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		99AA20B4118AFB4500DBA3F8 /* NumDoneButton */ = {
-			isa = PBXGroup;
-			children = (
-				99AA20B5118AFB6A00DBA3F8 /* DoneDown.png */,
-				99AA20B6118AFB6A00DBA3F8 /* DoneDown3.png */,
-				99AA20B7118AFB6A00DBA3F8 /* DoneUp.png */,
-				99AA20B8118AFB6A00DBA3F8 /* DoneUp3.png */,
-			);
-			name = NumDoneButton;
 			sourceTree = "<group>";
 		};
 		99D309521170E5F9001CE3AD /* FemaleWavs */ = {
@@ -571,6 +545,7 @@
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				9610D12932DFE4C54D82D03C /* [CP] Embed Pods Frameworks */,
 				9B604CCD3C6B2B1A94456585 /* [CP] Copy Pods Resources */,
+				8839B27520090D8800DA3FBC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -625,10 +600,6 @@
 				9925078E1163626800148AF8 /* TestView.xib in Resources */,
 				99A44238118839B700885977 /* ResultsViewController.xib in Resources */,
 				99C0F5741189926B0038EB7A /* AnswersViewController.xib in Resources */,
-				99AA20B9118AFB6A00DBA3F8 /* DoneDown.png in Resources */,
-				99AA20BA118AFB6A00DBA3F8 /* DoneDown3.png in Resources */,
-				99AA20BB118AFB6A00DBA3F8 /* DoneUp.png in Resources */,
-				99AA20BC118AFB6A00DBA3F8 /* DoneUp3.png in Resources */,
 				99D9DD291192EBC0008C0533 /* TableSelectViewController.xib in Resources */,
 				99AAB36C11A05912006FB09B /* action-normal.png in Resources */,
 				99AAB36D11A05912006FB09B /* action-pressed.png in Resources */,
@@ -650,9 +621,7 @@
 				99F55F8F11C2EC7E00C7A5D4 /* results.png in Resources */,
 				99F55F9011C2EC7E00C7A5D4 /* table.png in Resources */,
 				99F55F9111C2EC7E00C7A5D4 /* test.png in Resources */,
-				99F55FBB11C3002B00C7A5D4 /* row1.png in Resources */,
 				882A4BCC200185CF0024D2D6 /* Launch Screen.storyboard in Resources */,
-				99F55FBC11C3002B00C7A5D4 /* row2.png in Resources */,
 				99E72A9111C413700061ABA1 /* icon 7.png in Resources */,
 				9903298111E092C70083E7A4 /* LargeCrowdApplauseE.mp3 in Resources */,
 				990329A411E092E40083E7A4 /* male-1.mp3 in Resources */,
@@ -749,6 +718,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8839B27520090D8800DA3FBC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
 		9610D12932DFE4C54D82D03C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -843,6 +825,11 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Debug;
 		};
@@ -877,6 +864,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Release;
 		};
@@ -947,6 +939,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Distribution;
 		};
@@ -1018,6 +1015,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = "Ad Hoc";
 		};

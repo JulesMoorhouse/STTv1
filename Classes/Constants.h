@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIColor-HexUtils/UIColor+HexUtils.h>
 
-
-//extern BOOL *const isPlaying;
-
 extern NSString *const MY_CONSTANT;
 extern NSString * mycurrentView;
 

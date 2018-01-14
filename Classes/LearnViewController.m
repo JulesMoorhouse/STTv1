@@ -50,7 +50,6 @@
 	
 	for (row = 1; row < 13; row++)
     {
-		//you probably don`t need retain here now
         rowAsString = [NSString stringWithFormat: @"%ld", (long)row];
 		
 		NSInteger iTagRow = 100 + (row * 10);
@@ -220,9 +219,9 @@
 	for (row = 1; row < 13; row++)
     {
 		NSInteger iTagRow = 100 + (row * 10);
-		for (col = 0; col < 6; col++)
+		for (col = 0; col < 5; col++)
         {
-			UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];		
+            UILabel *lbl = (UILabel *)[placeholderView viewWithTag:iTagRow + col];
 			lbl.hidden = YES;		
 		}		
 	}
