@@ -30,9 +30,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="20">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9" customClass="CBBezier">
                     <rect key="frame" x="88" y="40" width="144" height="57"/>
                     <constraints>
@@ -131,15 +128,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.55387711524963379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="20" firstAttribute="height" secondItem="6" secondAttribute="height" id="03g-hJ-XXQ"/>
-                <constraint firstItem="20" firstAttribute="top" secondItem="6" secondAttribute="top" id="086-oQ-FaR"/>
                 <constraint firstItem="9" firstAttribute="height" secondItem="17" secondAttribute="height" id="3mI-4j-uYV"/>
                 <constraint firstItem="27" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="5J6-4s-mOK"/>
-                <constraint firstItem="20" firstAttribute="width" secondItem="6" secondAttribute="width" id="9Yd-ul-WC5"/>
                 <constraint firstItem="17" firstAttribute="top" secondItem="10" secondAttribute="bottom" constant="20" id="BE5-h3-QZJ"/>
                 <constraint firstItem="9" firstAttribute="top" secondItem="6" secondAttribute="top" constant="40" id="BNl-8r-s3k"/>
                 <constraint firstItem="27" firstAttribute="top" secondItem="19" secondAttribute="bottom" constant="-32" id="DUd-0S-Eo8"/>
-                <constraint firstItem="20" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="E0F-Xa-E2P"/>
                 <constraint firstItem="9" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="F5b-Mm-upR"/>
                 <constraint firstItem="9" firstAttribute="width" secondItem="17" secondAttribute="width" id="GQp-mT-xoq"/>
                 <constraint firstItem="9" firstAttribute="height" secondItem="10" secondAttribute="height" id="HB8-bM-iiB"/>
@@ -152,17 +145,12 @@
                 <constraint firstItem="A85-FR-k0M" firstAttribute="bottom" secondItem="7yY-rB-TZ8" secondAttribute="bottom" id="lB4-6m-oBu"/>
                 <constraint firstItem="9" firstAttribute="width" secondItem="10" secondAttribute="width" id="mRY-La-tA3"/>
                 <constraint firstItem="17" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="osU-1S-cP1"/>
-                <constraint firstAttribute="trailing" secondItem="20" secondAttribute="trailing" id="rsm-8z-DzZ"/>
                 <constraint firstItem="10" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="seV-yY-Oll"/>
                 <constraint firstItem="A85-FR-k0M" firstAttribute="trailing" secondItem="7yY-rB-TZ8" secondAttribute="trailing" id="vb9-df-4bM"/>
-                <constraint firstAttribute="bottom" secondItem="20" secondAttribute="bottom" id="xeT-4T-YqL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="A85-FR-k0M"/>
             <point key="canvasLocation" x="34" y="54"/>
         </view>
     </objects>
-    <resources>
-        <image name="menu.png" width="320" height="416"/>
-    </resources>
 </document>

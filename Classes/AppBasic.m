@@ -37,6 +37,11 @@
 +(void)STTV2Tap
 {
     NSLog(@"STTV2 panel tapped");
+    NSString *URL = @"itms-apps://itunes.apple.com/app/id917585923";
+    NSURL *U = [NSURL URLWithString:URL];
+
+    UIApplication *application = [UIApplication sharedApplication];
+    [application openURL:U options:@{} completionHandler:nil];
 }
 
 @end

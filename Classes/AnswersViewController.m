@@ -46,9 +46,7 @@
     self.navigationItem.leftBarButtonItem = backNavButton;
     
 	txtNickName.delegate = self;
-	
-	[AppBasic setButton:btnSave str:@"blue"];
-	
+		
     NSInteger iTableScore = [Prefs returnSettingInt:pfTableScore defaultValue:1];
     
 	if (iTableScore != 12)

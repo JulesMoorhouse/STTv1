@@ -30,7 +30,6 @@
 	str = [str stringByReplacingOccurrencesOfString:@"x" withString:@""]; 
 	
 	strTableSelected = [NSString stringWithString: str];
-    DLog(@"### strTableSelected=%@      buttonTablePressed", strTableSelected);
     
 	sTimerStatusGuid = [AppBasic GUIDString];
 
@@ -47,22 +46,7 @@
                                                           owner:nil
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
-    
-//    [AppBasic setButton:btn1 str:@"red"];
-//    [AppBasic setButton:btn2 str:@"blue"];
-//    [AppBasic setButton:btn3 str:@"green"];
-//    [AppBasic setButton:btn4 str:@"yellow"];
-//    
-//    [AppBasic setButton:btn5 str:@"red"];
-//    [AppBasic setButton:btn6 str:@"blue"];
-//    [AppBasic setButton:btn7 str:@"green"];
-//    [AppBasic setButton:btn8 str:@"yellow"];
-//    
-//    [AppBasic setButton:btn9 str:@"red"];
-//    [AppBasic setButton:btn10 str:@"blue"];
-//    [AppBasic setButton:btn11 str:@"green"];
-//    [AppBasic setButton:btn12 str:@"yellow"];
-	
+
 	sTimerStatusGuid = [AppBasic GUIDString]; //added to stop sounds playing while the screen is shown
 }
 
@@ -71,7 +55,6 @@
     [super viewWillAppear: animated];
     
 	strTableSelected = @"";
-    DLog(@"### strTableSelected=%@      viewWillAppear", strTableSelected);
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,6 +15,7 @@
 
 NSString *strTableSelected = @"";
 NSString *sTimerStatusGuid = @"";
+BOOL booShownOnboarding = NO;
 
 @implementation SpeakTimesTableAppDelegate
 
@@ -54,8 +55,6 @@ NSString *sTimerStatusGuid = @"";
 	[resLoader load];
     self.viewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	[self.viewController setLoader:resLoader];
-	
-    //[self.viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:231.0f/255.0f green:227.0f/255.0f blue:0.0f/255.0f alpha:1.0]}];
 
     [self.viewController.navigationItem setTitle: NSLocalizedString(@"Speaking Times Tables - Classic", @"")];
 
@@ -64,7 +63,6 @@ NSString *sTimerStatusGuid = @"";
         
     navController.navigationBar.translucent = NO;
 
-    //navController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:141.0/255.0f alpha:1.0];
     navController.navigationBar.barTintColor = [UIColor colorWithHex: @"#FBFF7D"];
 
     navController.navigationBar.tintColor = [UIColor darkGrayColor];

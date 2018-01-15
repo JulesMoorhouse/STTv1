@@ -21,8 +21,8 @@
 }
 
 extern NSString *strTableSelected;
-
 extern NSString *sTimerStatusGuid;
+extern BOOL booShownOnboarding;
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UINavigationController *navigationController;

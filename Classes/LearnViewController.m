@@ -303,7 +303,6 @@
 	
 	btnBackground.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	btnBackground.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    //btnBackground.titleLabel.textColor = [UIColor darkGrayColor];
     
     [btnBackground setTitleColor: [UIColor darkGrayColor] forState:UIControlStateNormal];
 
@@ -312,9 +311,7 @@
 	// Set button enabled to get it's touch effect & also set event receiver method
 	btnBackground.enabled = YES;
 	[btnBackground addTarget:self action:@selector(btnDiscolsurePressed:) forControlEvents:UIControlEventTouchUpInside];
-	
-	//[AppBasic setButton:btnBackground str:@"blue"];
-	
+		
 	// add button first and then label to display label 
 	[cell.contentView addSubview:btnBackground];
 	

@@ -24,7 +24,7 @@
 	NSData *fileData = [NSData dataWithContentsOfFile:path];
 	NSError *err;
 	AVAudioPlayer *result = [[AVAudioPlayer alloc] initWithData:fileData error:&err];
-	result.volume = 1; // 03/july/2010
+	result.volume = 1;
 	
 	[result prepareToPlay];
 	

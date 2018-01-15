@@ -71,12 +71,9 @@
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
     
-    #pragma mark strTableSelected = ""
     strTableSelected = @"";
-    DLog(@"### strTableSelected=%@      viewDidLoad", strTableSelected);
 
     mRow = 1;
-    #pragma mRow = 1
     
     placeholderView.backgroundColor = [UIColor clearColor];
     
@@ -109,7 +106,7 @@
     [textFieldRow12 setBorderStyle:UITextBorderStyleRoundedRect];
     
     //this add the back button for the answers screen - weird putting it here.
-    UIBarButtonItem *backButtonAnswers = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back2", @"")
+    UIBarButtonItem *backButtonAnswers = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
                                                                           style: UIBarButtonItemStylePlain
                                                                          target: nil
                                                                          action: nil];
@@ -161,9 +158,7 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    #pragma mark strTableSelected = ""
     strTableSelected = @"";
-    DLog(@"### strTableSelected=%@      viewDidDisappear", strTableSelected);
 }
 
 - (void)didReceiveMemoryWarning
@@ -175,10 +170,18 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
 	BOOL res = TRUE;
-	
+    static NSString *numbers = @"0123456789";
+
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     res = !([newString length] > 3);
-		
+    
+    if (res)
+    {
+        NSCharacterSet *characterSet;
+        characterSet = [[NSCharacterSet characterSetWithCharactersInString:numbers] invertedSet];
+        res = ([[string stringByTrimmingCharactersInSet:characterSet] length] > 0);
+    }
+    
 	if (res == TRUE)
     {
 		if ([newString isEqualToString:@""])
@@ -269,7 +272,6 @@
 	
 	btnBackground.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	btnBackground.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    //btnBackground.titleLabel.textColor = [UIColor darkGrayColor];
     [btnBackground setBackgroundColor:[UIColor clearColor]];
     
     [btnBackground setTitleColor: [UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -277,9 +279,7 @@
 	// Set button enabled to get it's touch effect & also set event receiver method
 	btnBackground.enabled = YES;
 	[btnBackground addTarget:self action:@selector(btnDiscolsurePressed:) forControlEvents:UIControlEventTouchUpInside];
-	
-	//[AppBasic setButton:btnBackground str:@"blue"];
-	
+		
 	// add button first and then label to display label 
 	[cell.contentView addSubview:btnBackground];
 	
@@ -482,7 +482,7 @@
     
     UIView* firstResponder = [self.view findFirstResponder];
     [firstResponder resignFirstResponder];
-    if (!booUnanswered == TRUE)
+    if (!booUnanswered)
     {
         [self clearStoredAnswers];
     }
@@ -827,18 +827,12 @@
 
 -(void)clearStoredAnswers
 {
-    DLog(@"### clearStoredAnswers");
-
     [Prefs storeSettingStr: @"answers" Value: @""];
     [self clearUITextFields];
-    
-    //DLog(@"### strTableSelected=%@      clearStoredAnswers", strTableSelected);
 }
 
 -(void)storeAnswers
 {
-    DLog(@"### storeAnswers strTableSelected=%@", strTableSelected);
-
     NSString *strAllValues = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",
                               ([textFieldRow1.text length] == 0 ? @"?" : textFieldRow1.text),
                               ([textFieldRow2.text length] == 0 ? @"?" : textFieldRow2.text),
@@ -860,12 +854,10 @@
 -(void)checkSavedAnswers
 {
     NSString *strAllValues = [Prefs returnSettingStr: @"answers" defaultValue: @""];
-    DLog(@"### checkSavedAnswers        strAllValues=%@", strAllValues);
 
     if (![strAllValues isEqualToString:@""])
     {
         strTableSelected = [Prefs returnSettingStr: @"table" defaultValue: @""];
-        DLog(@"### strTableSelected=%@      checkSavedAnswers", strTableSelected);
 
         NSArray* items = [strAllValues componentsSeparatedByString:@","];
         NSInteger col = 1;

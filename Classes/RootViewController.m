@@ -41,10 +41,6 @@
                                                        options:nil];
     [self.panel addSubview: arrayOfViews[0]];
     
-//    [AppBasic setButton:btnLearn str:@"red"];
-//    [AppBasic setButton:btnTest str:@"blue"];
-//    [AppBasic setButton:btnHighScores str:@"green"];
-
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSInteger theSelectedIndex = [prefs integerForKey:@"VoiceSegIdx"];
 	segVoiceChoice.selectedSegmentIndex = theSelectedIndex;
@@ -58,9 +54,13 @@
 		//Female
 		sVoice = @"female";
 	}
-	
+    
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    CGFloat width = screenBounds.size.width;
+    CGFloat left = (width - 30) - 15;
+
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    infoButton.frame = CGRectMake(290.0, 10.0, 15.0, 15.0); // puts it top-right
+    infoButton.frame = CGRectMake(left, 10.0, 15.0, 15.0); // puts it top-right
     [infoButton addTarget:self action:@selector(toggleCreditsOpen:) forControlEvents:UIControlEventTouchUpInside];
     infoButton.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:infoButton];
@@ -124,6 +124,28 @@
 
 	//needed to stop speak on return from learn screen
 	sTimerStatusGuid = [AppBasic GUIDString];
+    
+    if (!booShownOnboarding)
+    {
+        booShownOnboarding = YES;
+
+        NSString *msg = NSLocalizedString(@"Thanks for downloading Speaking Times Tables Classic.\n\n This older version of the app was first released in 2010. We've updated it for newer devices and made it Free.\n\n However it has been superseded by the new version, tap the banner at the bottom of most screens for more details.", @"");
+        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle: NSLocalizedString(@"", @"")
+                                     message: msg
+                                     preferredStyle: UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"OK", @"")
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action){
+                                                             
+                                                             //do something when click button
+                                                         }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

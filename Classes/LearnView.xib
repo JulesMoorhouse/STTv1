@@ -23,9 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="learn.png" translatesAutoresizingMaskIntoConstraints="NO" id="106">
-                    <rect key="frame" x="0.0" y="20" width="320" height="568"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85">
                     <rect key="frame" x="65.5" y="75" width="189" height="356"/>
                     <subviews>
@@ -664,11 +661,7 @@
                 <constraint firstItem="t3H-rv-42K" firstAttribute="trailing" secondItem="3wT-os-lRO" secondAttribute="trailing" id="8kK-Jv-3bj"/>
                 <constraint firstItem="t3H-rv-42K" firstAttribute="trailing" secondItem="102" secondAttribute="trailing" constant="20" id="K2F-fY-UGi"/>
                 <constraint firstItem="t3H-rv-42K" firstAttribute="bottom" secondItem="3wT-os-lRO" secondAttribute="bottom" id="Opm-wX-FYQ"/>
-                <constraint firstItem="106" firstAttribute="height" secondItem="1" secondAttribute="height" id="UQv-wZ-7UM"/>
-                <constraint firstItem="106" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" id="e3e-07-fAg"/>
                 <constraint firstItem="85" firstAttribute="top" secondItem="t3H-rv-42K" secondAttribute="top" constant="55" id="g0b-7Z-sUW"/>
-                <constraint firstItem="106" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" id="h6h-fK-inP"/>
-                <constraint firstItem="106" firstAttribute="width" secondItem="1" secondAttribute="width" id="l52-dQ-j4t"/>
                 <constraint firstItem="102" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" constant="20" id="ohT-DE-s0r"/>
                 <constraint firstItem="3wT-os-lRO" firstAttribute="leading" secondItem="t3H-rv-42K" secondAttribute="leading" id="tMp-uG-MtM"/>
                 <constraint firstItem="85" firstAttribute="centerX" secondItem="t3H-rv-42K" secondAttribute="centerX" id="znq-xA-fxg"/>
@@ -677,7 +670,4 @@
             <viewLayoutGuide key="safeArea" id="t3H-rv-42K"/>
         </view>
     </objects>
-    <resources>
-        <image name="learn.png" width="320" height="416"/>
-    </resources>
 </document>
