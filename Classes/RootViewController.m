@@ -39,8 +39,10 @@
     NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"STT2PanelView"
                                                          owner:nil
                                                        options:nil];
-    [self.panel addSubview: arrayOfViews[0]];
     
+    [self.panel addSubview: arrayOfViews[0]];
+    [arrayOfViews[0] addTarget:self action:@selector(STT2PanelViewTap) forControlEvents:UIControlEventTouchUpInside];
+
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSInteger theSelectedIndex = [prefs integerForKey:@"VoiceSegIdx"];
 	segVoiceChoice.selectedSegmentIndex = theSelectedIndex;
@@ -98,6 +100,12 @@
 
 - (IBAction)switchToLearnView:(id)sender
 {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                   style: UIBarButtonItemStylePlain
+                                                                  target: nil
+                                                                  action: nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
 	LearnViewController *nextController = [LearnViewController alloc];
 	nextController.title = NSLocalizedString(@"Learn", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
@@ -113,6 +121,12 @@
 
 -(IBAction)switchToResultsView:(id)sender
 {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"")
+                                                                   style: UIBarButtonItemStylePlain
+                                                                  target: nil
+                                                                  action: nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
 	ResultsViewController *nextController = [ResultsViewController alloc];
 	nextController.title = NSLocalizedString(@"High Scores", @"");
 	[self.navigationController pushViewController:nextController animated:YES];
@@ -125,27 +139,27 @@
 	//needed to stop speak on return from learn screen
 	sTimerStatusGuid = [AppBasic GUIDString];
     
-    if (!booShownOnboarding)
-    {
-        booShownOnboarding = YES;
-
-        NSString *msg = NSLocalizedString(@"Thanks for downloading Speaking Times Tables Classic.\n\n This older version of the app was first released in 2010. We've updated it for newer devices and made it Free.\n\n However it has been superseded by the new version, tap the banner at the bottom of most screens for more details.", @"");
-        
-        UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle: NSLocalizedString(@"", @"")
-                                     message: msg
-                                     preferredStyle: UIAlertControllerStyleAlert];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"OK", @"")
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction *action){
-                                                             
-                                                             //do something when click button
-                                                         }];
-        [alert addAction:okAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    }
+//    if (!booShownOnboarding)
+//    {
+//        booShownOnboarding = YES;
+//
+//        NSString *msg = NSLocalizedString(@"Thanks for downloading Speaking Times Tables Classic.\n\n This older version of the app was first released in 2010. We've updated it for newer devices and made it Free.\n\n However it has been superseded by the new version, tap the banner at the bottom of most screens for more details.", @"");
+//
+//        UIAlertController * alert = [UIAlertController
+//                                     alertControllerWithTitle: NSLocalizedString(@"", @"")
+//                                     message: msg
+//                                     preferredStyle: UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction *okAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"OK", @"")
+//                                                           style:UIAlertActionStyleDefault
+//                                                         handler:^(UIAlertAction *action){
+//
+//                                                             //do something when click button
+//                                                         }];
+//        [alert addAction:okAction];
+//
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,7 +168,7 @@
 	
 }
 
--(IBAction)STT2PanelViewTap:(id)sender
+- (void)STT2PanelViewTap
 {
     [AppBasic STTV2Tap];
 }

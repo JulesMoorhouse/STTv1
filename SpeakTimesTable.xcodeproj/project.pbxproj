@@ -20,6 +20,8 @@
 		8839B2742007EDD600DA3FBC /* STT2PanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8839B2732007EDD600DA3FBC /* STT2PanelView.xib */; };
 		8839B279200B9C7800DA3FBC /* CBBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8839B278200B9C7800DA3FBC /* CBBezier.m */; };
 		8839B27B200BE17500DA3FBC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8839B27A200BE17500DA3FBC /* Media.xcassets */; };
+		88ADD9FD20132BDE0013D08E /* Speaking_Times_TablesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADD9FC20132BDE0013D08E /* Speaking_Times_TablesUITests.swift */; };
+		88ADDA07201331740013D08E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADDA06201331730013D08E /* SnapshotHelper.swift */; };
 		9903298111E092C70083E7A4 /* LargeCrowdApplauseE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */; };
 		990329A411E092E40083E7A4 /* male-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298211E092E40083E7A4 /* male-1.mp3 */; };
 		990329A511E092E40083E7A4 /* male-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9903298311E092E40083E7A4 /* male-2.mp3 */; };
@@ -122,6 +124,16 @@
 		99F0A4DB119AE2830020D289 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F0A4DA119AE2830020D289 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		88ADD9FF20132BDE0013D08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = SpeakTimesTable;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* SpeakTimesTableAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakTimesTableAppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +156,10 @@
 		8839B277200B9C7800DA3FBC /* CBBezier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBezier.h; sourceTree = "<group>"; };
 		8839B278200B9C7800DA3FBC /* CBBezier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBBezier.m; sourceTree = "<group>"; };
 		8839B27A200BE17500DA3FBC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		88ADD9FA20132BDE0013D08E /* Speaking Times TablesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speaking Times TablesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88ADD9FC20132BDE0013D08E /* Speaking_Times_TablesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaking_Times_TablesUITests.swift; sourceTree = "<group>"; };
+		88ADD9FE20132BDE0013D08E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88ADDA06201331730013D08E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* SpeakTimesTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SpeakTimesTable-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9903298011E092C70083E7A4 /* LargeCrowdApplauseE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LargeCrowdApplauseE.mp3; sourceTree = "<group>"; };
 		9903298211E092E40083E7A4 /* male-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "male-1.mp3"; sourceTree = "<group>"; };
@@ -279,6 +295,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88ADD9F720132BDE0013D08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -325,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Speaking Times Tables.app */,
+				88ADD9FA20132BDE0013D08E /* Speaking Times TablesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,6 +360,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources-iPhone */,
+				88ADD9FB20132BDE0013D08E /* Speaking Times TablesUITests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				B43A76C82F9872D95D445342 /* Pods */,
@@ -385,6 +410,16 @@
 				B295F42A4BD2C64EC62B2449 /* libPods-SpeakTimesTable.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88ADD9FB20132BDE0013D08E /* Speaking Times TablesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				88ADD9FC20132BDE0013D08E /* Speaking_Times_TablesUITests.swift */,
+				88ADDA06201331730013D08E /* SnapshotHelper.swift */,
+				88ADD9FE20132BDE0013D08E /* Info.plist */,
+			);
+			path = "Speaking Times TablesUITests";
 			sourceTree = "<group>";
 		};
 		9934A66811BF93D400CDDC41 /* Nibs */ = {
@@ -522,16 +557,40 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Speaking Times Tables.app */;
 			productType = "com.apple.product-type.application";
 		};
+		88ADD9F920132BDE0013D08E /* Speaking Times TablesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88ADDA0120132BDE0013D08E /* Build configuration list for PBXNativeTarget "Speaking Times TablesUITests" */;
+			buildPhases = (
+				88ADD9F620132BDE0013D08E /* Sources */,
+				88ADD9F720132BDE0013D08E /* Frameworks */,
+				88ADD9F820132BDE0013D08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88ADDA0020132BDE0013D08E /* PBXTargetDependency */,
+			);
+			name = "Speaking Times TablesUITests";
+			productName = "Speaking Times TablesUITests";
+			productReference = 88ADD9FA20132BDE0013D08E /* Speaking Times TablesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = LW3B6G4NK9;
+					};
+					88ADD9F920132BDE0013D08E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -552,6 +611,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* SpeakTimesTable */,
+				88ADD9F920132BDE0013D08E /* Speaking Times TablesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -650,6 +710,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88ADD9F820132BDE0013D08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -744,7 +811,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88ADD9F620132BDE0013D08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88ADD9FD20132BDE0013D08E /* Speaking_Times_TablesUITests.swift in Sources */,
+				88ADDA07201331740013D08E /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88ADDA0020132BDE0013D08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* SpeakTimesTable */;
+			targetProxy = 88ADD9FF20132BDE0013D08E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -819,6 +903,159 @@
 				WARNING_CFLAGS = "";
 			};
 			name = Release;
+		};
+		88ADDA0220132BDE0013D08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = LW3B6G4NK9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Speaking Times TablesUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mclapps.Speaking-Times-TablesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpeakTimesTable;
+			};
+			name = Debug;
+		};
+		88ADDA0320132BDE0013D08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LW3B6G4NK9;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Speaking Times TablesUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mclapps.Speaking-Times-TablesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpeakTimesTable;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88ADDA0420132BDE0013D08E /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LW3B6G4NK9;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Speaking Times TablesUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mclapps.Speaking-Times-TablesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpeakTimesTable;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		88ADDA0520132BDE0013D08E /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LW3B6G4NK9;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Speaking Times TablesUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mclapps.Speaking-Times-TablesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpeakTimesTable;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
 		};
 		997B0D2811D23A97001F150C /* Distribution */ = {
 			isa = XCBuildConfiguration;
@@ -1048,6 +1285,17 @@
 				1D6058950D05DD3E006BFB54 /* Release */,
 				997B0D2911D23A97001F150C /* Distribution */,
 				99C5EE6C11A54620001425D8 /* Ad Hoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88ADDA0120132BDE0013D08E /* Build configuration list for PBXNativeTarget "Speaking Times TablesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88ADDA0220132BDE0013D08E /* Debug */,
+				88ADDA0320132BDE0013D08E /* Release */,
+				88ADDA0420132BDE0013D08E /* Distribution */,
+				88ADDA0520132BDE0013D08E /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

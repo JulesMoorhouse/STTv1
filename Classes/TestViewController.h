@@ -63,7 +63,6 @@
 @property (nonatomic, strong) AVAudioPlayer *theAudio;
 
 @property (strong, nonatomic) IBOutlet STT2PanelView *panel;
--(IBAction)STT2PanelViewTap:(id)sender;
 
 - (void) playSoundShowLabel:(NSTimer*)theTimer;
 - (void) hideLabels;

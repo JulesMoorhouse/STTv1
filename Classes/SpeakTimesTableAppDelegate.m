@@ -28,6 +28,11 @@ BOOL booShownOnboarding = NO;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //TODO: Add crashlytcis
+    //TODO: Stop overwritting the next answer is not empty
+    //TODO: Work on onboarding text https://cocoapods.org/pods/WPAttributedMarkup
+    //TODO: Fix no table selection and allowing test to begin.... https://twitter.com/messages/media/955041172120129540
+    
     // Override point for customization after app launch    
 	
     IQKeyboardManager.sharedManager.enable = YES;

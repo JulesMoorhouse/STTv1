@@ -35,6 +35,7 @@
                                                           owner:nil
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
+    [arrayOfViews[0] addTarget:self action:@selector(STT2PanelViewTap) forControlEvents:UIControlEventTouchUpInside];
     
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(doneButton:) name:@"DoneButtonPressed" object:nil];	
@@ -186,7 +187,7 @@
 	return YES;
 }
 
--(IBAction)STT2PanelViewTap:(id)sender
+- (void)STT2PanelViewTap
 {
     [AppBasic STTV2Tap];
 }

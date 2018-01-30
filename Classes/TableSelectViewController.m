@@ -46,7 +46,8 @@
                                                           owner:nil
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
-
+    [arrayOfViews[0] addTarget:self action:@selector(STT2PanelViewTap) forControlEvents:UIControlEventTouchUpInside];
+    
 	sTimerStatusGuid = [AppBasic GUIDString]; //added to stop sounds playing while the screen is shown
 }
 
@@ -62,7 +63,7 @@
     [super didReceiveMemoryWarning];    
 }
 
--(IBAction)STT2PanelViewTap:(id)sender
+- (void)STT2PanelViewTap
 {
     [AppBasic STTV2Tap];
 }

@@ -238,6 +238,7 @@
                                                           owner:nil
                                                         options:nil];
     [self.panel addSubview: arrayOfViews[0]];
+    [arrayOfViews[0] addTarget:self action:@selector(STT2PanelViewTap) forControlEvents:UIControlEventTouchUpInside];
     
 	strTableSelected = @"";
 	
@@ -298,6 +299,13 @@
 		[btnBackground setTitle:[NSString stringWithFormat:NSLocalizedString(@"   The %@ Times Table", ""), strTableSelected] forState:UIControlStateNormal];
 	}		
 	
+    // --- accessibility ---
+    btnBackground.isAccessibilityElement = YES;
+    btnBackground.accessibilityLabel = @"Choose Times Table";
+    btnBackground.accessibilityTraits = UIAccessibilityTraitStaticText;
+    btnBackground.userInteractionEnabled = true;
+    // --- accessibility ---
+    
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	[cell setBackgroundColor:[UIColor clearColor]];
 	
@@ -338,7 +346,7 @@
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 
--(IBAction)STT2PanelViewTap:(id)sender
+- (void)STT2PanelViewTap
 {
     [AppBasic STTV2Tap];
 }

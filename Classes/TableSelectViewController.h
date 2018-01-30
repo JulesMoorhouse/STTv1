@@ -39,7 +39,6 @@
 @property (nonatomic, strong) CBBezier *btn12;
 
 @property (strong, nonatomic) IBOutlet STT2PanelView *panel;
--(IBAction)STT2PanelViewTap:(id)sender;
 
 - (IBAction)buttonTablePressed:(id)sender;
 @end

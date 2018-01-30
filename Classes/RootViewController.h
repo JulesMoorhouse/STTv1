@@ -42,7 +42,6 @@
 @property (nonatomic, strong, setter=setLoader:) Preloader *resLoaderRef;
 
 @property (strong, nonatomic) IBOutlet STT2PanelView *panel;
--(IBAction)STT2PanelViewTap:(id)sender;
 
 -(IBAction)switchToLearnView:(id)sender;
 -(IBAction)switchToTestView:(id)sender;
