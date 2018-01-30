@@ -1,0 +1,23 @@
+Speaking Times Table Tutor makes learning times tables fun. Your child can listen and join in with the times table being spoken. They will quickly learn and can take a test to show you how successful they've been. Maths doesn't have to be boring, it can now be fun.
+
+Summary of key features :-
+- listen to spoken times table in male or female voices
+- choose from 1 to 12 times table
+- take a test and save the score
+- applause if the score is 12 out of 12
+- high score chart to show improvement
+
+
+With Speaking Times Table Tutor your child can choose whether they want to learn, test, look at the high scores and select male or female voice.
+
+Within the learn screen, they choose which times table they want to hear.
+
+Once they want to proceed to a test, they again choose a times table and the question / sum is spoken to them and waits for them to provide their answer, then the next question etc. At the end of the test they can choose to save their score.
+
+Then in the high scores screen they can see if they have improved.
+
+Times Tables are taught to UK school children at key stage 2 which is 7 to 11 year olds.
+
+Please let us know via the review system of any features you would like to see in future versions.
+
+If you don't hear any sound try playing music in the iTunes app, to ensure your sound setup it working correctly.
