@@ -21,15 +21,7 @@ Once your child is ready to proceed to a test, they again choose a times table a
 Then in the high scores screen they can see if they have improved.
 
 ## Screenshots
-<img src="gfx/iPhone%206-0Results.png" width="120" />
-<img src="gfx/spacer.gif" width="10" height="10" />
-<img src="gfx/iPhone%206-1Test.png" width="120"/>
-<img src="gfx/spacer.gif" width="10" height="10" />
-<img src="gfx/iPhone%206-2Learn.png" width="120"/>
-<img src="gfx/spacer.gif" width="10" height="10" />
-<img src="gfx/iPhone%206-3Main.png" width="120"/>
-<img src="gfx/spacer.gif" width="10" height="10" />
-<img src="gfx/iPhone%206-4Choose.png" width="120"/>
+<img src="gfx/iPhone%206-0Results.png" width="120" /> <img src="gfx/spacer.gif" width="10" height="10" /> <img src="gfx/iPhone%206-1Test.png" width="120"/> <img src="gfx/spacer.gif" width="10" height="10" /> <img src="gfx/iPhone%206-2Learn.png" width="120"/> <img src="gfx/spacer.gif" width="10" height="10" /> <img src="gfx/iPhone%206-3Main.png" width="120"/> <img src="gfx/spacer.gif" width="10" height="10" /> <img src="gfx/iPhone%206-4Choose.png" width="120"/>
 
 ## Background
 This was my first iOS app. I've had to remove the background images, as I didn't have big enough versions for the latest devices, so it looks rather plain now.
