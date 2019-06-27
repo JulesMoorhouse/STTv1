@@ -5,6 +5,8 @@ Speaking Times Tables - Version 1 - for iPhone
 
 Speaking Times Table Tutor makes learning times tables fun. Your child can listen and join in with the times table being spoken. They will quickly learn and can take a test to show you how successful they've been. Maths doesn't have to be boring, it can now be fun.
 
+Written by [Jules Moorhouse](https://www.julesmoorhouse.com).
+
 ## Features
 - Listen to spoken times table in male or female voices
 - Choose from 1 to 12 times table
