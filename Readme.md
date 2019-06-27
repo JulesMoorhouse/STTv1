@@ -33,8 +33,9 @@ Also you'll notice that the voice sounds have a watermark. I've added the waterm
 My Speaking Times Tables apps / programs have been developed across several different platforms and have grown with each version. You can read more about the <a href="https://www.julesmoorhouse.com/stt/features/the-history-behind-the-app">history</a> on my website. The latest version is a <a href="https://www.julesmoorhouse.com/stt/">universal app</a> for iOS.
 
 You can also download the latest version of the app from the app store.
+
 <a target="_blank" href="http://itunes.apple.com/app/id917585923?mt=8">
-    <img title="Download Speaking Times Tables for iOS" height="168" width="206" src="/gfx/Download.png">
+    <img title="Download Speaking Times Tables for iOS" height="61" width="206" src="/gfx/Download.png">
 </a>
 <br/>
 
