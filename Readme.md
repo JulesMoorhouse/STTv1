@@ -1,4 +1,4 @@
-Speaking Times Tables - Version 1 - for iPhone
+Speaking Times Tables - for iPhone
 ==============================================
 
 ![GitHub](https://img.shields.io/github/license/JulesMoorhouse/sttv1.svg) ![GitHub contributors](https://img.shields.io/github/contributors/JulesMoorhouse/sttv1.svg) ![GitHub issues](https://img.shields.io/github/issues/JulesMoorhouse/sttv1.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr/JulesMoorhouse/sttv1.svg) [![Languages](https://img.shields.io/badge/language-Objective--C-orange.svg)](https://github.com/cometchat-pro/ios-chat-sdk)
