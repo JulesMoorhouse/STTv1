@@ -5,7 +5,7 @@ Speaking Times Tables - Version 1 - for iPhone
 
 Speaking Times Table Tutor makes learning times tables fun. Your child can listen and join in with the times table being spoken. They will quickly learn and can take a test to show you how successful they've been. Maths doesn't have to be boring, it can now be fun.
 
-##Features
+## Features
 - Listen to spoken times table in male or female voices
 - Choose from 1 to 12 times table
 - Take a test and save the score
@@ -20,7 +20,7 @@ Once your child is ready to proceed to a test, they again choose a times table a
 
 Then in the high scores screen they can see if they have improved.
 
-##Screenshots
+## Screenshots
 <img src="gfx/iPhone%206-0Results.png" width="120" />
 <img src="gfx/spacer.gif" width="10" height="10" />
 <img src="gfx/iPhone%206-1Test.png" width="120"/>
@@ -31,7 +31,7 @@ Then in the high scores screen they can see if they have improved.
 <img src="gfx/spacer.gif" width="10" height="10" />
 <img src="gfx/iPhone%206-4Choose.png" width="120"/>
 
-##Background
+## Background
 This was my first iOS app. I've had to remove the background images, as I didn't have big enough versions for the latest devices, so it looks rather plain now.
 
 Also you'll notice that the voice sounds have a watermark. I've added the watermark as the voices are mine and my wife, which aren't very good quality. I didn't want to make these open source.
