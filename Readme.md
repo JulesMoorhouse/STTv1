@@ -1,6 +1,7 @@
 Speaking Times Tables - for iPhone
 ==============================================
 
+[![Build Status](https://travis-ci.org/JulesMoorhouse/STTv1.svg?branch=master)](https://travis-ci.org/JulesMoorhouse/STTv1) 
 ![GitHub](https://img.shields.io/github/license/JulesMoorhouse/sttv1.svg) ![GitHub contributors](https://img.shields.io/github/contributors/JulesMoorhouse/sttv1.svg) ![GitHub issues](https://img.shields.io/github/issues/JulesMoorhouse/sttv1.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr/JulesMoorhouse/sttv1.svg) [![Languages](https://img.shields.io/badge/language-Objective--C-orange.svg)](https://github.com/cometchat-pro/ios-chat-sdk)
 
 Speaking Times Table Tutor makes learning times tables fun. Your child can listen and join in with the times table being spoken. They will quickly learn and can take a test to show you how successful they've been. Maths doesn't have to be boring, it can now be fun.
